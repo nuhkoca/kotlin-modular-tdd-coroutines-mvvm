@@ -9,7 +9,10 @@
 
 TVmaze is a community of TV lovers and dedicated contributors that discuss and help maintain tv information on the web.
 
-A [TvMaze Client App](https://www.tvmaze.com/) that relies on multi modular structure, TDD approach and Coroutines. 
+![](https://static.tvmaze.com/images/api/tvm_api.png "TvMaze")
+
+
+A [TvMaze Client App](https://www.tvmaze.com/) which was built with modular structure, Kotlin DSL, Kotlin Coroutines, DataBinding, Test Driven Development and MVVM pattern.
 
 Users are able to search tv series by query.
 
@@ -23,7 +26,7 @@ Users are able to search tv series by query.
 
 >The repository is tracked by the CI tool [CircleCI](https://circleci.com/)
 
-##### Ongoing
+#### Ongoing
 *Kotlin DSL doesn't support to write common scripts among all child gradle files at the moment. When it is supported, it will be implemented in the repository.*
 
 ### Patterns
