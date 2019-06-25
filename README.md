@@ -18,8 +18,8 @@ Users are able to search tv series by query.
 
 >The repository is tracked by the CI tool [CircleCI](https://circleci.com/)
 
-#### Ongoing
-Kotlin DSL doesn't support to allow to write common scripts among all child gradle files.
+##### Ongoing
+*Kotlin DSL doesn't support to write common scripts among all child gradle files at the moment. When it is supported, it will be implemented in the repository.*
 
 ### Patterns
 * [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
