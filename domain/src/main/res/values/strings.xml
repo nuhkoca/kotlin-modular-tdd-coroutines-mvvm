@@ -1,0 +1,5 @@
+<resources>
+  <string name="app_name">domain</string>
+
+  <string name="empty_message">Sonuç bulunamadı, lütfen tekrar deneyiniz.</string>
+</resources>

@@ -1,0 +1,45 @@
+package com.mobilemovement.kotlintvmaze
+
+import android.content.Context
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.hasFocus
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.rule.ActivityTestRule
+import com.google.android.material.textfield.TextInputEditText
+import com.mobilemovement.kotlintvmaze.base.util.widget.SearchTextInputEditText
+import com.mobilemovement.kotlintvmaze.ui.MainActivity
+import org.hamcrest.CoreMatchers.allOf
+import org.junit.Before
+import org.junit.Rule
+import org.junit.Test
+import org.junit.runner.RunWith
+
+@RunWith(AndroidJUnit4::class)
+class SearchInputEditTextTest {
+
+    @get:Rule
+    val activityTestRule = ActivityTestRule(MainActivity::class.java)
+
+    lateinit var searchTextInputEditText: SearchTextInputEditText
+
+    @Before
+    fun setUp() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        searchTextInputEditText = SearchTextInputEditText(context)
+    }
+
+    @Test
+    fun `search_input_edit_text_should_have_focus_at_first_start`() {
+        searchTextInputEditText.requestFocus()
+        onView(allOf(isAssignableFrom(TextInputEditText::class.java))).check(matches(hasFocus()))
+    }
+
+    @Test
+    fun `search_input_edit_text_should_not_have_any_focus`() {
+        searchTextInputEditText.clearFocus()
+        onView(allOf(isAssignableFrom(TextInputEditText::class.java))).check(matches(hasFocus()))
+    }
+}

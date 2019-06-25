@@ -1,0 +1,11 @@
+<resources>
+  <string name="app_name">MazeBox</string>
+
+  <string name="hint_search_text">Enter a query"</string>
+
+  <string name="text_search_item">Return to search</string>
+
+  // Imitation
+  <string name="fake_title">Action Team</string>
+  <string name="fake_summary">Spoof spy action-thriller series following the exploits of a top-secret team of special agents</string>
+</resources>

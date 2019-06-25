@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:paddingBottom="?actionBarSize"
+    tools:context=".ui.MainActivity"
+    >
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guidelineLeft"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_begin="@dimen/spacing_large"
+      />
+
+  <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/guidelineRight"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintGuide_end="@dimen/spacing_large"
+      />
+
+  <com.google.android.material.textfield.TextInputLayout
+      android:id="@+id/tilSearch"
+      android:layout_width="@dimen/match_constraint"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/guidelineRight"
+      app:layout_constraintStart_toEndOf="@id/guidelineLeft"
+      app:layout_constraintTop_toTopOf="parent"
+      style="@style/Maze.TextInputLayout.Search"
+      >
+
+    <com.mobilemovement.kotlintvmaze.base.util.widget.SearchTextInputEditText
+        android:id="@+id/tietSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_search"
+        style="@style/Maze.TextInputEditText.Search"
+        />
+
+  </com.google.android.material.textfield.TextInputLayout>
+
+  <ProgressBar
+      android:id="@+id/pbSearch"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:visibility="visible"
+      style="@style/Maze.ProgressBar"
+      />
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/rvSeries"
+      android:layout_width="@dimen/match_constraint"
+      android:layout_height="0dp"
+      android:visibility="gone"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:itemCount="5"
+      tools:listitem="@layout/layout_series_row_item"
+      tools:visibility="visible"
+      style="@style/Maze.RecyclerView.Series"
+      />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

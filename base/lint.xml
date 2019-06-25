@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+  <issue id="SmallSp" severity="ignore"/>
+
+  <issue id="IconMissingDensityFolder" severity="ignore"/>
+
+  <issue id="IconDensities">
+    <ignore path="**/drawable-hdpi"/>
+    <ignore path="**/drawable-mdpi"/>
+    <ignore path="**/drawable-xhdpi"/>
+    <ignore path="**/drawable-xxhdpi"/>
+  </issue>
+
+  <issue id="ObsoleteLintCustomCheck">
+    <ignore regexp="timber.lint"/>
+  </issue>
+
+  <issue id="TrustAllX509TrustManager">
+    <ignore regexp="org/jsoup/helper/HttpConnection.*"/>
+  </issue>
+
+  <issue id="UnusedAttribute">
+    <ignore regexp="elevation"/>
+  </issue>
+  <issue id="Overdraw" severity="ignore"/>
+  <issue id="VectorPath" severity="ignore"/>
+</lint>

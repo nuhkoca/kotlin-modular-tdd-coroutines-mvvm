@@ -1,0 +1,63 @@
+<resources>
+
+  <!-- Base application theme. -->
+  <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <!-- Customize your theme here. -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+    <item name="android:windowBackground">@color/windowBackground</item>
+  </style>
+
+  <style name="Maze"/>
+
+  <style name="Maze.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <item name="hintTextAppearance">@style/TextAppearance.MaterialComponents.Body2</item>
+    <item name="android:animateLayoutChanges">true</item>
+  </style>
+
+  <style name="Maze.TextInputLayout.Search">
+    <item name="hintTextColor">@android:color/black</item>
+    <item name="boxStrokeColor">@color/colorAccent</item>
+    <item name="android:hint">@string/hint_search_text</item>
+  </style>
+
+  <style name="Maze.ProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
+    <item name="android:indeterminateTint">@color/colorPrimary</item>
+  </style>
+
+  <style name="Maze.RecyclerView">
+    <item name="android:clipToPadding">false</item>
+  </style>
+
+  <style name="Maze.RecyclerView.Series">
+    <item name="layoutManager">androidx.recyclerview.widget.StaggeredGridLayoutManager</item>
+    <item name="spanCount">@integer/default_span_count</item>
+    <item name="android:padding">@dimen/spacing_normal</item>
+  </style>
+
+  <style name="Maze.TextInputEditText" parent="Widget.AppCompat.EditText">
+    <item name="android:animateLayoutChanges">true</item>
+  </style>
+
+  <style name="Maze.TextInputEditText.Search">
+    <item name="android:maxLines">1</item>
+    <item name="android:maxLength">@integer/default_search_length</item>
+    <item name="android:imeOptions">actionSearch</item>
+    <item name="android:inputType">text</item>
+    <item name="android:drawablePadding">@dimen/spacing_normal</item>
+  </style>
+
+  <style name="Maze.CardView">
+    <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+    <item name="android:clickable">true</item>
+    <item name="android:focusable">true</item>
+  </style>
+
+  <style name="Maze.CardView.Series">
+    <item name="android:stateListAnimator">@animator/lift_animator</item>
+    <item name="android:background">@android:color/white</item>
+    <item name="cardUseCompatPadding">true</item>
+  </style>
+
+</resources>

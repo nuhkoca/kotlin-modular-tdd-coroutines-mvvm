@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <integer name="default_span_count">2</integer>
+  <integer name="default_search_length">30</integer>
+</resources>
