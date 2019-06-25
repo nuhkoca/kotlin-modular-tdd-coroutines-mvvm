@@ -1,4 +1,4 @@
-package com.mobilemovement.kotlintvmaze.domain
+package com.mobilemovement.kotlintvmaze.data
 
 data class SeriesViewItem(
     val show: ShowViewItem?

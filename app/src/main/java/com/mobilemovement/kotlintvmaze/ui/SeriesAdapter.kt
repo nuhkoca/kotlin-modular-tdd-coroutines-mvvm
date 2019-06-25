@@ -7,7 +7,7 @@ import com.mobilemovement.kotlintvmaze.base.BaseViewHolder
 import com.mobilemovement.kotlintvmaze.base.util.ext.fromHtml
 import com.mobilemovement.kotlintvmaze.base.util.ext.getInflater
 import com.mobilemovement.kotlintvmaze.databinding.LayoutSeriesRowItemBinding
-import com.mobilemovement.kotlintvmaze.domain.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.ui.SeriesAdapter.SeriesViewHolder
 import javax.inject.Inject
 

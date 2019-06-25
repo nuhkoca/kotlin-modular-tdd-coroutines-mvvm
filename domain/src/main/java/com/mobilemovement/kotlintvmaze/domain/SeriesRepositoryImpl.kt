@@ -1,7 +1,8 @@
-package com.mobilemovement.kotlintvmaze.data
+package com.mobilemovement.kotlintvmaze.domain
 
-import com.mobilemovement.kotlintvmaze.domain.Series
-import com.mobilemovement.kotlintvmaze.domain.SeriesRepository
+import com.mobilemovement.kotlintvmaze.data.Series
+import com.mobilemovement.kotlintvmaze.data.SeriesDomainMapper
+import com.mobilemovement.kotlintvmaze.data.SeriesRemoteDataSource
 import javax.inject.Inject
 
 class SeriesRepositoryImpl @Inject constructor(

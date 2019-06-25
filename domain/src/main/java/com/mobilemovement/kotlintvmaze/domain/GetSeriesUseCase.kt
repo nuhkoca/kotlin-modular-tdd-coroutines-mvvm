@@ -3,6 +3,7 @@ package com.mobilemovement.kotlintvmaze.domain
 import android.content.Context
 import com.mobilemovement.kotlintvmaze.base.Resource
 import com.mobilemovement.kotlintvmaze.base.UseCase
+import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase.Params
 import javax.inject.Inject
 

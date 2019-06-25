@@ -1,4 +1,4 @@
-package com.mobilemovement.kotlintvmaze.domain
+package com.mobilemovement.kotlintvmaze.data
 
 import com.google.gson.annotations.SerializedName
 

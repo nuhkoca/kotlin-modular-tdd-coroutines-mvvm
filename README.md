@@ -32,6 +32,7 @@ Users are able to search tv series by query.
 ### Technology Stack
 * [Kotlin](https://kotlinlang.org/)
 * [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
+* [DataBinding](https://developer.android.com/topic/libraries/data-binding)
 * [Dagger 2](https://github.com/google/dagger)
 * [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
 * [Retrofit 2](https://square.github.io/retrofit/)

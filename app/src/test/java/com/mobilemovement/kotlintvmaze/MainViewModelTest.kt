@@ -8,9 +8,9 @@ import com.mobilemovement.kotlintvmaze.base.Resource
 import com.mobilemovement.kotlintvmaze.data.MazeService
 import com.mobilemovement.kotlintvmaze.data.SeriesDomainMapper
 import com.mobilemovement.kotlintvmaze.data.SeriesRemoteDataSource
-import com.mobilemovement.kotlintvmaze.data.SeriesRepositoryImpl
+import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase
-import com.mobilemovement.kotlintvmaze.domain.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.domain.SeriesRepositoryImpl
 import com.mobilemovement.kotlintvmaze.domain.SeriesViewItemMapper
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel
 import kotlinx.coroutines.runBlocking

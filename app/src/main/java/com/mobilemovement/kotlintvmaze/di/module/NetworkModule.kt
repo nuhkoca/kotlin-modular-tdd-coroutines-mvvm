@@ -47,10 +47,11 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    internal fun provideRetrofit(gson: Gson): Retrofit {
+    internal fun provideRetrofit(gson: Gson, okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder().apply {
             baseUrl(BuildConfig.baseUrl)
             addConverterFactory(GsonConverterFactory.create(gson))
+            client(okHttpClient)
         }.build()
     }
 

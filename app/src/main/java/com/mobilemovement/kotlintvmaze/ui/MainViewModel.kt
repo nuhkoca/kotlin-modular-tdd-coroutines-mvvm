@@ -8,7 +8,7 @@ import com.mobilemovement.kotlintvmaze.base.Resource
 import com.mobilemovement.kotlintvmaze.base.util.coroutines.DefaultDispatcherProvider
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase.Params
-import com.mobilemovement.kotlintvmaze.domain.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

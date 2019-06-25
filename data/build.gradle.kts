@@ -65,7 +65,6 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    implementation(project(Modules.domain))
     implementation(project(Modules.base))
 
     api(Dependencies.kotlin)
