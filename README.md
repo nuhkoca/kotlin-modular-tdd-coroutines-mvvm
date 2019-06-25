@@ -1,6 +1,7 @@
 # Kotlin Application Relies On TDD - Coroutines and Modularization
 
 [![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
+<a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
 ![](https://img.shields.io/github/languages/count/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
 ![](https://img.shields.io/github/repo-size/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
 ![](https://img.shields.io/github/last-commit/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
