@@ -31,6 +31,15 @@ android {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
 
+    packagingOptions {
+        pickFirst("mockito-extensions/org.mockito.plugins.MockMaker")
+    }
+
+    testOptions {
+        unitTests.isReturnDefaultValues = true
+        unitTests.isIncludeAndroidResources = true
+    }
+
     compileOptions {
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
@@ -76,4 +85,8 @@ dependencies {
 
     api(Dependencies.gson)
     api(Dependencies.retrofit)
+
+    testImplementation(TestDependencies.truth_ext)
+    testImplementation(TestDependencies.truth)
+    testImplementation(TestDependencies.mockito)
 }

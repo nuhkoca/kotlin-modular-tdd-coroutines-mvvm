@@ -41,8 +41,13 @@ android {
         getByName("main").java.srcDirs("src/main/kotlin")
     }
 
+    packagingOptions {
+        pickFirst("mockito-extensions/org.mockito.plugins.MockMaker")
+    }
+
     testOptions {
         unitTests.isReturnDefaultValues = true
+        unitTests.isIncludeAndroidResources = true
     }
 
     dataBinding {

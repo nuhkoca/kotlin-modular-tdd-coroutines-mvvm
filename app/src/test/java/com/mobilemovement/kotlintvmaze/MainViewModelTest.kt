@@ -29,13 +29,13 @@ class MainViewModelTest {
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
     @Mock
-    val mazeService: MazeService = mock(MazeService::class.java)
+    lateinit var mazeService: MazeService
     @Mock
-    private val seriesViewItemMapper: SeriesViewItemMapper = mock(SeriesViewItemMapper::class.java)
+    lateinit var seriesViewItemMapper: SeriesViewItemMapper
     @Mock
-    private val seriesDomainMapper: SeriesDomainMapper = mock(SeriesDomainMapper::class.java)
-
-    private val context = mock(Context::class.java)
+    lateinit var seriesDomainMapper: SeriesDomainMapper
+    @Mock
+    lateinit var context: Context
 
     private val observer = mock(Observer::class.java) as
             Observer<Resource<List<SeriesViewItem>>>
