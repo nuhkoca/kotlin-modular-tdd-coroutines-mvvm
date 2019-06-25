@@ -1,6 +1,11 @@
 # Kotlin Application Relies On TDD - Coroutines and Modularization
 
 [![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
+![](https://img.shields.io/github/languages/count/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
+![](https://img.shields.io/github/repo-size/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
+![](https://img.shields.io/github/last-commit/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
+![](https://img.shields.io/github/followers/nuhkoca.svg?style=social)
+![](https://img.shields.io/github/stars/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg?style=social)
 
 TVmaze is a community of TV lovers and dedicated contributors that discuss and help maintain tv information on the web.
 
