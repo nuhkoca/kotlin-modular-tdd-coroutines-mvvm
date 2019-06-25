@@ -1,5 +1,7 @@
 # Kotlin Application Relies On TDD - Coroutines and Modularization
 
+[![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
+
 TVmaze is a community of TV lovers and dedicated contributors that discuss and help maintain tv information on the web.
 
 A [TvMaze Client App](https://www.tvmaze.com/) that relies on multi modular structure, TDD approach and Coroutines. 
