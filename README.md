@@ -10,8 +10,9 @@
 
 TVmaze is a community of TV lovers and dedicated contributors that discuss and help maintain tv information on the web.
 
-![](https://static.tvmaze.com/images/api/tvm_api.png "TvMaze")
-
+<p align="center">
+  <a href="https://www.tvmaze.com/api"><img alt="License" src="https://static.tvmaze.com/images/api/tvm_api.png"/></a>
+</p>
 
 A [TvMaze Client App](https://www.tvmaze.com/) which was built with modular structure, Kotlin DSL, Kotlin Coroutines, DataBinding, Test Driven Development and MVVM pattern.
 
