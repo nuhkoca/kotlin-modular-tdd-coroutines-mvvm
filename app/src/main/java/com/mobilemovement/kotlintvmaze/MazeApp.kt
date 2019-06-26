@@ -2,6 +2,7 @@ package com.mobilemovement.kotlintvmaze
 
 import androidx.databinding.DataBindingUtil
 import com.mobilemovement.kotlintvmaze.BuildConfig.DEBUG
+import com.mobilemovement.kotlintvmaze.base.BaseApplication
 import com.mobilemovement.kotlintvmaze.di.component.DaggerAppComponent
 import com.mobilemovement.kotlintvmaze.di.component.DaggerBindingComponent
 import dagger.android.AndroidInjector
@@ -9,7 +10,7 @@ import dagger.android.support.DaggerApplication
 import timber.log.Timber
 import timber.log.Timber.DebugTree
 
-class MazeApp : DaggerApplication() {
+class MazeApp : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()

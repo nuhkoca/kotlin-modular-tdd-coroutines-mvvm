@@ -2,6 +2,7 @@ package com.mobilemovement.kotlintvmaze.di.component
 
 import android.app.Application
 import com.mobilemovement.kotlintvmaze.MazeApp
+import com.mobilemovement.kotlintvmaze.base.BaseModule
 import com.mobilemovement.kotlintvmaze.data.DataModule
 import com.mobilemovement.kotlintvmaze.di.module.ActivityBuilder
 import com.mobilemovement.kotlintvmaze.di.module.ContextModule
@@ -19,6 +20,7 @@ import javax.inject.Singleton
 @Component(
     modules = [AndroidSupportInjectionModule::class,
         AndroidInjectionModule::class,
+        BaseModule::class,
         ContextModule::class,
         NetworkModule::class,
         ActivityBuilder::class,

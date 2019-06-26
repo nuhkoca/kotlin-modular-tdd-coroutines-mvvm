@@ -44,17 +44,17 @@ class MainActivity : BaseActivity<MainViewModel>() {
 
     override fun observeViewModel() {
         viewModel.seriesLiveData.observeWith(this) { resource ->
+            when (resource.status) {
+                SUCCESS -> resource.data?.let { data -> seriesAdapter.series = data.toMutableList() }
+                ERROR, EMPTY -> toast(resource.message)
+                else -> { /* no-op */
+                }
+            }
             with(resource.status) {
                 pbSearch.isVisible = this == LOADING
                 tilSearch.isVisible = this == ERROR || this == EMPTY
                 rvSeries.isVisible = this == SUCCESS
                 searchItem?.isVisible = this == SUCCESS
-            }
-            when (resource.status) {
-                SUCCESS -> resource.data?.let { seriesAdapter.series.toMutableList() }
-                ERROR, EMPTY -> toast(resource.message)
-                else -> { /* no-op */
-                }
             }
         }
     }

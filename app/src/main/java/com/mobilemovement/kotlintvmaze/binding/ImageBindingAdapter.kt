@@ -14,6 +14,8 @@ class ImageBindingAdapter @Inject constructor() {
                 .asBitmap()
                 .load(url.addHttpsPrefix())
                 .into(this)
+        } else {
+            MazeGlide.with(context).clear(this)
         }
     }
 }

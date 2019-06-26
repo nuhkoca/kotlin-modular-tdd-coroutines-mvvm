@@ -48,16 +48,12 @@ class MazeGlideModule : AppGlideModule() {
 
     private fun requestOptions(): RequestOptions {
         return RequestOptions().apply {
-            signature(
-                ObjectKey(
-                    System.currentTimeMillis() / (DEFAULT_SIGNATURE_OBJECT)
-                )
-            ) // 1 week cache
+            signature(ObjectKey(System.currentTimeMillis() / (DEFAULT_SIGNATURE_OBJECT))) // 1 week cache
             centerCrop()
             dontAnimate()
             override(SIZE_ORIGINAL)
             encodeFormat(CompressFormat.PNG)
-            encodeQuality(DEFAUKT_ENCODE_QUALITY)
+            encodeQuality(DEFAULT_ENCODE_QUALITY)
             diskCacheStrategy(RESOURCE)
             format(PREFER_ARGB_8888)
             skipMemoryCache(true)
@@ -68,6 +64,6 @@ class MazeGlideModule : AppGlideModule() {
         private const val DEFAULT_TIMEOUT = 60L
         private const val DEFAULT_MEMORY_CACHE_SIZE = 1024 * 1024 * 300 // 300mb cache
         private const val DEFAULT_SIGNATURE_OBJECT = 168 * 60 * 60 * 1000
-        private const val DEFAUKT_ENCODE_QUALITY = 100
+        private const val DEFAULT_ENCODE_QUALITY = 100
     }
 }
