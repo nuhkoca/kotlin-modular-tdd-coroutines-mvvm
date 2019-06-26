@@ -86,6 +86,7 @@ dependencies {
     api(Dependencies.gson)
     api(Dependencies.retrofit)
 
+    testImplementation(TestDependencies.arch_core)
     testImplementation(TestDependencies.truth_ext)
     testImplementation(TestDependencies.truth)
     testImplementation(TestDependencies.mockito)

@@ -27,7 +27,7 @@ class SeriesViewItemMapperTest {
     }
 
     @Test
-    fun `series_domain_mapper_should_map_raw_data_to_series`() {
+    fun `series_view_item_mapper_should_map_raw_data_to_series`() {
         val fakeSeriesViewItem = SeriesViewItem(null)
         Mockito.`when`(seriesViewItemMapper.map(fakeSeries)).thenReturn(fakeSeriesViewItem)
 
