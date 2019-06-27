@@ -88,7 +88,7 @@ dependencies {
     api(Dependencies.lifecycle_extensions)
 
     api(Dependencies.glide)
-    api(Dependencies.glide_okhttp) {
+    implementation(Dependencies.glide_okhttp) {
         exclude(mapOf("group" to "glide-parent"))
     }
     kapt(Dependencies.glide_compiler)

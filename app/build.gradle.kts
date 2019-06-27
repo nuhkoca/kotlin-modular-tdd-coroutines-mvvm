@@ -131,6 +131,8 @@ dependencies {
     implementation(Dependencies.okHttp)
     implementation(Dependencies.logging)
 
+    implementation(Dependencies.glide)
+
     testImplementation(TestDependencies.test_core)
     testImplementation(TestDependencies.runner)
     testImplementation(TestDependencies.rules)

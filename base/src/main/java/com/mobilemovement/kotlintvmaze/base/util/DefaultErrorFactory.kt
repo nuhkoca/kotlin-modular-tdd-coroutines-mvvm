@@ -4,7 +4,7 @@ import android.content.Context
 import com.mobilemovement.kotlintvmaze.base.R
 import javax.inject.Inject
 
-class DefaultErrorFactory @Inject constructor(private val context: Context) : ErrorFactory {
+class DefaultErrorFactory @Inject constructor(val context: Context) : ErrorFactory {
     override fun createEmptyErrorMessage(): String = context.getString(R.string.empty_state_message)
 
     override fun createApiErrorMessage(e: Exception): String = e.message.toString()

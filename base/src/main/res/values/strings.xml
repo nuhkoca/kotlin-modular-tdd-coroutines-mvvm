@@ -1,5 +1,5 @@
 <resources>
   <string name="app_name">base</string>
 
-  <string name="empty_state_message">Sonuç bulunamadı, lütfen tekrar deneyiz.</string>
+  <string name="empty_state_message">No result found, please try again.</string>
 </resources>

@@ -32,6 +32,8 @@ tasks.register("clean", Delete::class) {
     delete = setOf(rootProject.buildDir)
 }
 
+tasks.register("testAll") { dependsOn("clean", "build", "test", "connectedAndroidTest") }
+
 subprojects {
     apply(from = "$rootDir/versions.gradle.kts")
     apply(plugin = "org.jlleitschuh.gradle.ktlint")

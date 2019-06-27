@@ -16,8 +16,6 @@ object Dependencies {
     // Coroutines
     const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
-    const val coroutines_adapter =
-        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.android_annotation}"
 
     // Dagger
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"

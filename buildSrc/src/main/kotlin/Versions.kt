@@ -19,7 +19,6 @@ object Versions {
 
     // Coroutines
     const val coroutines = "1.1.1"
-    const val coroutines_adapter = "0.9.2"
 
     // Lifecycle
     const val lifecycle = "2.1.0-alpha02"
