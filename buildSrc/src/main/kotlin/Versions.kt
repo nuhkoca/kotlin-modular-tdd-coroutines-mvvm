@@ -14,14 +14,14 @@ object Versions {
 
     // Networking
     const val retrofit = "2.6.0"
-    const val okHttp = "3.10.0"
+    const val okHttp = "4.0.0"
     const val gson = "2.0.2"
 
     // Coroutines
     const val coroutines = "1.1.1"
 
     // Lifecycle
-    const val lifecycle = "2.1.0-alpha02"
+    const val lifecycle = "2.2.0-alpha01"
 
     // DI
     const val dagger = "2.23.2"
@@ -51,5 +51,5 @@ object Versions {
     const val truth = "0.45"
     const val espresso_core = "3.1.0"
     const val mockito = "2.1.0"
-    const val arch_core = "1.0.0"
+    const val arch_core = "1.1.1"
 }

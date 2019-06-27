@@ -28,12 +28,14 @@ Users are able to search tv series by query.
 
 >The repository is tracked by the CI tool [CircleCI](https://circleci.com/)
 
-#### Ongoing
+#### In Progress
 *Kotlin DSL doesn't support to write common scripts among all child gradle files at the moment. When it is supported, it will be implemented in the repository.*
 
-### Patterns
+### Architecture
 * [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
 * [MVVM](https://www.raywenderlich.com/8984-mvvm-on-android)
+
+### Patterns
 * [Repository](https://developer.android.com/jetpack/docs/guide)
 * [Observer](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963)
 

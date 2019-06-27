@@ -30,7 +30,7 @@ class NetworkModule {
     @Provides
     @Singleton
     internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().setLevel(Level.BODY)
+        return HttpLoggingInterceptor().apply { level = Level.BODY }
     }
 
     @Provides

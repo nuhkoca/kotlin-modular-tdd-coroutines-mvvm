@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobilemovement.kotlintvmaze.base.BaseViewHolder
 import com.mobilemovement.kotlintvmaze.base.util.ext.fromHtml
-import com.mobilemovement.kotlintvmaze.base.util.ext.getInflater
-import com.mobilemovement.kotlintvmaze.databinding.LayoutSeriesRowItemBinding
+import com.mobilemovement.kotlintvmaze.base.util.ext.inflater
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.databinding.LayoutSeriesRowItemBinding
 import com.mobilemovement.kotlintvmaze.ui.SeriesAdapter.SeriesViewHolder
 import javax.inject.Inject
 
@@ -21,7 +21,7 @@ class SeriesAdapter @Inject constructor() : RecyclerView.Adapter<SeriesViewHolde
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeriesViewHolder {
-        val view = LayoutSeriesRowItemBinding.inflate(parent.context.getInflater)
+        val view = LayoutSeriesRowItemBinding.inflate(parent.context.inflater)
         return SeriesViewHolder(view.root)
     }
 

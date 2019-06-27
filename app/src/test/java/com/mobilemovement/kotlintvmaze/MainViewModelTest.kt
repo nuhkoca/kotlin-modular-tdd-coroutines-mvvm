@@ -5,6 +5,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.google.common.truth.Truth
 import com.mobilemovement.kotlintvmaze.base.Resource
+import com.mobilemovement.kotlintvmaze.base.util.DefaultErrorFactory
 import com.mobilemovement.kotlintvmaze.data.MazeService
 import com.mobilemovement.kotlintvmaze.data.SeriesDomainMapper
 import com.mobilemovement.kotlintvmaze.data.SeriesRemoteDataSource
@@ -44,13 +45,15 @@ class MainViewModelTest {
     private lateinit var mainViewModel: MainViewModel
     private lateinit var seriesRepository: SeriesRepositoryImpl
     private lateinit var seriesRemoteDataSource: SeriesRemoteDataSource
+    private lateinit var defaultErrorFactory: DefaultErrorFactory
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
         seriesRemoteDataSource = SeriesRemoteDataSource(mazeService)
         seriesRepository = SeriesRepositoryImpl(seriesRemoteDataSource, seriesDomainMapper)
-        getSeriesUseCase = GetSeriesUseCase(seriesRepository, seriesViewItemMapper, context)
+        defaultErrorFactory = DefaultErrorFactory(context)
+        getSeriesUseCase = GetSeriesUseCase(seriesRepository, seriesViewItemMapper, defaultErrorFactory)
         mainViewModel = MainViewModel(getSeriesUseCase)
     }
 

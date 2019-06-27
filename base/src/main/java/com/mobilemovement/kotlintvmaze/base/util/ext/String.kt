@@ -6,6 +6,7 @@ import android.text.Html
 import android.text.Spanned
 
 private const val HTTPS_PREFIX = "https://"
+private const val HTTP_REGEX = "^http?://"
 
 @Suppress("DEPRECATION")
 fun String.fromHtml(): Spanned {
@@ -20,6 +21,6 @@ fun String.addHttpsPrefix(): String {
     return if (startsWith(HTTPS_PREFIX)) {
         this
     } else {
-        replace("^http?://".toRegex(), HTTPS_PREFIX)
+        replace(HTTP_REGEX.toRegex(), HTTPS_PREFIX)
     }
 }

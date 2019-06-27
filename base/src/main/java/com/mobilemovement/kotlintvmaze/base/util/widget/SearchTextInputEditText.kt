@@ -29,10 +29,7 @@ class SearchTextInputEditText @JvmOverloads constructor(
         isFocusableInTouchMode = true
         setOnEditorActionListener { _, actionId, _ ->
             if (actionId == IME_ACTION_DONE || actionId == IME_ACTION_NEXT || actionId == IME_ACTION_SEARCH) {
-                clearFocus()
-                if (text.toString().isNotEmpty()) {
-                    onActionTriggered.invoke(text.toString().toLowerCase())
-                }
+                handleAction()
                 return@setOnEditorActionListener true
             }
             false
@@ -43,6 +40,13 @@ class SearchTextInputEditText @JvmOverloads constructor(
                 hideKeyBoard()
             }
         }
+        setOnKeyListener { _, keyCode, keyEvent ->
+            if (keyEvent.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                handleAction()
+                return@setOnKeyListener true
+            }
+            return@setOnKeyListener false
+        }
     }
 
     override fun onKeyPreIme(keyCode: Int, event: KeyEvent?): Boolean {
@@ -51,6 +55,13 @@ class SearchTextInputEditText @JvmOverloads constructor(
             return false
         }
         return super.dispatchKeyEvent(event)
+    }
+
+    private fun handleAction() {
+        clearFocus()
+        if (text.toString().isNotEmpty()) {
+            onActionTriggered.invoke(text.toString().toLowerCase())
+        }
     }
 
     fun doOnAction(onActionTriggered: (query: String) -> Unit = {}) {
