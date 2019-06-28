@@ -38,6 +38,7 @@ Users are able to search tv series by query.
 ### Patterns
 * [Repository](https://developer.android.com/jetpack/docs/guide)
 * [Observer](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963)
+* [UseCase](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/)
 
 ### Approaches
 * [SOLID Principle](https://itnext.io/solid-principles-explanation-and-examples-715b975dcad4?gi=79443348411d)
@@ -60,9 +61,9 @@ Users are able to search tv series by query.
 * [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
 
 ### Layers
-* Data(Holds data)
-* Domain(Retrieves data from data layer and dispatches to view layer)
-* Base(Contains common stuff for view)
+* Data(This layer is responsible to hold models)
+* Domain(Retrieves data from data layer and dispatches to view layer. No connection with Android framework.)
+* Base(Contains common stuff for other layers)
 * View(Responsible for UI stuff such as displaying data)
 
 ### To-Do List:
