@@ -28,6 +28,8 @@ Users are able to search tv series by query.
 
 >The repository is tracked by the CI tool [CircleCI](https://circleci.com/)
 
+#### Screenshots
+
 
 | Search screen | List screen
 |:----------------:|:---------------
