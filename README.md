@@ -22,7 +22,7 @@ Users are able to search tv series by query.
 
 >The dependency management is managed by buildSrc module.
 
->Material Components were used for UI.
+>[Material Components](https://github.com/material-components/material-components-android) were used for UI.
 
 >[Detekt](https://github.com/arturbosch/detekt) and [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) plugins were used for static code analysis.
 
