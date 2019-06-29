@@ -31,9 +31,9 @@ Users are able to search tv series by query.
 #### Screenshots
 
 
-| Search screen | List screen
-|:----------------:|:---------------
-| <img src="art/search.png" width="300"/>  | <img src="art/list.png" width="300"/>
+| Search screen | List screen | Error screen
+|:----------------:|:---------------: |:---------------:
+| <img src="art/search.png" width="300"/>  | <img src="art/list.png" width="300"/>  | <img src="art/error.png" width="300"/>
 
 
 #### In Progress
