@@ -77,7 +77,7 @@ Users are able to search tv series by query.
 ### To-Do List:
 - [ ] - A detail screen to be added
 - [ ] - Cards to have more detail
-- [ ] - Some screenshots to be added
+- [x] - Some screenshots to be added
 - [ ] - Write common DSL scripts
 
 ```
