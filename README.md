@@ -33,7 +33,7 @@ Users are able to search tv series by query.
 
 | Search screen | List screen | Error screen
 |:----------------:|:---------------: |:---------------:
-| <img src="art/search.png" width="300"/>  | <img src="art/list.png" width="300"/>  | <img src="art/error.png" width="300"/>
+| <img src="art/search.png" width="350"/>  | <img src="art/list.png" width="350"/>  | <img src="art/error.png" width="350"/>
 
 
 #### In Progress
