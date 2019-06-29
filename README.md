@@ -31,7 +31,7 @@ Users are able to search tv series by query.
 
 | Search screen | List screen
 |:----------------:|:---------------
-| <img src="art/search.png" width="500"/>  | <img src="art/list.png" width="500"/>
+| <img src="art/search.png" width="200"/>  | <img src="art/list.png" width="200"/>
 
 
 #### In Progress
