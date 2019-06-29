@@ -39,6 +39,14 @@ subprojects {
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
 }
 
+tasks.withType<Test> {
+    testLogging {
+        events("started", "skipped", "passed", "failed")
+        setExceptionFormat("full")
+        showStandardStreams = true
+    }
+}
+
 detekt {
     toolVersion = "1.0.0-RC15"
     input = files("$projectDir")

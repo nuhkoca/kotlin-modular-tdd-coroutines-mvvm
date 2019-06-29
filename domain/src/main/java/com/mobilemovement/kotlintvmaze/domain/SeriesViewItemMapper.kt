@@ -12,6 +12,10 @@ class SeriesViewItemMapper @Inject constructor() : Mapper<Series, SeriesViewItem
         val image = ImageViewItem(show?.image?.original)
         val show = ShowViewItem(show?.name, image, show?.summary)
 
-        SeriesViewItem(show)
+        this toViewItem show
+    }
+
+    private infix fun Series.toViewItem(showViewItem: ShowViewItem): SeriesViewItem {
+        return SeriesViewItem(showViewItem)
     }
 }
