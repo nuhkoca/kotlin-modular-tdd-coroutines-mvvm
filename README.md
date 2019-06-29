@@ -28,6 +28,12 @@ Users are able to search tv series by query.
 
 >The repository is tracked by the CI tool [CircleCI](https://circleci.com/)
 
+
+| Search screen | List screen
+|:----------------:|:---------------
+| ![](art/search.png)  | ![](art/list.png) 
+
+
 #### In Progress
 *Kotlin DSL doesn't support to write common scripts among all child gradle files at the moment. When it is supported, it will be implemented in the repository.*
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <item name="match_constraint" type="dimen">0dp</item>
+  <item format="integer" name="match_constraint" type="dimen">0</item>
 
   <dimen name="text_size_large">16sp</dimen>
 
