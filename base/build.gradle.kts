@@ -79,20 +79,22 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    api(Dependencies.kotlin)
-    api(Dependencies.material)
+    implementation(Dependencies.kotlin)
+    implementation(Dependencies.material)
 
-    api(Dependencies.coroutines_core)
-    api(Dependencies.coroutines_android)
+    implementation(Dependencies.coroutines_core)
+    implementation(Dependencies.coroutines_android)
 
-    api(Dependencies.lifecycle_extensions)
+    implementation(Dependencies.lifecycle_extensions)
 
-    api(Dependencies.glide)
+    implementation(Dependencies.timber)
+
+    implementation(Dependencies.glide)
     implementation(Dependencies.glide_okhttp) {
         exclude(mapOf("group" to "glide-parent"))
     }
     kapt(Dependencies.glide_compiler)
     kapt(Dependencies.android_annotation)
 
-    api(Dependencies.dagger_android_support)
+    implementation(Dependencies.dagger_android_support)
 }

@@ -48,7 +48,7 @@ tasks.withType<Test> {
 }
 
 detekt {
-    toolVersion = "1.0.0-RC15"
+    toolVersion = Versions.detekt
     input = files("$projectDir")
     config = files("$rootDir/default-detekt-config.yml")
     reports {
@@ -73,6 +73,19 @@ tasks.withType<Detekt> {
 }
 
 tasks.named<DependencyUpdatesTask>("dependencyUpdates") {
+    resolutionStrategy {
+        componentSelection {
+            all {
+                val rejected = listOf("alpha", "beta", "rc", "cr", "m", "preview", "b", "ea").any { qualifier ->
+                    candidate.version.matches(Regex("(?i).*[.-]$qualifier[.\\d-+]*"))
+                }
+                if (rejected) {
+                    reject("Release candidate")
+                }
+            }
+        }
+    }
+
     checkForGradleUpdate = true
     outputFormatter = "json"
     outputDir = "$buildDir/reports/dependencyUpdates"

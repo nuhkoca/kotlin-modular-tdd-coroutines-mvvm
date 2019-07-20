@@ -4,8 +4,8 @@ object Versions {
     const val android_annotation = "1.1.0"
 
     // Gradle plugins
-    const val gradle_plugin = "3.4.1"
-    const val kotlin_gradle_plugin = "1.3.40"
+    const val gradle_plugin = "3.4.2"
+    const val kotlin_gradle_plugin = "1.3.41"
 
     // UI
     const val appcompat = "1.1.0-beta01"
@@ -14,11 +14,11 @@ object Versions {
 
     // Networking
     const val retrofit = "2.6.0"
-    const val okHttp = "4.0.0"
+    const val okHttp = "4.0.1"
     const val gson = "2.6.0"
 
     // Coroutines
-    const val coroutines = "1.1.1"
+    const val coroutines = "1.2.2"
 
     // Lifecycle
     const val lifecycle = "2.2.0-alpha01"
@@ -38,18 +38,18 @@ object Versions {
     const val leakcanary = "1.6.3"
 
     // Static code analysis
-    const val detekt = "1.0.0-RC15"
+    const val detekt = "1.0.0-RC16"
     const val ben_manes = "0.21.0"
-    const val ktlint = "8.1.0"
+    const val ktlint = "8.2.0"
 
     // Testing
-    const val test_core = "1.0.0"
-    const val runner = "1.1.0"
-    const val rules = "1.1.0"
-    const val junit = "1.0.0"
-    const val truth_ext = "1.0.0"
-    const val truth = "0.45"
-    const val espresso_core = "3.1.0"
+    const val test_core = "1.2.0"
+    const val runner = "1.2.0"
+    const val rules = "1.2.0"
+    const val junit = "1.1.1"
+    const val truth_ext = "1.2.0"
+    const val truth = "1.0"
+    const val espresso_core = "3.2.0"
     const val mockito = "2.1.0"
     const val arch_core = "1.1.1"
 }
