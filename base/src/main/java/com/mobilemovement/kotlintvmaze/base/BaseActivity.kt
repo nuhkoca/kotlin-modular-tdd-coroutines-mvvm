@@ -24,12 +24,13 @@ abstract class BaseActivity<VM : ViewModel> : DaggerAppCompatActivity(), BaseVie
         super.onCreate(savedInstanceState)
         setContentView(layoutId)
         viewModel = viewModelFactory.create(getViewModelClass())
-        actAsFluid()
         initView()
         observeViewModel()
     }
 
-    abstract override fun initView()
+    open fun initView() {
+        actAsFluid()
+    }
 
     abstract override fun observeViewModel()
 }

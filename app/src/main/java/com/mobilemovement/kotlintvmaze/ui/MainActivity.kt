@@ -38,6 +38,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override val layoutId = R.layout.activity_main
 
     override fun initView() {
+        super.initView()
         rvSeries.init(adapter = seriesAdapter)
         tietSearch.doOnAction(viewModel::getSeries)
     }

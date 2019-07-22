@@ -123,7 +123,6 @@ dependencies {
     kapt(Dependencies.dagger_android_processor)
     kapt(Dependencies.dagger_compiler)
 
-    api(Dependencies.timber)
     implementation(Dependencies.timberkt)
 
     api(Dependencies.gson)
