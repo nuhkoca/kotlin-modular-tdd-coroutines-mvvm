@@ -13,7 +13,7 @@ object Versions {
     const val constraint_layout = "2.0.0-beta2"
 
     // Networking
-    const val retrofit = "2.6.0"
+    const val retrofit = "2.6.1"
     const val okHttp = "4.0.1"
     const val gson = "2.6.0"
 
@@ -24,7 +24,7 @@ object Versions {
     const val lifecycle = "2.2.0-alpha01"
 
     // DI
-    const val dagger = "2.23.2"
+    const val dagger = "2.24"
     const val javax = "10.0-b28"
 
     // Glide
@@ -39,7 +39,7 @@ object Versions {
 
     // Static code analysis
     const val detekt = "1.0.0-RC16"
-    const val ben_manes = "0.21.0"
+    const val ben_manes = "0.22.0"
     const val ktlint = "8.2.0"
 
     // Testing
