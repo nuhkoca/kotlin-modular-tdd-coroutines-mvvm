@@ -11,12 +11,15 @@ data class ActivityViewHolder(
     val contentView: ViewGroup
 ) {
     fun onDetach(onDetach: () -> Unit) {
-        nonResizableLayout.addOnAttachStateChangeListener(object : View.OnAttachStateChangeListener {
+        nonResizableLayout.addOnAttachStateChangeListener(object :
+            View.OnAttachStateChangeListener {
             override fun onViewDetachedFromWindow(v: View?) {
                 onDetach()
             }
 
-            override fun onViewAttachedToWindow(v: View?) {}
+            override fun onViewAttachedToWindow(v: View?) {
+                // no-op
+            }
         })
     }
 

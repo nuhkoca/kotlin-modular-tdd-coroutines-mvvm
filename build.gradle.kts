@@ -76,7 +76,16 @@ tasks.named<DependencyUpdatesTask>("dependencyUpdates") {
     resolutionStrategy {
         componentSelection {
             all {
-                val rejected = listOf("alpha", "beta", "rc", "cr", "m", "preview", "b", "ea").any { qualifier ->
+                val rejected = listOf(
+                    "alpha",
+                    "beta",
+                    "rc",
+                    "cr",
+                    "m",
+                    "preview",
+                    "b",
+                    "ea"
+                ).any { qualifier ->
                     candidate.version.matches(Regex("(?i).*[.-]$qualifier[.\\d-+]*"))
                 }
                 if (rejected) {

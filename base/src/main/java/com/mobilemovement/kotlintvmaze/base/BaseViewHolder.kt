@@ -5,7 +5,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-abstract class BaseViewHolder<DB : ViewDataBinding, T : Any>(itemView: View) : ViewHolder(itemView) {
+abstract class BaseViewHolder<DB : ViewDataBinding, T : Any>(itemView: View) :
+    ViewHolder(itemView) {
 
     protected var dataBinding: DB? = null
 

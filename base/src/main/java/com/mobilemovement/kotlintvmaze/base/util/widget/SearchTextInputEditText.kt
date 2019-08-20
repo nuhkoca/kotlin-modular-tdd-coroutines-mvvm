@@ -11,6 +11,7 @@ import android.view.inputmethod.EditorInfo.IME_ACTION_NEXT
 import android.view.inputmethod.EditorInfo.IME_ACTION_SEARCH
 import com.google.android.material.textfield.TextInputEditText
 import com.mobilemovement.kotlintvmaze.base.util.ext.hideKeyBoard
+import java.util.Locale
 
 class SearchTextInputEditText @JvmOverloads constructor(
     context: Context,
@@ -60,7 +61,7 @@ class SearchTextInputEditText @JvmOverloads constructor(
     private fun handleAction() {
         clearFocus()
         if (text.toString().isNotEmpty()) {
-            onActionTriggered.invoke(text.toString().toLowerCase())
+            onActionTriggered.invoke(text.toString().toLowerCase(Locale.getDefault()))
         }
     }
 
