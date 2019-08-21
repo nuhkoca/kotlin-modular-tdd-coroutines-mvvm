@@ -2,7 +2,10 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a57894a5edd4815aa5bfec1dc8394eb)](https://app.codacy.com/app/nuhkoca/kotlin-modular-tdd-coroutines-mvvm?utm_source=github.com&utm_medium=referral&utm_content=nuhkoca/kotlin-modular-tdd-coroutines-mvvm&utm_campaign=Badge_Grade_Settings)
 [![codebeat badge](https://codebeat.co/badges/7cadcc19-6362-403b-9d03-300231ee8063)](https://codebeat.co/projects/github-com-nuhkoca-kotlin-modular-tdd-coroutines-mvvm-master)
+[![CodeFactor](https://www.codefactor.io/repository/github/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/badge)](https://www.codefactor.io/repository/github/nuhkoca/kotlin-modular-tdd-coroutines-mvvm)
 [![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.41-blue.svg)](https://kotlinlang.org)
+[![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
 ![](https://img.shields.io/github/languages/count/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
 ![](https://img.shields.io/github/repo-size/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
