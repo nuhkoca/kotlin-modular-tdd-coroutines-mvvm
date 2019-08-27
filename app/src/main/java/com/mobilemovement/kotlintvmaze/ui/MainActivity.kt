@@ -9,6 +9,7 @@ import com.mobilemovement.kotlintvmaze.base.Status.EMPTY
 import com.mobilemovement.kotlintvmaze.base.Status.ERROR
 import com.mobilemovement.kotlintvmaze.base.Status.LOADING
 import com.mobilemovement.kotlintvmaze.base.Status.SUCCESS
+import com.mobilemovement.kotlintvmaze.base.util.delegate.ItemAdapter
 import com.mobilemovement.kotlintvmaze.base.util.ext.hide
 import com.mobilemovement.kotlintvmaze.base.util.ext.init
 import com.mobilemovement.kotlintvmaze.base.util.ext.isVisible
@@ -28,7 +29,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     lateinit var context: Context
 
     @Inject
-    lateinit var seriesAdapter: SeriesAdapter
+    lateinit var seriesAdapter: ItemAdapter
 
     private var menu: Menu? = null
     private val searchItem: MenuItem? by unsafeLazy { menu?.findItem(R.id.itemSearch) }
@@ -46,7 +47,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun observeViewModel() {
         viewModel.seriesLiveData.observeWith(this) { resource ->
             when (resource.status) {
-                SUCCESS -> resource.data?.let { data -> seriesAdapter.series = data.toMutableList() }
+                SUCCESS -> resource.data?.let(seriesAdapter::add)
                 ERROR, EMPTY -> toast(resource.message)
                 else -> { /* no-op */
                 }

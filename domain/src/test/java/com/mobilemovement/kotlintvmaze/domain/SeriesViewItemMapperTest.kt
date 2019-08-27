@@ -29,11 +29,11 @@ class SeriesViewItemMapperTest {
     @Test
     fun `series_view_item_mapper_should_map_raw_data_to_series`() {
         val fakeSeriesViewItem = SeriesViewItem(null)
-        Mockito.`when`(seriesViewItemMapper.map(fakeSeries)).thenReturn(fakeSeriesViewItem)
+        Mockito.`when`(seriesViewItemMapper.invoke(fakeSeries)).thenReturn(fakeSeriesViewItem)
 
         val expected = SeriesViewItem(null)
 
-        Truth.assertThat(expected).isEqualTo(seriesViewItemMapper.map(fakeSeries))
+        Truth.assertThat(expected).isEqualTo(seriesViewItemMapper.invoke(fakeSeries))
     }
 
     @After

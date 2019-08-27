@@ -27,11 +27,11 @@ class SeriesDomainMapperTest {
     @Test
     fun `series_domain_mapper_should_map_raw_data_to_series`() {
         val fakeSeries = Series(1.2, null)
-        Mockito.`when`(seriesDomainMapper.map(fakeSeriesRaw)).thenReturn(fakeSeries)
+        Mockito.`when`(seriesDomainMapper.invoke(fakeSeriesRaw)).thenReturn(fakeSeries)
 
         val expected = Series(1.2, null)
 
-        Truth.assertThat(expected).isEqualTo(seriesDomainMapper.map(fakeSeriesRaw))
+        Truth.assertThat(expected).isEqualTo(seriesDomainMapper.invoke(fakeSeriesRaw))
     }
 
     @After

@@ -17,7 +17,7 @@ class GetSeriesUseCase @Inject constructor(
         return try {
             val series = seriesRepository.searchSeriesAsync(params.query)
             if (series.isEmpty()) return Resource.empty(errorFactory.createEmptyErrorMessage())
-            val mappedSeries = series.map(seriesViewItemMapper::map)
+            val mappedSeries = series.map(seriesViewItemMapper::invoke)
             Resource.success(mappedSeries)
         } catch (e: Exception) {
             Resource.error(errorFactory.createApiErrorMessage(e))
