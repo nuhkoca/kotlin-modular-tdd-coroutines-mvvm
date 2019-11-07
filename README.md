@@ -12,6 +12,8 @@
 ![](https://img.shields.io/github/last-commit/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
 ![](https://img.shields.io/github/followers/nuhkoca.svg?style=social)
 ![](https://img.shields.io/github/stars/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg?style=social)
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+
 
 TVmaze is a community of TV lovers and dedicated contributors that discuss and help maintain tv information on the web.
 

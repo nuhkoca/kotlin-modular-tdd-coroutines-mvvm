@@ -4,7 +4,7 @@ object Versions {
     const val android_annotation = "1.1.0"
 
     // Gradle plugins
-    const val gradle_plugin = "3.5.0"
+    const val gradle_plugin = "3.5.2"
     const val kotlin_gradle_plugin = "1.3.50"
 
     // UI
@@ -13,22 +13,22 @@ object Versions {
     const val constraint_layout = "2.0.0-beta2"
 
     // Networking
-    const val retrofit = "2.6.1"
-    const val okHttp = "4.2.0"
-    const val gson = "2.6.1"
+    const val retrofit = "2.6.2"
+    const val okHttp = "4.2.2"
+    const val gson = "2.6.2"
 
     // Coroutines
-    const val coroutines = "1.3.1"
+    const val coroutines = "1.3.2"
 
     // Lifecycle
     const val lifecycle = "2.2.0-alpha01"
 
     // DI
-    const val dagger = "2.24"
+    const val dagger = "2.25.2"
     const val javax = "10.0-b28"
 
     // Glide
-    const val glide = "4.9.0"
+    const val glide = "4.10.0"
 
     // Timber
     const val timber = "4.7.1"
@@ -38,8 +38,8 @@ object Versions {
     const val leakcanary = "1.6.3"
 
     // Static code analysis
-    const val detekt = "1.0.1"
-    const val ben_manes = "0.22.0"
+    const val detekt = "1.1.1"
+    const val ben_manes = "0.27.0"
     const val ktlint = "8.2.0"
 
     // Testing

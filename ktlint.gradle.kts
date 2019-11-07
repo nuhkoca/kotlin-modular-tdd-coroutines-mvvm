@@ -1,7 +1,7 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 ktlint {
-    version.set("0.22.0")
+    version.set("0.34.2")
     debug.set(true)
     verbose.set(true)
     android.set(false)
