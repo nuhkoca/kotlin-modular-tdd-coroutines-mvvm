@@ -3,13 +3,15 @@ jobs:
   build:
     working_directory: ~/code
     docker:
-      - image: circleci/android:api-28
+      - image: circleci/android:api-29
     environment:
       JVM_OPTS: -Xmx3200m
+      GRADLE_OPTS: -Xmx1048m -Dorg.gradle.daemon=false
+      GRADLE_OPTIONS: --no-daemon --max-workers 2
     steps:
       - checkout
       - restore_cache:
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle.kts" }}{{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}-{{ checksum  "app/build.gradle.kts" }}
       #      - run:
       #         name: Chmod permissions #if permission for Gradlew Dependencies fail, use this.
       #         command: sudo chmod +x ./gradlew
@@ -19,12 +21,31 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+          key: jars-{{ checksum "build.gradle.kts" }}{{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}-{{ checksum  "app/build.gradle.kts" }}
+      - run:
+          name: Build Debug
+          command: ./gradlew assembleDebug
       - run:
           name: Run Tests
           command: ./gradlew lint test
+      - run:
+          name: Run Detekt
+          command: ./gradlew detekt
+      - run:
+          name: Run Ktlint
+          command: ./gradlew ktlintFormat
+      - run:
+          name: Run Lint
+          command: ./gradlew lintDebug
+      - run:
+          name: Run Unit Tests
+          command: ./gradlew testDebugUnitTest
+      - run:
+          name: Create build report
+          command: ./gradlew build --scan
       - store_artifacts:
           path: app/build/reports
           destination: reports
       - store_test_results:
           path: app/build/test-results
+  © 2019 GitHub, Inc.
