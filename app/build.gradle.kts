@@ -8,7 +8,6 @@ plugins {
 }
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
-val baseUrl: String by project
 
 android {
     compileSdkVersion(extra["compileSdkVersion"] as Int)
@@ -31,10 +30,6 @@ android {
             isMinifyEnabled = false
             isDebuggable = true
         }
-    }
-
-    buildTypes.forEach {
-        it.buildConfigField("String", "baseUrl", baseUrl)
     }
 
     sourceSets {
@@ -127,8 +122,8 @@ dependencies {
 
     api(Dependencies.gson)
     api(Dependencies.retrofit)
-    implementation(Dependencies.okHttp)
-    implementation(Dependencies.logging)
+    api(Dependencies.okHttp)
+    api(Dependencies.logging)
 
     api(Dependencies.glide)
 

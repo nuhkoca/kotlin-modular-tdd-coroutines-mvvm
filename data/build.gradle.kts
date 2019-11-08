@@ -8,6 +8,7 @@ plugins {
 }
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val baseUrl: String by project
 
 android {
     compileSdkVersion(extra["compileSdkVersion"] as Int)
@@ -25,6 +26,10 @@ android {
             isMinifyEnabled = false
             isDebuggable = true
         }
+    }
+
+    buildTypes.forEach {
+        it.buildConfigField("String", "baseUrl", baseUrl)
     }
 
     sourceSets {
@@ -83,8 +88,10 @@ dependencies {
     api(Dependencies.dagger_android_support)
     kapt(Dependencies.dagger_compiler)
 
-    api(Dependencies.gson)
-    api(Dependencies.retrofit)
+    implementation(Dependencies.gson)
+    implementation(Dependencies.retrofit)
+    implementation(Dependencies.okHttp)
+    implementation(Dependencies.logging)
 
     testImplementation(TestDependencies.arch_core)
     testImplementation(TestDependencies.truth_ext)

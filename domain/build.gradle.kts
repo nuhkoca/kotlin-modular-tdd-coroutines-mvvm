@@ -79,8 +79,6 @@ dependencies {
 
     api(Dependencies.kotlin)
 
-    api(Dependencies.gson)
-
     api(Dependencies.coroutines_android)
 
     testImplementation(TestDependencies.truth_ext)
