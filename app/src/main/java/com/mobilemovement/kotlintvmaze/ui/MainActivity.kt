@@ -1,14 +1,9 @@
 package com.mobilemovement.kotlintvmaze.ui
 
-import android.content.Context
 import android.view.Menu
 import android.view.MenuItem
 import com.mobilemovement.kotlintvmaze.R
 import com.mobilemovement.kotlintvmaze.base.BaseActivity
-import com.mobilemovement.kotlintvmaze.base.Status.EMPTY
-import com.mobilemovement.kotlintvmaze.base.Status.ERROR
-import com.mobilemovement.kotlintvmaze.base.Status.LOADING
-import com.mobilemovement.kotlintvmaze.base.Status.SUCCESS
 import com.mobilemovement.kotlintvmaze.base.util.delegate.ItemAdapter
 import com.mobilemovement.kotlintvmaze.base.util.ext.hide
 import com.mobilemovement.kotlintvmaze.base.util.ext.init
@@ -24,9 +19,6 @@ import kotlinx.android.synthetic.main.activity_main.tilSearch
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewModel>() {
-
-    @Inject
-    lateinit var context: Context
 
     @Inject
     lateinit var seriesAdapter: ItemAdapter
@@ -45,37 +37,33 @@ class MainActivity : BaseActivity<MainViewModel>() {
     }
 
     override fun observeViewModel() {
-        viewModel.seriesLiveData.observeWith(this) { resource ->
-            when (resource.status) {
-                SUCCESS -> resource.data?.let(seriesAdapter::add)
-                ERROR, EMPTY -> toast(resource.message)
-                else -> { /* no-op */
-                }
+        viewModel.seriesLiveData.observeWith(this) { uiState ->
+            uiState.data?.let(seriesAdapter::add)
+
+            if (uiState.isError) {
+                toast(uiState.errorMessage)
             }
-            with(resource.status) {
-                pbSearch.isVisible = this == LOADING
-                tilSearch.isVisible = this == ERROR || this == EMPTY
-                rvSeries.isVisible = this == SUCCESS
-                searchItem?.isVisible = this == SUCCESS
-            }
+
+            pbSearch.isVisible = uiState.isLoading
+            tilSearch.isVisible = uiState.isError or uiState.isFirstRun
+            rvSeries.isVisible = uiState.isSuccess
+            searchItem?.isVisible = uiState.isSuccess
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         this.menu = menu
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
             R.id.itemSearch -> {
-                rvSeries.hide()
-                tilSearch.show()
-                item.isVisible = false
-                return true
+                rvSeries.hide(); tilSearch.show(); item.isVisible = false
+                true
             }
+            else -> super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 }

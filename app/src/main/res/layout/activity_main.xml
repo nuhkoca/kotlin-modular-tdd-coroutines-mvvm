@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -28,27 +27,28 @@
 
   <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/tilSearch"
+      style="@style/Maze.TextInputLayout.Search"
       android:layout_width="@dimen/match_constraint"
       android:layout_height="wrap_content"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@id/guidelineRight"
       app:layout_constraintStart_toEndOf="@id/guidelineLeft"
       app:layout_constraintTop_toTopOf="parent"
-      style="@style/Maze.TextInputLayout.Search"
       >
 
     <com.mobilemovement.kotlintvmaze.base.util.widget.SearchTextInputEditText
         android:id="@+id/tietSearch"
+        style="@style/Maze.TextInputEditText.Search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableEnd="@drawable/ic_search"
-        style="@style/Maze.TextInputEditText.Search"
         />
 
   </com.google.android.material.textfield.TextInputLayout>
 
   <ProgressBar
       android:id="@+id/pbSearch"
+      style="@style/Maze.ProgressBar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:visibility="gone"
@@ -57,11 +57,11 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       tools:visibility="visible"
-      style="@style/Maze.ProgressBar"
       />
 
   <androidx.recyclerview.widget.RecyclerView
       android:id="@+id/rvSeries"
+      style="@style/Maze.RecyclerView.Series"
       android:layout_width="@dimen/match_constraint"
       android:layout_height="@dimen/match_constraint"
       android:visibility="gone"
@@ -72,7 +72,6 @@
       tools:itemCount="5"
       tools:listitem="@layout/layout_series_row_item"
       tools:visibility="visible"
-      style="@style/Maze.RecyclerView.Series"
       />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

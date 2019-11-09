@@ -3,7 +3,8 @@ object Dependencies {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin_gradle_plugin}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
-    const val constraint_layout = "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"
+    const val constraint_layout =
+        "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"
     const val core_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
     const val android_annotation = "androidx.annotation:annotation:${Versions.android_annotation}"
 
@@ -14,14 +15,17 @@ object Dependencies {
     const val gson = "com.squareup.retrofit2:converter-gson:${Versions.gson}"
 
     // Coroutines
-    const val coroutines_core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
-    const val coroutines_android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+    const val coroutines_core =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutines_android =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
     // Dagger
     const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
     const val dagger_android = "com.google.dagger:dagger-android:${Versions.dagger}"
     const val dagger_android_support = "com.google.dagger:dagger-android-support:${Versions.dagger}"
-    const val dagger_android_processor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
+    const val dagger_android_processor =
+        "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     const val dagger_compiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
     const val javax_annotation = "org.glassfish:javax.annotation:${Versions.javax}"
 
@@ -29,11 +33,13 @@ object Dependencies {
     const val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}"
-    const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycle_viewmodel_ktx =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
 
     // Leakcanary
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanary}"
-    const val leakcanary_noop = "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.leakcanary}"
+    const val leakcanary_noop =
+        "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.leakcanary}"
 
     // Timber
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"

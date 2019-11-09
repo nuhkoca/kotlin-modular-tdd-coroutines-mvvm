@@ -1,5 +1,6 @@
 package com.mobilemovement.kotlintvmaze.base
 
+import android.content.Context
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModel
@@ -9,6 +10,9 @@ import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
 abstract class BaseActivity<VM : ViewModel> : DaggerAppCompatActivity(), BaseView {
+
+    @Inject
+    lateinit var context: Context
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
