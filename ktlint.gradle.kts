@@ -9,7 +9,7 @@ ktlint {
     reporters.set(setOf(ReporterType.PLAIN, ReporterType.CHECKSTYLE))
     ignoreFailures.set(true)
     enableExperimentalRules.set(true)
-    additionalEditorconfigFile.set(file("/some/additional/.editorconfig"))
+    additionalEditorconfigFile.set(file("$rootDir/.editorconfig"))
     kotlinScriptAdditionalPaths {
         include(fileTree("scripts/"))
     }
