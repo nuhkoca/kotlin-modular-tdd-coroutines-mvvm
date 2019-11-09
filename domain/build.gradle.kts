@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 
 plugins {
     id(Plugins.androidLibrary)
@@ -38,6 +38,7 @@ android {
     testOptions {
         unitTests.isReturnDefaultValues = true
         unitTests.isIncludeAndroidResources = true
+        animationsDisabled = true
     }
 
     compileOptions {
@@ -55,20 +56,6 @@ android {
         disable("OldTargetApi")
         disable("GradleDependency")
     }
-
-    tasks.withType<JavaCompile> {
-        options.isIncremental = true
-        allprojects {
-            options.compilerArgs.addAll(arrayOf("-Xlint:-unchecked", "-Xlint:deprecation", "-Xdiags:verbose"))
-        }
-    }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = javaVersion.toString()
-            allWarningsAsErrors = true
-        }
-    }
 }
 
 dependencies {
@@ -82,6 +69,6 @@ dependencies {
     api(Dependencies.coroutines_android)
 
     testImplementation(TestDependencies.truth_ext)
-    testImplementation(TestDependencies.truth)
-    testImplementation(TestDependencies.mockito)
+    testImplementation(TestDependencies.mockK)
+    testImplementation(TestDependencies.coroutines_core)
 }

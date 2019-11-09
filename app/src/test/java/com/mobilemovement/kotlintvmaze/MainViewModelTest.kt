@@ -1,77 +1,87 @@
 package com.mobilemovement.kotlintvmaze
 
-import android.content.Context
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
-import com.google.common.truth.Truth
+import com.google.common.truth.Truth.assertThat
 import com.mobilemovement.kotlintvmaze.base.Resource
-import com.mobilemovement.kotlintvmaze.base.util.DefaultErrorFactory
-import com.mobilemovement.kotlintvmaze.data.MazeService
-import com.mobilemovement.kotlintvmaze.data.SeriesDomainMapper
-import com.mobilemovement.kotlintvmaze.data.SeriesRemoteDataSource
+import com.mobilemovement.kotlintvmaze.data.ImageViewItem
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase
-import com.mobilemovement.kotlintvmaze.domain.SeriesRepositoryImpl
-import com.mobilemovement.kotlintvmaze.domain.SeriesViewItemMapper
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel
+import com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState
+import io.mockk.coEvery
+import io.mockk.coVerify
+import io.mockk.mockk
+import io.mockk.mockkObject
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.Mockito.mock
-import org.mockito.MockitoAnnotations
+import org.mockito.ArgumentMatchers.any
 
-@Suppress("UNCHECKED_CAST")
 class MainViewModelTest {
+
+    @ExperimentalCoroutinesApi
+    @get:Rule
+    val coroutinesTestRule = CoroutinesTestRule()
 
     @get:Rule
     val instantTaskExecutorRule = InstantTaskExecutorRule()
 
-    @Mock
-    lateinit var mazeService: MazeService
-    @Mock
-    lateinit var seriesViewItemMapper: SeriesViewItemMapper
-    @Mock
-    lateinit var seriesDomainMapper: SeriesDomainMapper
-    @Mock
-    lateinit var context: Context
-
-    private val observer = mock(Observer::class.java) as
-            Observer<Resource<List<SeriesViewItem>>>
+    private val observer = mockk<Observer<SeriesUiState>>(relaxed = true)
 
     private lateinit var getSeriesUseCase: GetSeriesUseCase
-    private lateinit var mainViewModel: MainViewModel
-    private lateinit var seriesRepository: SeriesRepositoryImpl
-    private lateinit var seriesRemoteDataSource: SeriesRemoteDataSource
-    private lateinit var defaultErrorFactory: DefaultErrorFactory
+    private lateinit var viewModel: MainViewModel
 
     @Before
-    fun setUp() {
-        MockitoAnnotations.initMocks(this)
-        seriesRemoteDataSource = SeriesRemoteDataSource(mazeService)
-        seriesRepository = SeriesRepositoryImpl(seriesRemoteDataSource, seriesDomainMapper)
-        defaultErrorFactory = DefaultErrorFactory(context)
-        getSeriesUseCase = GetSeriesUseCase(seriesRepository, seriesViewItemMapper, defaultErrorFactory)
-        mainViewModel = MainViewModel(getSeriesUseCase)
+    fun setUp() = runBlocking {
+        getSeriesUseCase = mockk()
+
+        mockkObject(SeriesUiState())
+
+        coEvery { getSeriesUseCase.executeAsync(any()) } returns Resource.success(
+            listOf(
+                SeriesViewItem(
+                    ShowViewItem(
+                        any(), ImageViewItem(
+                            any()
+                        ), any()
+                    )
+                )
+            )
+        )
+
+        viewModel = MainViewModel(getSeriesUseCase)
     }
 
     @Test
-    fun `series_should_be_fetched_successfully`() = runBlocking {
-        mainViewModel.seriesLiveData.observeForever(observer)
+    fun `Series will be fetched successfully`() {
+        viewModel.seriesLiveData.observeForever(observer)
 
-        mainViewModel.getSeries(QUERY)
+        viewModel.getSeries(any())
 
-        mainViewModel.seriesLiveData.observeOnce { Truth.assertThat(it.data).isNotNull() }
+        coVerify(exactly = 1) { getSeriesUseCase.executeAsync(any()) }
+
+        viewModel.seriesLiveData.observeOnce {
+            assertThat(it.data).isEqualTo(
+                listOf(
+                    SeriesViewItem(
+                        ShowViewItem(
+                            any(), ImageViewItem(
+                                any()
+                            ), any()
+                        )
+                    )
+                )
+            )
+        }
     }
 
     @After
     fun tearDown() {
-        mainViewModel.seriesLiveData.removeObserver(observer)
-    }
-
-    companion object {
-        private const val QUERY = "girl"
+        viewModel.seriesLiveData.removeObserver(observer)
     }
 }

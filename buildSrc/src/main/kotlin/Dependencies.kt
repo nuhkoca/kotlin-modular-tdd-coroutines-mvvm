@@ -55,6 +55,8 @@ object TestDependencies {
     // Core library
     const val test_core = "androidx.test:core:${Versions.test_core}"
     const val arch_core = "android.arch.core:core-testing:${Versions.arch_core}"
+    const val coroutines_core =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_core}"
 
     // AndroidJUnitRunner and JUnit Rules
     const val runner = "androidx.test:runner:${Versions.runner}"
@@ -63,11 +65,10 @@ object TestDependencies {
     // Assertions
     const val junit = "androidx.test.ext:junit:${Versions.junit}"
     const val truth_ext = "androidx.test.ext:truth:${Versions.truth_ext}"
-    const val truth = "com.google.truth:truth:${Versions.truth}"
 
     // Espresso dependencies
     const val espresso_core = "androidx.test.espresso:espresso-core:${Versions.espresso_core}"
 
     // Third party
-    const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockito}"
+    const val mockK = "io.mockk:mockk:${Versions.mockK}"
 }
