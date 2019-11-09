@@ -13,7 +13,8 @@ class MazeApp : BaseApplication() {
         return DaggerAppComponent.factory().create(this).also { appComponent ->
             appComponent.inject(this@MazeApp)
 
-            val bindingComponent = DaggerBindingComponent.builder().appComponent(appComponent).build()
+            val bindingComponent =
+                DaggerBindingComponent.builder().appComponent(appComponent).build()
             DataBindingUtil.setDefaultComponent(bindingComponent)
         }
     }

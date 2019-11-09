@@ -1,37 +1,62 @@
 package com.mobilemovement.kotlintvmaze.data
 
 import com.google.common.truth.Truth
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.slot
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.MockitoAnnotations
-import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(MockitoJUnitRunner.Silent::class)
 class SeriesDomainMapperTest {
-
-    @Mock
-    private lateinit var seriesDomainMapper: SeriesDomainMapper
-
-    lateinit var fakeSeriesRaw: SeriesRaw
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
-        fakeSeriesRaw = SeriesRaw(1.2, null)
+        // no-op
     }
 
     @Test
-    fun `series_domain_mapper_should_map_raw_data_to_series`() {
-        val fakeSeries = Series(1.2, null)
-        Mockito.`when`(seriesDomainMapper.invoke(fakeSeriesRaw)).thenReturn(fakeSeries)
+    fun `SeriesViewItemMapper maps raw data to Series`() {
+        val mapper = mockk<SeriesDomainMapper>()
 
-        val expected = Series(1.2, null)
+        val slot = slot<SeriesRaw>()
 
-        Truth.assertThat(expected).isEqualTo(seriesDomainMapper.invoke(fakeSeriesRaw))
+        every { mapper.invoke(capture(slot)) } returns
+            Series(
+                10.0,
+                Show(
+                    1, "testname", "testurl",
+                    Image("testoriginal"), "testsummary"
+                )
+            )
+
+        val invocation = mapper.invoke(
+            SeriesRaw(
+                10.0, ShowRaw(
+                    1, "testurl", "testname", "testype", "testlanguage",
+                    ImageRaw("testmedium", "testoriginal"), "testsummary"
+                )
+            )
+        )
+
+        Truth.assertThat(invocation).isNotNull()
+        Truth.assertThat(invocation).isEqualTo(
+            Series(
+                10.0,
+                Show(
+                    1, "testname", "testurl",
+                    Image("testoriginal"), "testsummary"
+                )
+            )
+        )
+        Truth.assertThat(slot.captured).isEqualTo(
+            SeriesRaw(
+                10.0, ShowRaw(
+                    1, "testurl", "testname", "testype", "testlanguage",
+                    ImageRaw("testmedium", "testoriginal"), "testsummary"
+                )
+            )
+        )
     }
 
     @After

@@ -14,11 +14,11 @@
       android:layout_height="wrap_content"
       >
     <com.google.android.material.card.MaterialCardView
+        style="@style/Maze.CardView.Series"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        style="@style/Maze.CardView.Series"
         >
 
       <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,6 +42,7 @@
 
         <TextView
             android:id="@+id/tvName"
+            style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
             android:padding="@dimen/spacing_normal"
@@ -49,20 +50,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivPoster"
             tools:text="@string/fake_title"
-            style="@style/TextAppearance.AppCompat.Headline"
             />
 
         <TextView
             android:id="@+id/tvSummary"
+            style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="10"
             android:padding="@dimen/spacing_normal"
             android:text="@string/fake_summary"
             android:textSize="@dimen/text_size_large"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvName"
-            style="@style/TextAppearance.AppCompat.Body1"
             />
 
       </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 
 plugins {
     id(Plugins.androidApplication)
@@ -43,6 +43,7 @@ android {
     testOptions {
         unitTests.isReturnDefaultValues = true
         unitTests.isIncludeAndroidResources = true
+        animationsDisabled = true
     }
 
     dataBinding {
@@ -67,20 +68,6 @@ android {
         disable("GradleDeprecated")
         disable("OldTargetApi")
         disable("GradleDependency")
-    }
-
-    tasks.withType<JavaCompile> {
-        options.isIncremental = true
-        allprojects {
-            options.compilerArgs.addAll(arrayOf("-Xlint:-unchecked", "-Xlint:deprecation", "-Xdiags:verbose"))
-        }
-    }
-
-    tasks.withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = javaVersion.toString()
-            allWarningsAsErrors = true
-        }
     }
 
     configurations {
@@ -132,20 +119,15 @@ dependencies {
     testImplementation(TestDependencies.rules)
     testImplementation(TestDependencies.junit)
     testImplementation(TestDependencies.truth_ext)
-    testImplementation(TestDependencies.truth)
     testImplementation(TestDependencies.espresso_core)
-    testImplementation(TestDependencies.mockito)
+    testImplementation(TestDependencies.mockK)
     testImplementation(TestDependencies.arch_core)
+    testImplementation(TestDependencies.coroutines_core)
 
     androidTestImplementation(TestDependencies.test_core)
     androidTestImplementation(TestDependencies.rules)
     androidTestImplementation(TestDependencies.junit)
-    androidTestImplementation(TestDependencies.truth) {
-        exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
-    }
-    androidTestImplementation(TestDependencies.truth_ext) {
-        exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
-    }
+    androidTestImplementation(TestDependencies.truth_ext)
     androidTestImplementation(TestDependencies.espresso_core)
 }
 

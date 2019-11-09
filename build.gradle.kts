@@ -1,8 +1,11 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.detekt
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
 
 buildscript {
     repositories {
@@ -38,13 +41,33 @@ tasks.register("testAll") { dependsOn("clean", "build", "test", "connectedAndroi
 subprojects {
     apply(from = "$rootDir/versions.gradle.kts")
     apply(plugin = "org.jlleitschuh.gradle.ktlint")
-}
 
-tasks.withType<Test> {
-    testLogging {
-        events("started", "skipped", "passed", "failed")
-        setExceptionFormat("full")
-        showStandardStreams = true
+    tasks.withType<JavaCompile> {
+        options.isIncremental = true
+        allprojects {
+            options.compilerArgs.addAll(
+                arrayOf(
+                    "-Xlint:-unchecked",
+                    "-Xlint:deprecation",
+                    "-Xdiags:verbose"
+                )
+            )
+        }
+    }
+
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            jvmTarget = javaVersion.toString()
+            allWarningsAsErrors = true
+        }
+    }
+
+    tasks.withType<Test> {
+        testLogging {
+            events("started", "skipped", "passed", "failed")
+            setExceptionFormat("full")
+            showStandardStreams = true
+        }
     }
 }
 

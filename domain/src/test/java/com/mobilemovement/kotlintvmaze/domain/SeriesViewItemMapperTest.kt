@@ -1,39 +1,66 @@
 package com.mobilemovement.kotlintvmaze.domain
 
-import com.google.common.truth.Truth
+import com.google.common.truth.Truth.assertThat
+import com.mobilemovement.kotlintvmaze.data.Image
+import com.mobilemovement.kotlintvmaze.data.ImageViewItem
 import com.mobilemovement.kotlintvmaze.data.Series
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.data.Show
+import com.mobilemovement.kotlintvmaze.data.ShowViewItem
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.slot
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.MockitoAnnotations
-import org.mockito.junit.MockitoJUnitRunner
 
-@RunWith(MockitoJUnitRunner.Silent::class)
 class SeriesViewItemMapperTest {
-
-    @Mock
-    private lateinit var seriesViewItemMapper: SeriesViewItemMapper
-
-    lateinit var fakeSeries: Series
 
     @Before
     fun setUp() {
-        MockitoAnnotations.initMocks(this)
-        fakeSeries = Series(1.2, null)
+        // no-op
     }
 
     @Test
-    fun `series_view_item_mapper_should_map_raw_data_to_series`() {
-        val fakeSeriesViewItem = SeriesViewItem(null)
-        Mockito.`when`(seriesViewItemMapper.invoke(fakeSeries)).thenReturn(fakeSeriesViewItem)
+    fun `SeriesViewItemMapper maps raw data to Series`() {
+        val mapper = mockk<SeriesViewItemMapper>()
 
-        val expected = SeriesViewItem(null)
+        val slot = slot<Series>()
 
-        Truth.assertThat(expected).isEqualTo(seriesViewItemMapper.invoke(fakeSeries))
+        every { mapper.invoke(capture(slot)) } returns
+            SeriesViewItem(
+                ShowViewItem(
+                    "testname",
+                    ImageViewItem("testoriginal"), "testsummary"
+                )
+            )
+
+        val invocation = mapper.invoke(
+            Series(
+                10.0, Show(
+                    1, "testurl", "testname",
+                    Image("testoriginal"), "testsummary"
+                )
+            )
+        )
+
+        assertThat(invocation).isNotNull()
+        assertThat(invocation).isEqualTo(
+            SeriesViewItem(
+                ShowViewItem(
+                    "testname",
+                    ImageViewItem("testoriginal"), "testsummary"
+                )
+            )
+        )
+        assertThat(slot.captured).isEqualTo(
+            Series(
+                10.0, Show(
+                    1, "testurl", "testname",
+                    Image("testoriginal"), "testsummary"
+                )
+            )
+        )
     }
 
     @After

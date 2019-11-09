@@ -12,6 +12,7 @@ import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.databinding.LayoutSeriesRowItemBinding
 
 class SeriesAdapter : DelegateAdapter {
+
     override fun createViewHolder(parent: ViewGroup): ViewHolder {
         val view = LayoutSeriesRowItemBinding.inflate(parent.context.inflater)
         return SeriesViewHolder(view.root)

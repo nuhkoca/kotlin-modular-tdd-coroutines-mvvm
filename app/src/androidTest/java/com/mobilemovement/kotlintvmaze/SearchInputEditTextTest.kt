@@ -17,13 +17,14 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+@Suppress("IllegalIdentifier")
 @RunWith(AndroidJUnit4::class)
 class SearchInputEditTextTest {
 
     @get:Rule
     val activityTestRule = ActivityTestRule(MainActivity::class.java)
 
-    lateinit var searchTextInputEditText: SearchTextInputEditText
+    private lateinit var searchTextInputEditText: SearchTextInputEditText
 
     @Before
     fun setUp() {
@@ -32,13 +33,13 @@ class SearchInputEditTextTest {
     }
 
     @Test
-    fun `search_input_edit_text_should_have_focus_at_first_start`() {
+    fun `SearchInputEditText has focus at first start`() {
         searchTextInputEditText.requestFocus()
         onView(allOf(isAssignableFrom(TextInputEditText::class.java))).check(matches(hasFocus()))
     }
 
     @Test
-    fun `search_input_edit_text_should_not_have_any_focus`() {
+    fun `SearchInputEditText does not have any focus`() {
         searchTextInputEditText.clearFocus()
         onView(allOf(isAssignableFrom(TextInputEditText::class.java))).check(matches(hasFocus()))
     }
