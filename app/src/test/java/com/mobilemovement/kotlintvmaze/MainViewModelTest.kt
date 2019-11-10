@@ -8,8 +8,10 @@ import com.mobilemovement.kotlintvmaze.data.ImageViewItem
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase
+import com.mobilemovement.kotlintvmaze.ext.observeOnce
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState
+import com.mobilemovement.kotlintvmaze.util.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -46,9 +48,11 @@ class MainViewModelTest {
             listOf(
                 SeriesViewItem(
                     ShowViewItem(
-                        any(), ImageViewItem(
+                        any(),
+                        ImageViewItem(
                             any()
-                        ), any()
+                        ),
+                        any()
                     )
                 )
             )
@@ -70,9 +74,11 @@ class MainViewModelTest {
                 listOf(
                     SeriesViewItem(
                         ShowViewItem(
-                            any(), ImageViewItem(
+                            any(),
+                            ImageViewItem(
                                 any()
-                            ), any()
+                            ),
+                            any()
                         )
                     )
                 )

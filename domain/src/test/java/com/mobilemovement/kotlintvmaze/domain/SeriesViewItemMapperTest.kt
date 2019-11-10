@@ -31,15 +31,20 @@ class SeriesViewItemMapperTest {
             SeriesViewItem(
                 ShowViewItem(
                     "testname",
-                    ImageViewItem("testoriginal"), "testsummary"
+                    ImageViewItem("testoriginal"),
+                    "testsummary"
                 )
             )
 
         val invocation = mapper.invoke(
             Series(
-                10.0, Show(
-                    1, "testurl", "testname",
-                    Image("testoriginal"), "testsummary"
+                10.0,
+                Show(
+                    1,
+                    "testurl",
+                    "testname",
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
         )
@@ -49,15 +54,20 @@ class SeriesViewItemMapperTest {
             SeriesViewItem(
                 ShowViewItem(
                     "testname",
-                    ImageViewItem("testoriginal"), "testsummary"
+                    ImageViewItem("testoriginal"),
+                    "testsummary"
                 )
             )
         )
         assertThat(slot.captured).isEqualTo(
             Series(
-                10.0, Show(
-                    1, "testurl", "testname",
-                    Image("testoriginal"), "testsummary"
+                10.0,
+                Show(
+                    1,
+                    "testurl",
+                    "testname",
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
         )

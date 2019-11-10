@@ -1,4 +1,4 @@
-package com.mobilemovement.kotlintvmaze.domain
+package com.mobilemovement.kotlintvmaze.util
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

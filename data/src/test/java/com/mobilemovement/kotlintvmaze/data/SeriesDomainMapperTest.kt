@@ -25,16 +25,28 @@ class SeriesDomainMapperTest {
             Series(
                 10.0,
                 Show(
-                    1, "testname", "testurl",
-                    Image("testoriginal"), "testsummary"
+                    1,
+                    "testname",
+                    "testurl",
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
 
         val invocation = mapper.invoke(
             SeriesRaw(
-                10.0, ShowRaw(
-                    1, "testurl", "testname", "testype", "testlanguage",
-                    ImageRaw("testmedium", "testoriginal"), "testsummary"
+                10.0,
+                ShowRaw(
+                    1,
+                    "testurl",
+                    "testname",
+                    "testype",
+                    "testlanguage",
+                    ImageRaw(
+                        "testmedium",
+                        "testoriginal"
+                    ),
+                    "testsummary"
                 )
             )
         )
@@ -44,16 +56,28 @@ class SeriesDomainMapperTest {
             Series(
                 10.0,
                 Show(
-                    1, "testname", "testurl",
-                    Image("testoriginal"), "testsummary"
+                    1,
+                    "testname",
+                    "testurl",
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
         )
         Truth.assertThat(slot.captured).isEqualTo(
             SeriesRaw(
-                10.0, ShowRaw(
-                    1, "testurl", "testname", "testype", "testlanguage",
-                    ImageRaw("testmedium", "testoriginal"), "testsummary"
+                10.0,
+                ShowRaw(
+                    1,
+                    "testurl",
+                    "testname",
+                    "testype",
+                    "testlanguage",
+                    ImageRaw(
+                        "testmedium",
+                        "testoriginal"
+                    ),
+                    "testsummary"
                 )
             )
         )

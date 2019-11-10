@@ -1,6 +1,7 @@
 package com.mobilemovement.kotlintvmaze.data
 
 import com.google.common.truth.Truth.assertThat
+import com.mobilemovement.kotlintvmaze.data.util.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -28,11 +29,18 @@ class SeriesRemoteDataSourceTest {
 
         coEvery { api.searchSeriesAsync(any()) } returns listOf(
             SeriesRaw(
-                10.0, ShowRaw(
-                    1, "testurl", "testname", "testtype", "testlanguage",
+                10.0,
+                ShowRaw(
+                    1,
+                    "testurl",
+                    "testname",
+
+                    "testtype", "testlanguage",
                     ImageRaw(
-                        "testmedium", "testoriginal"
-                    ), "testsummary"
+                        "testmedium",
+                        "testoriginal"
+                    ),
+                    "testsummary"
                 )
             )
         )
@@ -47,11 +55,18 @@ class SeriesRemoteDataSourceTest {
         assertThat(invocation).isEqualTo(
             listOf(
                 SeriesRaw(
-                    10.0, ShowRaw(
-                        1, "testurl", "testname", "testtype", "testlanguage",
+                    10.0,
+                    ShowRaw(
+                        1,
+                        "testurl",
+                        "testname",
+                        "testtype",
+                        "testlanguage",
                         ImageRaw(
-                            "testmedium", "testoriginal"
-                        ), "testsummary"
+                            "testmedium",
+                            "testoriginal"
+                        ),
+                        "testsummary"
                     )
                 )
             )

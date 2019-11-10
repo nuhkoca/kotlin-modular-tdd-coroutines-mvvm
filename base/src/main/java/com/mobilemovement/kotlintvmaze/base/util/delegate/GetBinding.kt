@@ -1,4 +1,4 @@
-package com.mobilemovement.kotlintvmaze.base
+package com.mobilemovement.kotlintvmaze.base.util.delegate
 
 import android.view.View
 import androidx.databinding.DataBindingUtil

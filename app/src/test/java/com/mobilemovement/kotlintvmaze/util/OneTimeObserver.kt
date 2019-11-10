@@ -1,4 +1,4 @@
-package com.mobilemovement.kotlintvmaze
+package com.mobilemovement.kotlintvmaze.util
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

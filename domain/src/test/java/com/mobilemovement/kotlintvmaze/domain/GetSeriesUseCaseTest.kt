@@ -10,6 +10,7 @@ import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.data.Show
 import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase.Params
+import com.mobilemovement.kotlintvmaze.domain.util.CoroutinesTestRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -48,18 +49,24 @@ class GetSeriesUseCaseTest {
 
         coEvery { repository.searchSeriesAsync(any()) } returns listOf(
             Series(
-                10.0, Show(
-                    1, "testurl", "testname",
-                    Image("testoriginal"), "testsummary"
+                10.0,
+                Show(
+                    1,
+                    "testurl",
+                    "testname",
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
         )
 
         every { mapper.invoke(any()) } returns SeriesViewItem(
             ShowViewItem(
-                "testname", ImageViewItem(
+                "testname",
+                ImageViewItem(
                     "testoriginal"
-                ), "testsummary"
+                ),
+                "testsummary"
             )
         )
 
@@ -78,9 +85,11 @@ class GetSeriesUseCaseTest {
                 listOf(
                     SeriesViewItem(
                         ShowViewItem(
-                            "testname", ImageViewItem(
+                            "testname",
+                            ImageViewItem(
                                 "testoriginal"
-                            ), "testsummary"
+                            ),
+                            "testsummary"
                         )
                     )
                 )

@@ -9,6 +9,7 @@ import com.mobilemovement.kotlintvmaze.data.SeriesRaw
 import com.mobilemovement.kotlintvmaze.data.SeriesRemoteDataSource
 import com.mobilemovement.kotlintvmaze.data.Show
 import com.mobilemovement.kotlintvmaze.data.ShowRaw
+import com.mobilemovement.kotlintvmaze.domain.util.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -41,8 +42,16 @@ class SeriesRepositoryTest {
             SeriesRaw(
                 10.0,
                 ShowRaw(
-                    1, "testurl", "testname", "testtype", "testlanguage",
-                    ImageRaw("testmedium", "testoriginal"), "testsummary"
+                    1,
+                    "testurl",
+                    "testname",
+                    "testtype",
+                    "testlanguage",
+                    ImageRaw(
+                        "testmedium",
+                        "testoriginal"
+                    ),
+                    "testsummary"
                 )
             )
         )
@@ -50,8 +59,11 @@ class SeriesRepositoryTest {
         every { mapper.invoke(any()) } returns Series(
             10.0,
             Show(
-                1, "testurl", "testname",
-                Image("testoriginal"), "testsummary"
+                1,
+                "testurl",
+                "testname",
+                Image("testoriginal"),
+                "testsummary"
             )
         )
 
@@ -68,8 +80,11 @@ class SeriesRepositoryTest {
                 Series(
                     10.0,
                     Show(
-                        1, "testurl", "testname",
-                        Image("testoriginal"), "testsummary"
+                        1,
+                        "testurl",
+                        "testname",
+                        Image("testoriginal"),
+                        "testsummary"
                     )
                 )
             )
