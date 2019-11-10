@@ -46,11 +46,11 @@ Users are able to search tv series by query.
 #### In Progress
 *Kotlin DSL doesn't support to write common scripts among all child gradle files at the moment. When it is supported, it will be implemented in the repository.*
 
-### Architecture
+### Architecture :triangular_ruler: 
 * [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
 * [MVVM](https://www.raywenderlich.com/8984-mvvm-on-android)
 
-### Patterns
+### Patterns 
 * [Repository](https://developer.android.com/jetpack/docs/guide)
 * [Observer](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963)
 * [UseCase](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/)
@@ -59,7 +59,7 @@ Users are able to search tv series by query.
 * [SOLID Principle](https://itnext.io/solid-principles-explanation-and-examples-715b975dcad4?gi=79443348411d)
 * [TDD](https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/)
 
-### Technology Stack
+### Technology Stack :hammer_and_wrench: 
 * [Kotlin](https://kotlinlang.org/)
 * [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 * [DataBinding](https://developer.android.com/topic/libraries/data-binding)
@@ -71,7 +71,7 @@ Users are able to search tv series by query.
   * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
   * [ConstraintLayout](https://developer.android.com/training/constraint-layout)
 * [Glide](https://github.com/bumptech/glide)
-* [Mockito](https://site.mockito.org/)
+* [MockK](https://mockk.io/)
 * [Detekt](https://github.com/arturbosch/detekt)
 * [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
 
