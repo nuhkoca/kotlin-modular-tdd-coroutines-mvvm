@@ -29,7 +29,15 @@ android {
     }
 
     sourceSets {
-        getByName("main").java.srcDirs("src/main/kotlin")
+        named("main").configure {
+            java.srcDirs(file("src/main/kotlin"))
+        }
+        named("test").configure {
+            java.srcDirs(file("src/test/kotlin"))
+        }
+        named("androidTest").configure {
+            java.srcDirs(file("src/androidTest/kotlin"))
+        }
     }
 
     packagingOptions {
