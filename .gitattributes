@@ -2,6 +2,9 @@
 # and leave all files detected as binary untouched.
 * text=auto
 
+# Encrypt this report
+report.xml filter=git-crypt diff=git-crypt
+
 #
 # The above will handle all files NOT found below
 #

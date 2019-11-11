@@ -36,7 +36,7 @@ object Versions {
     // LeakCanary
     const val leakcanary = "1.6.3"
 
-    // Static code analysis
+    // Plugins
     const val detekt = "1.1.1"
     const val ben_manes = "0.27.0"
     const val ktlint = "8.2.0"

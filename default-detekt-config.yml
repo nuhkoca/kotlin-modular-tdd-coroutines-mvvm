@@ -1,14 +1,15 @@
 build:
   maxIssues: 10
   weights:
-    # complexity: 2
-    # LongParameterList: 1
-    # style: 1
-    # comments: 1
+  # complexity: 2
+  # LongParameterList: 1
+  # style: 1
+  # comments: 1
 
 processors:
   active: true
   exclude:
+  # - 'DetektProgressListener'
   # - 'FunctionCountProcessor'
   # - 'PropertyCountProcessor'
   # - 'ClassCountProcessor'
@@ -18,10 +19,11 @@ processors:
 console-reports:
   active: true
   exclude:
-  #  - 'ProjectStatisticsReport'
-  #  - 'ComplexityReport'
-  #  - 'NotificationReport'
-  #  - 'FindingsReport'
+    #  - 'ProjectStatisticsReport'
+    #  - 'ComplexityReport'
+    #  - 'NotificationReport'
+    #  - 'FindingsReport'
+    - 'FileBasedFindingsReport'
   #  - 'BuildFailureReport'
 
 comments:
@@ -41,6 +43,8 @@ comments:
     searchInInnerObject: true
     searchInInnerInterface: true
   UndocumentedPublicFunction:
+    active: false
+  UndocumentedPublicProperty:
     active: false
 
 complexity:
@@ -144,9 +148,11 @@ exceptions:
     active: false
   ReturnFromFinally:
     active: false
+    ignoreLabeled: false
   SwallowedException:
     active: false
     ignoredExceptionTypes: 'InterruptedException,NumberFormatException,ParseException,MalformedURLException'
+    allowedExceptionNameRegex: "^(_|(ignore|expected).*)"
   ThrowingExceptionFromFinally:
     active: false
   ThrowingExceptionInMain:
@@ -160,27 +166,30 @@ exceptions:
     active: true
     excludes: "**/test/**,**/androidTest/**,**/*.Test.kt,**/*.Spec.kt,**/*.Spek.kt"
     exceptionNames:
-     - ArrayIndexOutOfBoundsException
-     - Error
-     - Exception
-     - IllegalMonitorStateException
-     - NullPointerException
-     - IndexOutOfBoundsException
-     - RuntimeException
-     - Throwable
+      - ArrayIndexOutOfBoundsException
+      - Error
+      - Exception
+      - IllegalMonitorStateException
+      - NullPointerException
+      - IndexOutOfBoundsException
+      - RuntimeException
+      - Throwable
     allowedExceptionNameRegex: "^(_|(ignore|expected).*)"
   TooGenericExceptionThrown:
     active: true
     exceptionNames:
-     - Error
-     - Exception
-     - Throwable
-     - RuntimeException
+      - Error
+      - Exception
+      - Throwable
+      - RuntimeException
 
 formatting:
   active: true
   android: false
   autoCorrect: true
+  AnnotationOnSeparateLine:
+    active: false
+    autoCorrect: true
   ChainWrapping:
     active: true
     autoCorrect: true
@@ -194,8 +203,9 @@ formatting:
     autoCorrect: true
   ImportOrdering:
     active: false
+    autoCorrect: true
   Indentation:
-    active: true
+    active: false
     autoCorrect: true
     indentSize: 4
     continuationIndentSize: 4
@@ -203,6 +213,9 @@ formatting:
     active: true
     maxLineLength: 120
   ModifierOrdering:
+    active: true
+    autoCorrect: true
+  MultiLineIfElse:
     active: true
     autoCorrect: true
   NoBlankLineBeforeRbrace:
@@ -214,8 +227,6 @@ formatting:
   NoEmptyClassBody:
     active: true
     autoCorrect: true
-  NoItParamInMultilineLambda:
-    active: false
   NoLineBreakAfterElse:
     active: true
     autoCorrect: true
@@ -239,7 +250,6 @@ formatting:
     autoCorrect: true
   NoWildcardImports:
     active: true
-    autoCorrect: true
   PackageName:
     active: true
     autoCorrect: true
@@ -254,6 +264,9 @@ formatting:
     active: true
     autoCorrect: true
   SpacingAroundCurly:
+    active: true
+    autoCorrect: true
+  SpacingAroundDot:
     active: true
     autoCorrect: true
   SpacingAroundKeyword:
@@ -367,6 +380,8 @@ performance:
 
 potential-bugs:
   active: true
+  Deprecation:
+    active: false
   DuplicateCaseInWhenExpression:
     active: true
   EqualsAlwaysReturnsTrueOrFalse:
@@ -375,6 +390,8 @@ potential-bugs:
     active: true
   ExplicitGarbageCollectionCall:
     active: true
+  HasPlatformType:
+    active: false
   InvalidRange:
     active: false
   IteratorHasNextCallsNextMethod:
@@ -387,6 +404,8 @@ potential-bugs:
     excludeAnnotatedProperties: ""
     ignoreOnClassesPattern: ""
   MissingWhenCase:
+    active: false
+  RedundantElseInWhen:
     active: false
   UnconditionalJumpStatementInLoop:
     active: false
@@ -422,16 +441,22 @@ style:
   ForbiddenComment:
     active: true
     values: 'TODO:,FIXME:,STOPSHIP:'
+    allowedPatterns: ""
   ForbiddenImport:
     active: false
     imports: ''
+    forbiddenPatterns: ""
   ForbiddenVoid:
     active: false
     ignoreOverridden: false
+    ignoreUsageInGenerics: false
   FunctionOnlyReturningConstant:
     active: false
     ignoreOverridableFunction: true
     excludedFunctions: 'describeContents'
+    excludeAnnotatedFunction: "dagger.Provides"
+  LibraryCodeMustSpecifyReturnType:
+    active: false
   LoopWithTooManyJumpStatements:
     active: false
     maxJumpCount: 1
@@ -475,6 +500,8 @@ style:
     active: false
   ProtectedMemberInFinalClass:
     active: false
+  RedundantExplicitType:
+    active: false
   RedundantVisibilityModifierRule:
     active: false
   ReturnCount:
@@ -483,6 +510,7 @@ style:
     excludedFunctions: "equals"
     excludeLabeled: false
     excludeReturnFromLambda: true
+    excludeGuardClauses: false
   SafeCast:
     active: true
   SerialVersionUIDInSerializableClass:
@@ -517,11 +545,16 @@ style:
   UnusedPrivateMember:
     active: false
     allowedNames: "(_|ignored|expected|serialVersionUID)"
+  UseArrayLiteralsInAnnotations:
+    active: false
   UseCheckOrError:
     active: false
   UseDataClass:
     active: false
     excludeAnnotatedClasses: ""
+    allowVars: false
+  UseIfInsteadOfWhen:
+    active: false
   UseRequire:
     active: false
   UselessCallOnNotNull:
