@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mobilemovement.kotlintvmaze">
 
-  <dist:module dist:instant="true"/>
+  <dist:module dist:instant="true" />
 
-  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.INTERNET" />
 
   <application
       android:name=".MazeApp"
       android:allowBackup="false"
       android:icon="@mipmap/ic_launcher"
       android:label="@string/app_name"
+      android:resizeableActivity="false"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
@@ -22,9 +23,9 @@
         android:name=".ui.MainActivity"
         android:windowSoftInputMode="adjustResize">
       <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
+        <action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER"/>
+        <category android:name="android.intent.category.LAUNCHER" />
       </intent-filter>
     </activity>
   </application>

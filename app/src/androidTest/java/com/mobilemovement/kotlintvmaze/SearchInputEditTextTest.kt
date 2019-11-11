@@ -33,13 +33,13 @@ class SearchInputEditTextTest {
     }
 
     @Test
-    fun `SearchInputEditText has focus at first start`() {
+    fun searchInputEditText_hasFocus_atFirstStart() {
         searchTextInputEditText.requestFocus()
         onView(allOf(isAssignableFrom(TextInputEditText::class.java))).check(matches(hasFocus()))
     }
 
     @Test
-    fun `SearchInputEditText does not have any focus`() {
+    fun searchInputEditText_doesNot_have_anyFocus() {
         searchTextInputEditText.clearFocus()
         onView(allOf(isAssignableFrom(TextInputEditText::class.java))).check(matches(hasFocus()))
     }

@@ -1,4 +1,6 @@
 version: 2.1
+orbs:
+  codecov: codecov/codecov@1.0.5
 jobs:
   build:
     working_directory: ~/code
@@ -43,6 +45,9 @@ jobs:
       - run:
           name: Create build report
           command: ./gradlew build --scan
+      - codecov/upload:
+          file: report.xml
+          flags: android
       - store_artifacts:
           path: app/build/reports
           destination: reports

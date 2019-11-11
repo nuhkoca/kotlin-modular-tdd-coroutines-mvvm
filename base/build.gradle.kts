@@ -84,7 +84,7 @@ dependencies {
 
     implementation(Dependencies.lifecycle_extensions)
 
-    implementation(Dependencies.timber)
+    implementation(Dependencies.timberkt)
 
     implementation(Dependencies.glide)
     implementation(Dependencies.glide_okhttp) {

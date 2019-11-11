@@ -3,8 +3,10 @@ package com.mobilemovement.kotlintvmaze.base.util.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.view.KeyEvent
+import android.view.KeyEvent.ACTION_DOWN
 import android.view.KeyEvent.ACTION_UP
 import android.view.KeyEvent.KEYCODE_BACK
+import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.View.OnFocusChangeListener
 import android.view.inputmethod.EditorInfo.IME_ACTION_DONE
 import android.view.inputmethod.EditorInfo.IME_ACTION_NEXT
@@ -29,7 +31,10 @@ class SearchTextInputEditText @JvmOverloads constructor(
         isFocusable = true
         isFocusableInTouchMode = true
         setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == IME_ACTION_DONE || actionId == IME_ACTION_NEXT || actionId == IME_ACTION_SEARCH) {
+            if (actionId == IME_ACTION_DONE ||
+                actionId == IME_ACTION_NEXT ||
+                actionId == IME_ACTION_SEARCH
+            ) {
                 handleAction()
                 return@setOnEditorActionListener true
             }
@@ -42,7 +47,7 @@ class SearchTextInputEditText @JvmOverloads constructor(
             }
         }
         setOnKeyListener { _, keyCode, keyEvent ->
-            if (keyEvent.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+            if (keyEvent.action == ACTION_DOWN && keyCode == KEYCODE_ENTER) {
                 handleAction()
                 return@setOnKeyListener true
             }
