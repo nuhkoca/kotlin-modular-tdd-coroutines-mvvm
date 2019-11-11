@@ -31,7 +31,6 @@ object Versions {
     const val glide = "4.10.0"
 
     // Timber
-    const val timber = "4.7.1"
     const val timberkt = "1.5.1"
 
     // LeakCanary

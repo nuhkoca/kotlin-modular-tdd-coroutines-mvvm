@@ -1,8 +1,8 @@
 package com.mobilemovement.kotlintvmaze.base.util
 
+import com.github.ajalt.timberkt.Timber
+import com.github.ajalt.timberkt.Timber.DebugTree
 import com.mobilemovement.kotlintvmaze.base.BuildConfig.DEBUG
-import timber.log.Timber
-import timber.log.Timber.DebugTree
 
 object TimberFactory {
     fun setupOnDebug() {

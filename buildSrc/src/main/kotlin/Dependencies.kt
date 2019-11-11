@@ -42,7 +42,6 @@ object Dependencies {
         "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.leakcanary}"
 
     // Timber
-    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
     const val timberkt = "com.github.ajalt:timberkt:${Versions.timberkt}"
 
     // Glide

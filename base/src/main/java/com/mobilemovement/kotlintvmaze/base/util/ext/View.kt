@@ -1,6 +1,6 @@
 package com.mobilemovement.kotlintvmaze.base.util.ext
 
-import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.view.View
 import android.view.View.GONE
 import android.view.View.INVISIBLE
@@ -29,15 +29,16 @@ fun View.show() {
     visibility = VISIBLE
 }
 
-fun View.hide() {
-    visibility = GONE
-}
-
 fun View.invisible() {
     visibility = INVISIBLE
 }
 
+fun View.hide() {
+    visibility = GONE
+}
+
 fun View.hideKeyBoard() {
-    val inputMethodManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val inputMethodManager =
+        context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(windowToken, 0)
 }

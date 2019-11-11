@@ -29,10 +29,11 @@ object FluidContentResizer {
 
         heightAnimator.cancel()
 
-        heightAnimator = ObjectAnimator.ofInt(event.contentHeightBeforeResize, event.contentHeight).apply {
-            interpolator = FastOutSlowInInterpolator()
-            duration = DURATION_DEFAULT
-        }
+        heightAnimator =
+            ObjectAnimator.ofInt(event.contentHeightBeforeResize, event.contentHeight).apply {
+                interpolator = FastOutSlowInInterpolator()
+                duration = DURATION_DEFAULT
+            }
         heightAnimator.addUpdateListener { contentView.setHeight(it.animatedValue as Int) }
         heightAnimator.start()
     }
