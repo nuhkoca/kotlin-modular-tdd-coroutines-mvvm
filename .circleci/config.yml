@@ -46,7 +46,7 @@ jobs:
           name: Create build report
           command: ./gradlew build --scan
       - codecov/upload:
-          file: coverage.xml
+          file: ./app/build/reports/coverage/debug/report.xml
           flags: android
       - store_artifacts:
           path: app/build/reports
