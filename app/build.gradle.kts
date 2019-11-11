@@ -26,10 +26,12 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            isTestCoverageEnabled = false
         }
         getByName("debug") {
             isMinifyEnabled = false
             isDebuggable = true
+            isTestCoverageEnabled = true
         }
     }
 

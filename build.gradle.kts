@@ -23,6 +23,7 @@ plugins {
     id("com.github.ben-manes.versions") version Versions.ben_manes
     id("org.jlleitschuh.gradle.ktlint-idea") version Versions.ktlint
     `build-scan`
+    jacoco
 }
 
 allprojects {
@@ -36,7 +37,14 @@ tasks.register("clean", Delete::class) {
     delete = setOf(rootProject.buildDir)
 }
 
-tasks.register("testAll") { dependsOn("clean", "build", "test", "connectedAndroidTest") }
+val testAll by tasks.registering {
+    group = "verification"
+    description = "Runs all the tests."
+
+    "${subprojects.forEach {
+        dependsOn(":${it.name}:clean", ":${it.name}:build", ":${it.name}:test")
+    }}"
+}
 
 subprojects {
     apply(from = "$rootDir/versions.gradle.kts")
