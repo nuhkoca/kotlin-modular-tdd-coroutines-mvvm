@@ -28,8 +28,7 @@ class SeriesDomainMapperTest {
                     1,
                     "testname",
                     "testurl",
-                    Image("testoriginal"),
-                    "testsummary"
+                    Image("testoriginal"), "testsummary"
                 )
             )
 
@@ -45,8 +44,7 @@ class SeriesDomainMapperTest {
                     ImageRaw(
                         "testmedium",
                         "testoriginal"
-                    ),
-                    "testsummary"
+                    ), "testsummary"
                 )
             )
         )
@@ -59,8 +57,7 @@ class SeriesDomainMapperTest {
                     1,
                     "testname",
                     "testurl",
-                    Image("testoriginal"),
-                    "testsummary"
+                    Image("testoriginal"), "testsummary"
                 )
             )
         )
@@ -76,8 +73,7 @@ class SeriesDomainMapperTest {
                     ImageRaw(
                         "testmedium",
                         "testoriginal"
-                    ),
-                    "testsummary"
+                    ), "testsummary"
                 )
             )
         )
