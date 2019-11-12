@@ -1,11 +1,11 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 @file:Suppress("UnstableApiUsage")
 
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
 
@@ -119,23 +119,11 @@ tasks {
         exclude("buildSrc/settings.gradle.kts")
     }
 
-    named<DependencyUpdatesTask>("dependencyUpdates") {
+    withType<DependencyUpdatesTask> {
         resolutionStrategy {
             componentSelection {
                 all {
-                    val rejected = listOf(
-                        "alpha",
-                        "beta",
-                        "rc",
-                        "cr",
-                        "m",
-                        "preview",
-                        "b",
-                        "ea"
-                    ).any { qualifier ->
-                        candidate.version.matches(Regex("(?i).*[.-]$qualifier[.\\d-+]*"))
-                    }
-                    if (rejected) {
+                    if (isNonStable(candidate.version) && !isNonStable(currentVersion)) {
                         reject("Release candidate")
                     }
                 }
@@ -155,6 +143,19 @@ tasks {
             html.isEnabled = true
             html.destination = file("$buildDir/jacoco/reports.html")
         }
+
+        afterEvaluate {
+            classDirectories.setFrom(files(classDirectories.files.map {
+                fileTree(it).apply {
+                    exclude(
+                        "**/*_Provide*/**",
+                        "**/*_Factory*/**",
+                        "**/*_MembersInjector.class",
+                        "**/*Dagger*"
+                    )
+                }
+            }))
+        }
     }
 
     withType<JacocoCoverageVerification> {
@@ -165,6 +166,19 @@ tasks {
                 }
             }
         }
+
+        afterEvaluate {
+            classDirectories.setFrom(files(classDirectories.files.map {
+                fileTree(it).apply {
+                    exclude(
+                        "**/*_Provide*/**",
+                        "**/*_Factory*/**",
+                        "**/*_MembersInjector.class",
+                        "**/*Dagger*"
+                    )
+                }
+            }))
+        }
     }
 
     withType<Test> {
@@ -172,4 +186,11 @@ tasks {
             isIncludeNoLocationClasses = true
         }
     }
+}
+
+fun isNonStable(version: String): Boolean {
+    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
+    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    val isStable = stableKeyword || regex.matches(version)
+    return isStable.not()
 }
