@@ -66,11 +66,11 @@ object DataModule {
     @Provides
     @Singleton
     internal fun provideRetrofit(gson: Gson, okHttpClient: Lazy<OkHttpClient>): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(BuildConfig.baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .delegatingCallFactory(okHttpClient)
-            .build()
+        return Retrofit.Builder().apply {
+            baseUrl(BuildConfig.baseUrl)
+            addConverterFactory(GsonConverterFactory.create(gson))
+            delegatingCallFactory(okHttpClient)
+        }.build()
     }
 
     @Provides
