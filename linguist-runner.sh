@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-for commit in $(git --no-pager log --reverse --after="2019-06-25T00:00:00-03:00" --pretty=format:%H)
+for commit in $(git --no-pager log --reverse --after="2019-11-01T00:00:00-03:00" --pretty=format:%H)
 do
   echo ${commit}
   git checkout ${commit}

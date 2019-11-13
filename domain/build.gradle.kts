@@ -71,11 +71,9 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     api(project(Modules.base))
-    api(project(Modules.data))
+    implementation(project(Modules.data))
 
-    api(Dependencies.kotlin)
-
-    api(Dependencies.coroutines_android)
+    kapt(Dependencies.dagger_compiler)
 
     testImplementation(TestDependencies.truth_ext)
     testImplementation(TestDependencies.mockK)

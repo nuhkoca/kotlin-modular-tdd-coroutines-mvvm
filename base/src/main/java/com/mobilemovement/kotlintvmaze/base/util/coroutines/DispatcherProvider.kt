@@ -1,13 +1,12 @@
 package com.mobilemovement.kotlintvmaze.base.util.coroutines
 
-import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 
 interface DispatcherProvider {
-    fun main(): CoroutineContext
 
-    fun ui(): CoroutineContext
-
-    fun io(): CoroutineContext
-
-    fun default(): CoroutineContext
+    fun main(): CoroutineDispatcher = Dispatchers.Main
+    fun default(): CoroutineDispatcher = Dispatchers.Default
+    fun io(): CoroutineDispatcher = Dispatchers.IO
+    fun unconfined(): CoroutineDispatcher = Dispatchers.Unconfined
 }

@@ -18,15 +18,15 @@ import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class GetSeriesUseCaseTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
 
@@ -45,60 +45,61 @@ class GetSeriesUseCaseTest {
     }
 
     @Test
-    fun `GetSeriesUseCase returns series from remote data`() = runBlocking {
+    fun `GetSeriesUseCase returns series from remote data`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
 
-        coEvery { repository.searchSeriesAsync(any()) } returns listOf(
-            Series(
-                10.0,
-                Show(
-                    1,
-                    "testurl",
+            coEvery { repository.searchSeriesAsync(any()) } returns listOf(
+                Series(
+                    10.0,
+                    Show(
+                        1,
+                        "testurl",
+                        "testname",
+                        Image("testoriginal"),
+                        "testsummary"
+                    )
+                )
+            )
+
+            every { mapper.invoke(any()) } returns SeriesViewItem(
+                ShowViewItem(
                     "testname",
-                    Image("testoriginal"),
+                    ImageViewItem(
+                        "testoriginal"
+                    ),
                     "testsummary"
                 )
             )
-        )
 
-        every { mapper.invoke(any()) } returns SeriesViewItem(
-            ShowViewItem(
-                "testname",
-                ImageViewItem(
-                    "testoriginal"
-                ),
-                "testsummary"
-            )
-        )
+            every { factory.createApiErrorMessage(any()) } returns ""
 
-        every { factory.createApiErrorMessage(any()) } returns ""
+            val useCase = GetSeriesUseCase(repository, mapper, factory)
 
-        val useCase = GetSeriesUseCase(repository, mapper, factory)
+            useCase.executeAsync(Params(QUERY))
 
-        useCase.executeAsync(Params(QUERY))
+            coVerify { repository.searchSeriesAsync(any()) }
+            verify { mapper.invoke(any()) }
 
-        coVerify { repository.searchSeriesAsync(any()) }
-        verify { mapper.invoke(any()) }
-
-        assertThat(useCase.executeAsync(Params(QUERY))).isNotNull()
-        assertThat(useCase.executeAsync(Params(QUERY))).isEqualTo(
-            Resource.success(
-                listOf(
-                    SeriesViewItem(
-                        ShowViewItem(
-                            "testname",
-                            ImageViewItem(
-                                "testoriginal"
-                            ),
-                            "testsummary"
+            assertThat(useCase.executeAsync(Params(QUERY))).isNotNull()
+            assertThat(useCase.executeAsync(Params(QUERY))).isEqualTo(
+                Resource.success(
+                    listOf(
+                        SeriesViewItem(
+                            ShowViewItem(
+                                "testname",
+                                ImageViewItem(
+                                    "testoriginal"
+                                ),
+                                "testsummary"
+                            )
                         )
                     )
                 )
             )
-        )
-    }
+        }
 
     @Test
-    fun `GetSeriesUseCase throws error`() = runBlocking {
+    fun `GetSeriesUseCase throws error`() = coroutinesTestRule.testDispatcher.runBlockingTest {
 
         coEvery { repository.searchSeriesAsync(any()) } throws NullPointerException("null")
 

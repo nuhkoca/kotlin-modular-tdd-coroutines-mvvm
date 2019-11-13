@@ -32,7 +32,7 @@ object Dependencies {
     // Lifecycle
     const val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
-    const val lifecycle_viewmodel = "androidx.lifecycle:lifecycle-viewmodel:${Versions.lifecycle}"
+    const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle}"
     const val lifecycle_viewmodel_ktx =
         "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
 
@@ -53,7 +53,7 @@ object Dependencies {
 object TestDependencies {
     // Core library
     const val test_core = "androidx.test:core:${Versions.test_core}"
-    const val arch_core = "android.arch.core:core-testing:${Versions.arch_core}"
+    const val arch_core = "androidx.arch.core:core-testing:${Versions.arch_core}"
     const val coroutines_core =
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines_core}"
 

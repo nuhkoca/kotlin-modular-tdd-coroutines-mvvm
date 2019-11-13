@@ -51,9 +51,10 @@ Users are able to search tv series by query.
 * [MVVM](https://www.raywenderlich.com/8984-mvvm-on-android)
 
 ### Patterns 
-* [Repository](https://developer.android.com/jetpack/docs/guide)
-* [Observer](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963)
-* [UseCase](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/)
+* [Repository Pattern](https://developer.android.com/jetpack/docs/guide)
+* [Observer Pattern](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963)
+* [UseCase Pattern](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/)
+* [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern)
 
 ### Approaches
 * [SOLID Principle](https://itnext.io/solid-principles-explanation-and-examples-715b975dcad4?gi=79443348411d)

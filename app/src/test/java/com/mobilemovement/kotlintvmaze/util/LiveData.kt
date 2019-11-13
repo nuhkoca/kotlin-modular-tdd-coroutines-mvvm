@@ -1,7 +1,6 @@
-package com.mobilemovement.kotlintvmaze.ext
+package com.mobilemovement.kotlintvmaze.util
 
 import androidx.lifecycle.LiveData
-import com.mobilemovement.kotlintvmaze.util.OneTimeObserver
 
 fun <T> LiveData<T>.observeOnce(onChangeHandler: (T) -> Unit) {
     val observer = OneTimeObserver(handler = onChangeHandler)

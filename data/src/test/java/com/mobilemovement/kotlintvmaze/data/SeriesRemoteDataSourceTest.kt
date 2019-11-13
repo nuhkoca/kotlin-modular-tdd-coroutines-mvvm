@@ -6,15 +6,15 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class SeriesRemoteDataSourceTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
 
@@ -24,44 +24,20 @@ class SeriesRemoteDataSourceTest {
     }
 
     @Test
-    fun `SeriesRemoteDataSource fetches list of series`() = runBlocking {
-        val api = mockk<MazeService>()
+    fun `SeriesRemoteDataSource fetches list of series`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
 
-        coEvery { api.searchSeriesAsync(any()) } returns listOf(
-            SeriesRaw(
-                10.0,
-                ShowRaw(
-                    1,
-                    "testurl",
-                    "testname",
+            val api = mockk<MazeService>()
 
-                    "testtype", "testlanguage",
-                    ImageRaw(
-                        "testmedium",
-                        "testoriginal"
-                    ),
-                    "testsummary"
-                )
-            )
-        )
-
-        val dataSource = SeriesRemoteDataSource(api)
-
-        val invocation = dataSource.searchSeriesAsync(QUERY)
-
-        coVerify { api.searchSeriesAsync(any()) }
-
-        assertThat(invocation).isNotNull()
-        assertThat(invocation).isEqualTo(
-            listOf(
+            coEvery { api.searchSeriesAsync(any()) } returns listOf(
                 SeriesRaw(
                     10.0,
                     ShowRaw(
                         1,
                         "testurl",
                         "testname",
-                        "testtype",
-                        "testlanguage",
+
+                        "testtype", "testlanguage",
                         ImageRaw(
                             "testmedium",
                             "testoriginal"
@@ -70,8 +46,34 @@ class SeriesRemoteDataSourceTest {
                     )
                 )
             )
-        )
-    }
+
+            val dataSource = SeriesRemoteDataSource(api)
+
+            val invocation = dataSource.searchSeriesAsync(QUERY)
+
+            coVerify { api.searchSeriesAsync(any()) }
+
+            assertThat(invocation).isNotNull()
+            assertThat(invocation).isEqualTo(
+                listOf(
+                    SeriesRaw(
+                        10.0,
+                        ShowRaw(
+                            1,
+                            "testurl",
+                            "testname",
+                            "testtype",
+                            "testlanguage",
+                            ImageRaw(
+                                "testmedium",
+                                "testoriginal"
+                            ),
+                            "testsummary"
+                        )
+                    )
+                )
+            )
+        }
 
     @After
     fun tearDown() {

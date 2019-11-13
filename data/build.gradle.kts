@@ -77,17 +77,12 @@ dependencies {
 
     api(project(Modules.base))
 
-    api(Dependencies.kotlin)
-
-    api(Dependencies.coroutines_android)
-
-    api(Dependencies.dagger_android_support)
     kapt(Dependencies.dagger_compiler)
 
-    implementation(Dependencies.gson)
-    implementation(Dependencies.retrofit)
-    implementation(Dependencies.okHttp)
-    implementation(Dependencies.logging)
+    api(Dependencies.gson)
+    api(Dependencies.retrofit)
+    api(Dependencies.okHttp)
+    api(Dependencies.logging)
 
     testImplementation(TestDependencies.truth_ext)
     testImplementation(TestDependencies.mockK)

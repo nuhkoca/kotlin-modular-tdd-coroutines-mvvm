@@ -5,9 +5,12 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.detekt
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val userHome: String = System.getProperty("user.home")
 
 buildscript {
     repositories {
@@ -23,7 +26,7 @@ buildscript {
 plugins {
     id("io.gitlab.arturbosch.detekt") version Versions.detekt
     id("com.github.ben-manes.versions") version Versions.ben_manes
-    id("org.jlleitschuh.gradle.ktlint-idea") version Versions.ktlint
+    id("org.jlleitschuh.gradle.ktlint") version Versions.ktlint
     `build-scan`
     jacoco
 }
@@ -40,13 +43,26 @@ val testAll by tasks.registering {
     description = "Runs all the tests."
 
     "${subprojects.forEach {
-        dependsOn(":${it.name}:clean", ":${it.name}:build", ":${it.name}:test")
+        dependsOn(
+            ":${it.name}:clean",
+            ":${it.name}:build",
+            ":${it.name}:test",
+            ":${it.name}:connectedAndroidTest"
+        )
     }}"
 }
 
 subprojects {
-    apply(from = "$rootDir/versions.gradle.kts")
-    apply(plugin = "org.jlleitschuh.gradle.ktlint")
+    apply {
+        from("$rootDir/versions.gradle.kts")
+        plugin("org.jlleitschuh.gradle.ktlint")
+        plugin("io.gitlab.arturbosch.detekt")
+        plugin("jacoco")
+    }
+
+    ktlint {
+        debug.set(true)
+    }
 
     tasks {
         withType<JavaCompile> {
@@ -65,15 +81,35 @@ subprojects {
         withType<KotlinCompile> {
             kotlinOptions {
                 jvmTarget = javaVersion.toString()
-                allWarningsAsErrors = true
+                // https://youtrack.jetbrains.com/issue/KT-24946
+                kotlinOptions.freeCompilerArgs = listOf(
+                    "-progressive",
+                    "-Xskip-runtime-version-check",
+                    "-Xdisable-default-scripting-plugin",
+                    "-Xuse-experimental=kotlin.Experimental"
+                )
+                kotlinOptions.allWarningsAsErrors = shouldTreatCompilerWarningsAsErrors()
             }
         }
 
         withType<Test> {
             testLogging {
-                events("started", "skipped", "passed", "failed")
-                setExceptionFormat("full")
-                showStandardStreams = true
+                // set options for log level LIFECYCLE
+                events = setOf(
+                    TestLogEvent.FAILED,
+                    TestLogEvent.STARTED,
+                    TestLogEvent.PASSED,
+                    TestLogEvent.SKIPPED,
+                    TestLogEvent.STANDARD_OUT
+                )
+                exceptionFormat = TestExceptionFormat.FULL
+                showExceptions = true
+                showCauses = true
+                showStackTraces = true
+            }
+
+            configure<JacocoTaskExtension> {
+                isIncludeNoLocationClasses = true
             }
         }
     }
@@ -81,8 +117,10 @@ subprojects {
 
 detekt {
     toolVersion = Versions.detekt
+    baseline = file("$rootDir/config/detekt/baseline.xml")
     input = files("$projectDir")
     config = files("$rootDir/default-detekt-config.yml")
+
     reports {
         xml {
             enabled = true
@@ -93,15 +131,25 @@ detekt {
             destination = file("$buildDir/reports/detekt/detekt-report.html")
         }
     }
+
+    idea {
+        path = "$userHome/.idea"
+        codeStyleScheme = "$userHome/.idea/idea-code-style.xml"
+        inspectionsProfile = "$userHome/.idea/inspect.xml"
+        report = "project.projectDir/reports"
+        mask = "*.kt"
+    }
 }
 
 buildScan {
     termsOfServiceUrl = "https://gradle.com/terms-of-service"
     termsOfServiceAgree = "yes"
+
+    publishAlways()
 }
 
 jacoco {
-    toolVersion = "0.8.5"
+    toolVersion = Versions.jacoco
     reportsDir = file("$buildDir/jacoco/report.xml")
 }
 
@@ -115,8 +163,8 @@ tasks {
         include("**/*.kts")
         exclude(".*/resources/.*")
         exclude(".*/build/.*")
-        exclude("/versions.gradle.kts")
-        exclude("buildSrc/settings.gradle.kts")
+
+        jvmTarget = javaVersion.toString()
     }
 
     withType<DependencyUpdatesTask> {
@@ -141,7 +189,7 @@ tasks {
             xml.isEnabled = false
             csv.isEnabled = false
             html.isEnabled = true
-            html.destination = file("$buildDir/jacoco/reports.html")
+            html.destination = file("$buildDir/reports/jacoco/report.html")
         }
 
         afterEvaluate {
@@ -193,4 +241,47 @@ fun isNonStable(version: String): Boolean {
     val regex = "^[0-9,.v-]+(-r)?$".toRegex()
     val isStable = stableKeyword || regex.matches(version)
     return isStable.not()
+}
+
+/**
+ * Usage: <code>./gradlew build -PwarningsAsErrors=true</code>.
+ */
+fun shouldTreatCompilerWarningsAsErrors(): Boolean {
+    return project.findProperty("warningsAsErrors") == "true"
+}
+
+val detektFormat by tasks.registering(Detekt::class) {
+    description = "Reformats whole code base."
+    parallel = true
+    disableDefaultRuleSets = true
+    buildUponDefaultConfig = true
+    autoCorrect = true
+    setSource(files(projectDir))
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("**/resources/**")
+    exclude("**/build/**")
+    config.setFrom(files("$rootDir/config/detekt/format.yml"))
+    reports {
+        xml.enabled = false
+        html.enabled = false
+        txt.enabled = false
+    }
+}
+
+val detektAll by tasks.registering(Detekt::class) {
+    description = "Runs over whole code base without the starting overhead for each module."
+    parallel = true
+    buildUponDefaultConfig = true
+    setSource(files(projectDir))
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("**/resources/**")
+    exclude("**/build/**")
+    baseline.set(file("$rootDir/config/detekt/baseline.xml"))
+    reports {
+        xml.enabled = false
+        html.enabled = false
+        txt.enabled = false
+    }
 }

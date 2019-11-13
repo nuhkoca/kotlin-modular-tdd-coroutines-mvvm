@@ -16,15 +16,15 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class SeriesRepositoryTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
 
@@ -34,62 +34,64 @@ class SeriesRepositoryTest {
     }
 
     @Test
-    fun `SeriesRepository returns list of series`() = runBlocking {
-        val dataSource = mockk<SeriesRemoteDataSource>()
-        val mapper = mockk<SeriesDomainMapper>()
+    fun `SeriesRepository returns list of series`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
 
-        coEvery { dataSource.searchSeriesAsync(any()) } returns listOf(
-            SeriesRaw(
-                10.0,
-                ShowRaw(
-                    1,
-                    "testurl",
-                    "testname",
-                    "testtype",
-                    "testlanguage",
-                    ImageRaw(
-                        "testmedium",
-                        "testoriginal"
-                    ),
-                    "testsummary"
-                )
-            )
-        )
+            val dataSource = mockk<SeriesRemoteDataSource>()
+            val mapper = mockk<SeriesDomainMapper>()
 
-        every { mapper.invoke(any()) } returns Series(
-            10.0,
-            Show(
-                1,
-                "testurl",
-                "testname",
-                Image("testoriginal"),
-                "testsummary"
-            )
-        )
-
-        val repository = SeriesRepositoryImpl(dataSource, mapper)
-
-        repository.searchSeriesAsync(QUERY)
-
-        coVerify { dataSource.searchSeriesAsync(any()) }
-        verify { mapper.invoke(any()) }
-
-        assertThat(repository.searchSeriesAsync(QUERY)).isNotNull()
-        assertThat(repository.searchSeriesAsync(QUERY)).isEqualTo(
-            listOf(
-                Series(
+            coEvery { dataSource.searchSeriesAsync(any()) } returns listOf(
+                SeriesRaw(
                     10.0,
-                    Show(
+                    ShowRaw(
                         1,
                         "testurl",
                         "testname",
-                        Image("testoriginal"),
+                        "testtype",
+                        "testlanguage",
+                        ImageRaw(
+                            "testmedium",
+                            "testoriginal"
+                        ),
                         "testsummary"
                     )
                 )
             )
-        )
-    }
+
+            every { mapper.invoke(any()) } returns Series(
+                10.0,
+                Show(
+                    1,
+                    "testurl",
+                    "testname",
+                    Image("testoriginal"),
+                    "testsummary"
+                )
+            )
+
+            val repository = SeriesRepositoryImpl(dataSource, mapper)
+
+            repository.searchSeriesAsync(QUERY)
+
+            coVerify { dataSource.searchSeriesAsync(any()) }
+            verify { mapper.invoke(any()) }
+
+            assertThat(repository.searchSeriesAsync(QUERY)).isNotNull()
+            assertThat(repository.searchSeriesAsync(QUERY)).isEqualTo(
+                listOf(
+                    Series(
+                        10.0,
+                        Show(
+                            1,
+                            "testurl",
+                            "testname",
+                            Image("testoriginal"),
+                            "testsummary"
+                        )
+                    )
+                )
+            )
+        }
 
     @After
     fun tearDown() {

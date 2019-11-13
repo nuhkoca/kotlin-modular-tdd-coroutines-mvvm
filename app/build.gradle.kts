@@ -91,39 +91,30 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    api(project(Modules.data))
-    api(project(Modules.domain))
     api(project(Modules.base))
+    api(project(Modules.data))
+    implementation(project(Modules.domain))
 
-    api(Dependencies.kotlin)
-    api(Dependencies.material)
+    implementation(Dependencies.material)
     implementation(Dependencies.constraint_layout)
     implementation(Dependencies.core_ktx)
     implementation(Dependencies.appcompat)
 
-    api(Dependencies.coroutines_core)
-    api(Dependencies.coroutines_android)
+    implementation(Dependencies.coroutines_core)
 
-    api(Dependencies.lifecycle_extensions)
-    implementation(Dependencies.lifecycle_viewmodel)
+    implementation(Dependencies.lifecycle_extensions)
     implementation(Dependencies.lifecycle_viewmodel_ktx)
     kapt(Dependencies.lifecycle_compiler)
 
     implementation(Dependencies.dagger)
     implementation(Dependencies.dagger_android)
-    api(Dependencies.dagger_android_support)
     compileOnly(Dependencies.javax_annotation)
     kapt(Dependencies.dagger_android_processor)
     kapt(Dependencies.dagger_compiler)
 
     implementation(Dependencies.timberkt)
 
-    api(Dependencies.gson)
-    api(Dependencies.retrofit)
-    api(Dependencies.okHttp)
-    api(Dependencies.logging)
-
-    api(Dependencies.glide)
+    implementation(Dependencies.glide)
 
     testImplementation(TestDependencies.test_core)
     testImplementation(TestDependencies.runner)
