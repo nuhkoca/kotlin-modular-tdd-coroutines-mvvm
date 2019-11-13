@@ -40,6 +40,7 @@ object Versions {
     const val detekt = "1.1.1"
     const val ben_manes = "0.27.0"
     const val ktlint = "8.2.0"
+    const val jacoco = "0.8.5"
 
     // Testing
     const val test_core = "1.2.0"
@@ -49,6 +50,6 @@ object Versions {
     const val truth_ext = "1.2.0"
     const val espresso_core = "3.2.0"
     const val mockK = "1.9.3"
-    const val arch_core = "1.1.1"
+    const val arch_core = "2.1.0"
     const val coroutines_core = "1.3.2"
 }

@@ -8,25 +8,25 @@ import com.mobilemovement.kotlintvmaze.data.ImageViewItem
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase
-import com.mobilemovement.kotlintvmaze.ext.observeOnce
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState
 import com.mobilemovement.kotlintvmaze.util.CoroutinesTestRule
+import com.mobilemovement.kotlintvmaze.util.observeOnce
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.mockkObject
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.mockito.ArgumentMatchers.any
 
+@ExperimentalCoroutinesApi
 class MainViewModelTest {
 
-    @ExperimentalCoroutinesApi
     @get:Rule
     val coroutinesTestRule = CoroutinesTestRule()
 
@@ -39,7 +39,7 @@ class MainViewModelTest {
     private lateinit var viewModel: MainViewModel
 
     @Before
-    fun setUp() = runBlocking {
+    fun setUp() = coroutinesTestRule.testDispatcher.runBlockingTest {
         getSeriesUseCase = mockk()
 
         mockkObject(SeriesUiState())

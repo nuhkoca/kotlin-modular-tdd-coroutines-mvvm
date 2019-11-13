@@ -35,7 +35,7 @@ jobs:
           command: ./gradlew detekt
       - run:
           name: Run Ktlint
-          command: ./gradlew ktlintFormat
+          command: ./gradlew ktlintCheck
       - run:
           name: Run Lint
           command: ./gradlew lintDebug
