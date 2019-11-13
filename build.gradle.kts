@@ -163,7 +163,6 @@ tasks {
         include("**/*.kts")
         exclude(".*/resources/.*")
         exclude(".*/build/.*")
-        exclude("/versions.gradle.kts")
 
         jvmTarget = javaVersion.toString()
     }
@@ -262,7 +261,6 @@ val detektFormat by tasks.registering(Detekt::class) {
     include("**/*.kts")
     exclude("**/resources/**")
     exclude("**/build/**")
-    exclude("/versions.gradle.kts")
     config.setFrom(files("$rootDir/config/detekt/format.yml"))
     reports {
         xml.enabled = false
@@ -280,7 +278,6 @@ val detektAll by tasks.registering(Detekt::class) {
     include("**/*.kts")
     exclude("**/resources/**")
     exclude("**/build/**")
-    exclude("/versions.gradle.kts")
     baseline.set(file("$rootDir/config/detekt/baseline.xml"))
     reports {
         xml.enabled = false

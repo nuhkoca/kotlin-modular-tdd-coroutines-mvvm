@@ -1,5 +1,9 @@
+val compileSdkVersion: String by project
+val minSdkVersion: String by project
+val targetSdkVersion: String by project
+
 extra.apply {
-    this["compileSdkVersion"] = 29
-    this["minSdkVersion"] = 21
-    this["targetSdkVersion"] = 29
+    this["compileSdkVersion"] = compileSdkVersion.toInt()
+    this["minSdkVersion"] = minSdkVersion.toInt()
+    this["targetSdkVersion"] = targetSdkVersion.toInt()
 }
