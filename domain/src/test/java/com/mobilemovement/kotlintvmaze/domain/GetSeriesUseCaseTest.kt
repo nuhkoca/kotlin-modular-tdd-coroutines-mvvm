@@ -10,7 +10,7 @@ import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.data.Show
 import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase.Params
-import com.mobilemovement.kotlintvmaze.domain.util.CoroutinesTestRule
+import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
 import io.mockk.coVerify

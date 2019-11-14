@@ -1,7 +1,7 @@
 package com.mobilemovement.kotlintvmaze.data
 
 import com.google.common.truth.Truth.assertThat
-import com.mobilemovement.kotlintvmaze.data.util.CoroutinesTestRule
+import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

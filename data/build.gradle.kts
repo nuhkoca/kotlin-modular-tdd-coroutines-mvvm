@@ -15,7 +15,7 @@ android {
         targetSdkVersion(extra["targetSdkVersion"] as Int)
     }
     buildTypes {
-        getByName("release") {
+        maybeCreate("release").apply {
             isMinifyEnabled = true
             isDebuggable = false
             proguardFiles(
@@ -23,7 +23,7 @@ android {
                 "proguard-rules.pro"
             )
         }
-        getByName("debug") {
+        maybeCreate("debug").apply {
             isMinifyEnabled = false
             isDebuggable = true
         }
@@ -76,6 +76,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     api(project(Modules.base))
+    testImplementation(project(Modules.test_shared))
 
     kapt(Dependencies.dagger_compiler)
 
@@ -86,5 +87,4 @@ dependencies {
 
     testImplementation(TestDependencies.truth_ext)
     testImplementation(TestDependencies.mockK)
-    testImplementation(TestDependencies.coroutines_core)
 }
