@@ -8,10 +8,10 @@ import com.mobilemovement.kotlintvmaze.data.ImageViewItem
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase
+import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
+import com.mobilemovement.kotlintvmaze.shared.test.observeOnce
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel
 import com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState
-import com.mobilemovement.kotlintvmaze.util.CoroutinesTestRule
-import com.mobilemovement.kotlintvmaze.util.observeOnce
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk

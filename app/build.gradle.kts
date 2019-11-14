@@ -19,7 +19,7 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+        maybeCreate("release").apply {
             isMinifyEnabled = true
             isDebuggable = false
             proguardFiles(
@@ -28,7 +28,7 @@ android {
             )
             isTestCoverageEnabled = false
         }
-        getByName("debug") {
+        maybeCreate("debug").apply {
             isMinifyEnabled = false
             isDebuggable = true
             isTestCoverageEnabled = true
@@ -94,6 +94,7 @@ dependencies {
     api(project(Modules.base))
     api(project(Modules.data))
     implementation(project(Modules.domain))
+    testImplementation(project(Modules.test_shared))
 
     implementation(Dependencies.material)
     implementation(Dependencies.constraint_layout)
@@ -118,13 +119,10 @@ dependencies {
 
     testImplementation(TestDependencies.test_core)
     testImplementation(TestDependencies.runner)
-    testImplementation(TestDependencies.rules)
-    testImplementation(TestDependencies.junit)
     testImplementation(TestDependencies.truth_ext)
     testImplementation(TestDependencies.espresso_core)
     testImplementation(TestDependencies.mockK)
     testImplementation(TestDependencies.arch_core)
-    testImplementation(TestDependencies.coroutines_core)
 
     androidTestImplementation(TestDependencies.test_core)
     androidTestImplementation(TestDependencies.rules)

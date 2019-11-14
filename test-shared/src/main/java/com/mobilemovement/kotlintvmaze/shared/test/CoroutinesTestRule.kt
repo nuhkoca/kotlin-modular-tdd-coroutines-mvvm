@@ -1,4 +1,4 @@
-package com.mobilemovement.kotlintvmaze.util
+package com.mobilemovement.kotlintvmaze.shared.test
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

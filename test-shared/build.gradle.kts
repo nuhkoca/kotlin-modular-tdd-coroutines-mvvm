@@ -1,8 +1,6 @@
 plugins {
     id(Plugins.androidLibrary)
     kotlin(Plugins.kotlinAndroid)
-    kotlin(Plugins.kotlinAndroidExtension)
-    kotlin(Plugins.kotlinKapt)
 }
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
@@ -12,7 +10,6 @@ android {
     defaultConfig {
         minSdkVersion(extra["minSdkVersion"] as Int)
         targetSdkVersion(extra["targetSdkVersion"] as Int)
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         maybeCreate("release").apply {
@@ -41,16 +38,6 @@ android {
         }
     }
 
-    testOptions {
-        unitTests.isReturnDefaultValues = true
-        unitTests.isIncludeAndroidResources = true
-        animationsDisabled = true
-    }
-
-    dataBinding {
-        isEnabled = true
-    }
-
     compileOptions {
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
@@ -66,31 +53,15 @@ android {
         disable("OldTargetApi")
         disable("GradleDependency")
     }
-
-    configurations {
-        all {
-            exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
-        }
-    }
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(Dependencies.kotlin)
 
-    api(Dependencies.kotlin)
-    implementation(Dependencies.material)
-
-    implementation(Dependencies.coroutines_core)
-    api(Dependencies.coroutines_android)
-
+    implementation(Dependencies.lifecycle_runtime)
     implementation(Dependencies.lifecycle_extensions)
 
-    implementation(Dependencies.timberkt)
-
-    implementation(Dependencies.glide)
-    implementation(Dependencies.glide_okhttp)
-    kapt(Dependencies.glide_compiler)
-    kapt(Dependencies.android_annotation)
-
-    api(Dependencies.dagger_android_support)
+    implementation(TestDependencies.junit)
+    implementation(TestDependencies.rules)
+    api(TestDependencies.coroutines_core)
 }

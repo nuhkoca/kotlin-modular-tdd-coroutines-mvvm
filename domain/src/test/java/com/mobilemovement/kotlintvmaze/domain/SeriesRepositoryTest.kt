@@ -9,7 +9,7 @@ import com.mobilemovement.kotlintvmaze.data.SeriesRaw
 import com.mobilemovement.kotlintvmaze.data.SeriesRemoteDataSource
 import com.mobilemovement.kotlintvmaze.data.Show
 import com.mobilemovement.kotlintvmaze.data.ShowRaw
-import com.mobilemovement.kotlintvmaze.domain.util.CoroutinesTestRule
+import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
