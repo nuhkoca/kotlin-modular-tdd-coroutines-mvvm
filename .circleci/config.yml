@@ -73,3 +73,12 @@ jobs:
           root: .
           paths:
             - ./app/build
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build_and_setup
+      - run_ftl:
+          requires:
+            - build_and_setup
