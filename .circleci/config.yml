@@ -94,4 +94,4 @@ workflows:
       - build_and_setup:
           filters:
             branches:
-              only: master
+              ignore: develop
