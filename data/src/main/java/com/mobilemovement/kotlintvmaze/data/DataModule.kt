@@ -16,7 +16,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import java.util.concurrent.TimeUnit.SECONDS
+import javax.inject.Qualifier
 import javax.inject.Singleton
+import kotlin.annotation.AnnotationRetention.BINARY
+
+@Retention(BINARY)
+@Qualifier
+private annotation class InternalApi
 
 @Module
 object DataModule {
@@ -24,6 +30,7 @@ object DataModule {
     private const val DEFAULT_TIMEOUT = 60L
     private const val CACHE_SIZE = 10 * 1024 * 1024
 
+    @InternalApi
     @Provides
     @Singleton
     internal fun provideGson(): Gson {
@@ -34,22 +41,25 @@ object DataModule {
         }.create()
     }
 
+    @InternalApi
     @Provides
     @Singleton
     internal fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         return HttpLoggingInterceptor().apply { level = Level.BODY }
     }
 
+    @InternalApi
     @Provides
     internal fun provideCache(context: Context): Cache {
         return checkMainThread { Cache(context.cacheDir, CACHE_SIZE.toLong()) }
     }
 
+    @InternalApi
     @Provides
     @Singleton
     internal fun provideOkHttpClient(
-        cache: Cache,
-        httpLoggingInterceptor: HttpLoggingInterceptor
+        @InternalApi cache: Cache,
+        @InternalApi httpLoggingInterceptor: HttpLoggingInterceptor
     ): OkHttpClient {
         return checkMainThread {
             OkHttpClient.Builder().apply {
@@ -65,7 +75,10 @@ object DataModule {
 
     @Provides
     @Singleton
-    internal fun provideRetrofit(gson: Gson, okHttpClient: Lazy<OkHttpClient>): Retrofit {
+    internal fun provideRetrofit(
+        @InternalApi gson: Gson,
+        @InternalApi okHttpClient: Lazy<OkHttpClient>
+    ): Retrofit {
         return Retrofit.Builder().apply {
             baseUrl(BuildConfig.baseUrl)
             addConverterFactory(GsonConverterFactory.create(gson))
