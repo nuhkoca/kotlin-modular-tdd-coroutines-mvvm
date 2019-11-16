@@ -91,7 +91,4 @@ workflows:
 
   build_and_test:
     jobs:
-      - build_and_setup:
-          filters:
-            branches:
-              only: master
+      - build_and_setup
