@@ -68,10 +68,9 @@ jobs:
           flags: android
       - run:
           name: Save test results
-          command: >-
+          command: |
             mkdir -p ~/junit/
-            find . -type f -regex ".*/build/test-results/.*xml"
-            -exec cp {} ~/junit/ \;
+            find . -type f -regex ".*/build/test-results/.*xml" -exec cp {} ~/junit/ \;
           when: always
       - store_test_results:
           path: ~/junit
