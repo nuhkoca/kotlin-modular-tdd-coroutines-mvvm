@@ -68,7 +68,7 @@ jobs:
           flags: android
       - run:
           name: Save test results
-          command: |
+          command: >-
             mkdir -p ~/junit/
             find . -type f -regex ".*/build/test-results/.*xml"
             -exec cp {} ~/junit/ \;
@@ -94,4 +94,4 @@ workflows:
       - build_and_setup:
           filters:
             branches:
-              ignore: develop
+              only: master
