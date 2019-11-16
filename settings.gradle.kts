@@ -7,3 +7,6 @@ include(Modules.domain)
 include(Modules.base)
 
 include(Modules.test_shared)
+
+rootProject.name = "KotlinTvMaze"
+rootProject.buildFileName = "build.gradle.kts"

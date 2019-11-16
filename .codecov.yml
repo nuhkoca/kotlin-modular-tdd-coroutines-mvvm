@@ -1,4 +1,7 @@
+---
 codecov:
+  ci:
+    - circleci
   require_ci_to_pass: yes
 
 coverage:

@@ -48,7 +48,7 @@ class MazeGlideModule : AppGlideModule() {
 
     private fun requestOptions(): RequestOptions {
         return RequestOptions().apply {
-            signature(ObjectKey(System.currentTimeMillis() / (DEFAULT_SIGNATURE_OBJECT))) // 1 week cache
+            signature(ObjectKey(System.currentTimeMillis() / DEFAULT_SIGNATURE_OBJECT)) // 1 week cache
             centerCrop()
             dontAnimate()
             override(SIZE_ORIGINAL)
