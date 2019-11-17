@@ -8,6 +8,7 @@ import com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem
 import com.mobilemovement.kotlintvmaze.base.util.delegate.DelegateAdapter
 import com.mobilemovement.kotlintvmaze.base.util.ext.fromHtml
 import com.mobilemovement.kotlintvmaze.base.util.ext.inflater
+import com.mobilemovement.kotlintvmaze.base.util.ext.use
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.databinding.LayoutSeriesRowItemBinding
 
@@ -29,12 +30,11 @@ class SeriesAdapter : DelegateAdapter {
         BaseViewHolder<LayoutSeriesRowItemBinding, AdapterItem>(itemView) {
         override fun bindTo(item: AdapterItem) {
             with(item as SeriesViewItem) {
-                dataBinding?.apply {
+                dataBinding.use {
                     tvName.text = show?.name
                     tvSummary.text = show?.summary?.fromHtml()
 
                     imageUrl = show?.image?.original
-                    executePendingBindings()
                 }
             }
         }

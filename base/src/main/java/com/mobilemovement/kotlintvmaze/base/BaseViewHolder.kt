@@ -8,7 +8,7 @@ import com.mobilemovement.kotlintvmaze.base.util.delegate.getBinding
 abstract class BaseViewHolder<DB : ViewDataBinding, T : Any>(itemView: View) :
     ViewHolder(itemView) {
 
-    protected val dataBinding: DB? by getBinding(itemView)
+    protected val dataBinding: DB by getBinding(itemView)
 
     abstract fun bindTo(item: T)
 }

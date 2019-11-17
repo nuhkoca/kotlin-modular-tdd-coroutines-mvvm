@@ -9,13 +9,16 @@ import kotlin.reflect.KProperty
 
 class GetBinding<in V : ViewHolder, out DB : ViewDataBinding>(
     private val itemView: View
-) : ReadOnlyProperty<V, DB?> {
+) : ReadOnlyProperty<V, DB> {
 
-    private var value: DB? = null
+    private var value: Any? = null
 
-    override fun getValue(thisRef: V, property: KProperty<*>): DB? {
-        value = value ?: DataBindingUtil.getBinding(itemView)
-        return value
+    override fun getValue(thisRef: V, property: KProperty<*>): DB {
+        if (value == null) {
+            value = DataBindingUtil.getBinding(itemView)
+        }
+        @Suppress("UNCHECKED_CAST")
+        return value as DB
     }
 }
 
