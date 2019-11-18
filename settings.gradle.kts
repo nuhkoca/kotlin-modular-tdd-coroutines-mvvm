@@ -1,12 +1,4 @@
-include(Modules.app)
-
-include(Modules.data)
-
-include(Modules.domain)
-
-include(Modules.base)
-
-include(Modules.test_shared)
+include(*Modules.getAllModules().toTypedArray())
 
 rootProject.name = "KotlinTvMaze"
 rootProject.buildFileName = "build.gradle.kts"

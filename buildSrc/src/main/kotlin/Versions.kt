@@ -5,7 +5,7 @@ object Versions {
 
     // Gradle plugins
     const val gradle_plugin = "3.5.2"
-    const val kotlin_gradle_plugin = "1.3.50"
+    const val kotlin_gradle_plugin = "1.3.60"
 
     // UI
     const val appcompat = "1.1.0"
@@ -39,7 +39,7 @@ object Versions {
     // Plugins
     const val detekt = "1.1.1"
     const val ben_manes = "0.27.0"
-    const val ktlint = "8.2.0"
+    const val ktlint = "9.1.1"
     const val jacoco = "0.8.5"
 
     // Testing
