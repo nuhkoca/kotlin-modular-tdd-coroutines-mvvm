@@ -2,12 +2,14 @@
 root = true
 
 [*.{kt, kts}]
-indent_size = 4
-continuation_indent_size = 4
-insert_final_newline = true
-trim_trailing_whitespace = true
-end_of_line = lf
-charset = utf-8
+indent_size=4
+continuation_indent_size=4
+insert_final_newline=true
+trim_trailing_whitespace=true
+end_of_line=lf
+charset=utf-8
+# Disabling rules that were added in the latest versions of ktlint
+disabled_rules=import-ordering
 
 [*.md]
-trim_trailing_whitespace = false
+trim_trailing_whitespace=false

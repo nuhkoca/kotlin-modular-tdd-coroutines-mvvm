@@ -94,7 +94,6 @@ dependencies {
     api(project(Modules.base))
     api(project(Modules.data))
     implementation(project(Modules.domain))
-    testImplementation(project(Modules.test_shared))
 
     implementation(Dependencies.material)
     implementation(Dependencies.constraint_layout)
@@ -117,18 +116,13 @@ dependencies {
 
     implementation(Dependencies.glide)
 
-    testImplementation(TestDependencies.test_core)
-    testImplementation(TestDependencies.runner)
-    testImplementation(TestDependencies.truth_ext)
-    testImplementation(TestDependencies.espresso_core)
-    testImplementation(TestDependencies.mockK)
-    testImplementation(TestDependencies.arch_core)
-
     androidTestImplementation(TestDependencies.test_core)
     androidTestImplementation(TestDependencies.rules)
     androidTestImplementation(TestDependencies.junit)
     androidTestImplementation(TestDependencies.truth_ext)
     androidTestImplementation(TestDependencies.espresso_core)
+
+    addTestDependencies()
 }
 
 fun getSemanticAppVersionName(): String {

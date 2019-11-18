@@ -76,7 +76,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
     api(project(Modules.base))
-    testImplementation(project(Modules.test_shared))
 
     kapt(Dependencies.dagger_compiler)
 
@@ -85,6 +84,5 @@ dependencies {
     api(Dependencies.okHttp)
     api(Dependencies.logging)
 
-    testImplementation(TestDependencies.truth_ext)
-    testImplementation(TestDependencies.mockK)
+    addTestDependencies()
 }

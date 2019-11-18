@@ -72,10 +72,8 @@ dependencies {
 
     api(project(Modules.base))
     implementation(project(Modules.data))
-    testImplementation(project(Modules.test_shared))
 
     kapt(Dependencies.dagger_compiler)
 
-    testImplementation(TestDependencies.truth_ext)
-    testImplementation(TestDependencies.mockK)
+    addTestDependencies()
 }
