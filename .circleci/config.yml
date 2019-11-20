@@ -24,6 +24,11 @@ update_sdk: &update_sdk
       yes | sdkmanager --licenses || true
       sdkmanager "platform-tools" "platforms;android-29"
 
+ensure_android_sdk_is_ready: &ensure_android_sdk_is_ready
+  run:
+    name: Ensure Android SDK install is up-to-date
+    command: workspace/repo/.circleci/ci-scripts/ensure-sdkmanager.sh
+
 jobs:
   build_and_setup:
     <<: *config_android
@@ -45,6 +50,7 @@ jobs:
             jars-{{ checksum "build.gradle.kts" }}
             {{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}
             -{{ checksum  "app/build.gradle.kts" }}
+      - <<: *ensure_android_sdk_is_ready
       - run:
           name: Build Debug
           command: ./gradlew assembleDebug

@@ -2,6 +2,7 @@
 
 @file:Suppress("UnstableApiUsage")
 
+import Plugins.Buildscan
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.detekt
@@ -24,9 +25,9 @@ buildscript {
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt") version Versions.detekt
-    id("com.github.ben-manes.versions") version Versions.ben_manes
-    id("org.jlleitschuh.gradle.ktlint") version Versions.ktlint
+    id(Plugins.detekt) version Versions.detekt
+    id(Plugins.ben_manes) version Versions.ben_manes
+    id(Plugins.ktlint) version Versions.ktlint
     `build-scan`
     jacoco
 }
@@ -38,26 +39,27 @@ allprojects {
     }
 }
 
-val testAll by tasks.registering {
-    group = "verification"
-    description = "Runs all the tests."
+task("testAll") {
+    description = "Runs all the tests per modules."
 
-    "${subprojects.forEach {
-        dependsOn(
-            ":${it.name}:clean",
-            ":${it.name}:build",
-            ":${it.name}:test",
-            ":${it.name}:connectedAndroidTest"
-        )
-    }}"
+    group = "verification"
+
+    afterEvaluate {
+        "${subprojects.forEach {
+            dependsOn(
+                ":${it.name}:test",
+                ":${it.name}:connectedAndroidTest"
+            )
+        }}"
+    }
 }
 
 subprojects {
     apply {
         from("$rootDir/versions.gradle.kts")
-        plugin("org.jlleitschuh.gradle.ktlint")
-        plugin("io.gitlab.arturbosch.detekt")
-        plugin("jacoco")
+        plugin(Plugins.ktlint)
+        plugin(Plugins.detekt)
+        plugin(Plugins.jacoco)
     }
 
     ktlint {
@@ -145,8 +147,8 @@ detekt {
 }
 
 buildScan {
-    termsOfServiceUrl = "https://gradle.com/terms-of-service"
-    termsOfServiceAgree = "yes"
+    termsOfServiceUrl = Buildscan.TERMS_OF_SERVICE_URL
+    termsOfServiceAgree = Buildscan.TERMS_OF_SERVICE_AGREE
 
     /* This is not good to run for every build
     publishAlways()
@@ -184,7 +186,7 @@ tasks {
         }
 
         checkForGradleUpdate = true
-        outputFormatter = "json"
+        outputFormatter = Config.JSON_OUTPUT_FORMATTER
         outputDir = "$buildDir/reports/dependencyUpdates"
         reportfileName = "dependency-report"
     }
@@ -215,7 +217,7 @@ tasks {
         violationRules {
             rule {
                 limit {
-                    minimum = "0.5".toBigDecimal()
+                    minimum = Config.MIN_COVERAGE_LIMIT.toBigDecimal()
                 }
             }
         }
@@ -237,7 +239,7 @@ tasks {
 
 fun isNonStable(version: String): Boolean {
     val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
-    val regex = "^[0-9,.v-]+(-r)?$".toRegex()
+    val regex = Config.BUILD_STABLE_REGEX.toRegex()
     val isStable = stableKeyword || regex.matches(version)
     return isStable.not()
 }

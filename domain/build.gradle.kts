@@ -13,8 +13,9 @@ android {
         minSdkVersion(extra["minSdkVersion"] as Int)
         targetSdkVersion(extra["targetSdkVersion"] as Int)
     }
+
     buildTypes {
-        maybeCreate("release").apply {
+        maybeCreate(BuildType.RELEASE).apply {
             isMinifyEnabled = true
             isDebuggable = false
             proguardFiles(
@@ -22,20 +23,20 @@ android {
                 "proguard-rules.pro"
             )
         }
-        maybeCreate("debug").apply {
+        maybeCreate(BuildType.DEBUG).apply {
             isMinifyEnabled = false
             isDebuggable = true
         }
     }
 
     sourceSets {
-        named("main").configure {
+        named(SourceSets.MAIN).configure {
             java.srcDirs(file("src/main/kotlin"))
         }
-        named("test").configure {
+        named(SourceSets.TEST).configure {
             java.srcDirs(file("src/test/kotlin"))
         }
-        named("androidTest").configure {
+        named(SourceSets.ANDROID_TEST).configure {
             java.srcDirs(file("src/androidTest/kotlin"))
         }
     }

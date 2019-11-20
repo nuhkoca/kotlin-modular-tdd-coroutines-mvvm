@@ -1,12 +1,12 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 ktlint {
-    version.set("0.35.0")
+    version.set(Versions.ktlint_internal)
     debug.set(true)
     verbose.set(true)
     android.set(false)
     outputToConsole.set(true)
-    outputColorName.set("RED")
+    outputColorName.set(Config.KTLINT_COLOR_NAME)
     ignoreFailures.set(true)
     enableExperimentalRules.set(true)
     additionalEditorconfigFile.set(file("$rootDir/.editorconfig"))
@@ -36,7 +36,7 @@ ktlint {
 }
 
 dependencies {
-    ktlintRuleset("com.github.username:rulseset:master-SNAPSHOT")
-    ktlintRuleset(files("/path/to/custom/rulseset.jar"))
-    ktlintRuleset(project(":chore:project-ruleset"))
+    ktlintRuleset(KtlintRuleset.ruleset)
+    ktlintRuleset(files(KtlintRuleset.ruleset_files))
+    ktlintRuleset(project(KtlintRuleset.ruleset_project))
 }
