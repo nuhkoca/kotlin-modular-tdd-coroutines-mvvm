@@ -27,7 +27,7 @@ update_sdk: &update_sdk
 ensure_android_sdk_is_ready: &ensure_android_sdk_is_ready
   run:
     name: Ensure Android SDK install is up-to-date
-    command: workspace/repo/.circleci/ci-scripts/ensure-sdkmanager.sh
+    command: chmod +x ./.circleci/ci-scripts/ensure-sdkmanager.sh
 
 jobs:
   build_and_setup:
