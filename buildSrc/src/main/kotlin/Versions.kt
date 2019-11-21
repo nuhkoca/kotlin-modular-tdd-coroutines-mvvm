@@ -40,6 +40,7 @@ object Versions {
     const val detekt = "1.1.1"
     const val ben_manes = "0.27.0"
     const val ktlint = "9.1.1"
+    const val ktlint_internal = "0.35.0"
     const val jacoco = "0.8.5"
 
     // Testing
