@@ -1,15 +1,15 @@
 object Versions {
     // Kotlin
-    const val core_ktx = "1.2.0-beta02"
+    const val core_ktx = "1.2.0-rc01"
     const val android_annotation = "1.1.0"
 
     // Gradle plugins
     const val gradle_plugin = "3.5.2"
-    const val kotlin_gradle_plugin = "1.3.60"
+    const val kotlin_gradle_plugin = "1.3.61"
 
     // UI
     const val appcompat = "1.1.0"
-    const val material = "1.2.0-alpha01"
+    const val material = "1.2.0-alpha02"
     const val constraint_layout = "2.0.0-beta3"
 
     // Networking
@@ -37,8 +37,7 @@ object Versions {
     const val leakcanary = "1.6.3"
 
     // Plugins
-    const val detekt = "1.1.1"
-    const val ben_manes = "0.27.0"
+    const val detekt = "1.2.0"
     const val ktlint = "9.1.1"
     const val ktlint_internal = "0.35.0"
     const val jacoco = "0.8.5"

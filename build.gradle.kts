@@ -3,7 +3,7 @@
 @file:Suppress("UnstableApiUsage")
 
 import Plugins.Buildscan
-import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
+import extensions.applyDefaults
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.detekt
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
@@ -26,17 +26,17 @@ buildscript {
 
 plugins {
     id(Plugins.detekt) version Versions.detekt
-    id(Plugins.ben_manes) version Versions.ben_manes
     id(Plugins.ktlint) version Versions.ktlint
     `build-scan`
     jacoco
 }
 
+plugins.apply(BuildPlugins.GIT_HOOKS)
+plugins.apply(BuildPlugins.UPDATE_DEPENDENCIES)
+plugins.apply(BuildPlugins.STATIC_CHECK)
+
 allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
+    repositories.applyDefaults()
 }
 
 task("testAll") {
@@ -55,6 +55,8 @@ task("testAll") {
 }
 
 subprojects {
+    plugins.apply(BuildPlugins.SPOTLESS)
+
     apply {
         from("$rootDir/versions.gradle.kts")
         plugin(Plugins.ktlint)
@@ -169,26 +171,9 @@ tasks {
         include("**/*.kt")
         include("**/*.kts")
         exclude(".*/resources/.*")
-        exclude(".*/build/.*")
+        exclude("**/build/**")
 
         jvmTarget = javaVersion.toString()
-    }
-
-    withType<DependencyUpdatesTask> {
-        resolutionStrategy {
-            componentSelection {
-                all {
-                    if (isNonStable(candidate.version) && !isNonStable(currentVersion)) {
-                        reject("Release candidate")
-                    }
-                }
-            }
-        }
-
-        checkForGradleUpdate = true
-        outputFormatter = Config.JSON_OUTPUT_FORMATTER
-        outputDir = "$buildDir/reports/dependencyUpdates"
-        reportfileName = "dependency-report"
     }
 
     withType<JacocoReport> {
@@ -237,13 +222,6 @@ tasks {
     }
 }
 
-fun isNonStable(version: String): Boolean {
-    val stableKeyword = listOf("RELEASE", "FINAL", "GA").any { version.toUpperCase().contains(it) }
-    val regex = Config.BUILD_STABLE_REGEX.toRegex()
-    val isStable = stableKeyword || regex.matches(version)
-    return isStable.not()
-}
-
 /**
  * Usage: <code>./gradlew build -PwarningsAsErrors=true</code>.
  */
@@ -284,32 +262,5 @@ val detektAll by tasks.registering(Detekt::class) {
         xml.enabled = false
         html.enabled = false
         txt.enabled = false
-    }
-}
-
-// Credit: https://github.com/igorwojda/android-showcase/blob/master/build.gradle.kts
-task("staticCheck") {
-    description = """Mimics all static checks that run on CI.
-        Note that this task is intended to run locally (not on CI), because on CI we prefer to have parallel execution
-        and separate reports for each check (multiple statuses eg. on github PR page).
-    """.trimMargin()
-
-    group = "verification"
-    afterEvaluate {
-        // Filter modules with "lintDebug" task (non-Android modules do not have lintDebug task)
-        val lintTasks = subprojects.mapNotNull { "${it.name}:lintDebug" }
-
-        // Get modules with "testDebugUnitTest" task (app module does not have it)
-        val testTasks = subprojects.mapNotNull { "${it.name}:testDebugUnitTest" }
-
-        // All task dependencies
-        val taskDependencies =
-            mutableListOf("app:assembleAndroidTest", "ktlintCheck", "detekt").also {
-                it.addAll(lintTasks)
-                it.addAll(testTasks)
-            }
-
-        // By defining Gradle dependency all dependent tasks will run before this "empty" task
-        dependsOn(taskDependencies)
     }
 }

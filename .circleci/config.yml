@@ -70,7 +70,6 @@ jobs:
           name: Create build report
           command: ./gradlew build --scan
       - codecov/upload:
-          file: report.xml
           flags: android
       - run:
           name: Save test results
