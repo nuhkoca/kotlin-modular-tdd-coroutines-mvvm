@@ -29,6 +29,7 @@ configure<SpotlessExtension> {
 
     format("xml") {
         target("**/res/**/*.xml")
+        targetExclude("**/build/**")
         indentWithSpaces(4)
         trimTrailingWhitespace()
         endWithNewline()
