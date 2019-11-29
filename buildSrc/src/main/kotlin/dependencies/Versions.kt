@@ -1,3 +1,5 @@
+package dependencies
+
 object Versions {
     // Kotlin
     const val core_ktx = "1.2.0-rc01"

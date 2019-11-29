@@ -1,7 +1,7 @@
 package commons
 
 import Modules
-import TestDependencies
+import dependencies.TestDependencies
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler

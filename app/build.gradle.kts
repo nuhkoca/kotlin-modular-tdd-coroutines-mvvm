@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 import commons.addTestDependencies
+import dependencies.Dependencies
+import dependencies.TestDependencies
 
 plugins {
     id(Plugins.androidApplication)

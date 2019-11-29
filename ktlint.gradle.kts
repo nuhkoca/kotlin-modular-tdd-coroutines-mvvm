@@ -1,4 +1,6 @@
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+import dependencies.Versions
+import dependencies.KtlintRuleset
 
 ktlint {
     version.set(Versions.ktlint_internal)

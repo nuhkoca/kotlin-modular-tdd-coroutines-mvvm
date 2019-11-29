@@ -7,13 +7,6 @@ object Plugins {
     const val kotlinKapt = "kapt"
 
     // Third party plugins
-    const val detekt = "io.gitlab.arturbosch.detekt"
-    const val ben_manes = "com.github.ben-manes.versions"
     const val ktlint = "org.jlleitschuh.gradle.ktlint"
     const val jacoco = "jacoco"
-
-    object Buildscan {
-        const val TERMS_OF_SERVICE_URL = "https://gradle.com/terms-of-service"
-        const val TERMS_OF_SERVICE_AGREE = "yes"
-    }
 }

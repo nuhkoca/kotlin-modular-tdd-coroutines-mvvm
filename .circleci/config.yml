@@ -52,6 +52,9 @@ jobs:
             -{{ checksum  "app/build.gradle.kts" }}
       - <<: *ensure_android_sdk_is_ready
       - run:
+          name: Check Dependency Updates
+          command: ./gradlew dependencyUpdates -Drevision=release
+      - run:
           name: Build Debug
           command: ./gradlew assembleDebug
       - run:
@@ -64,13 +67,19 @@ jobs:
           name: Run Lint
           command: ./gradlew lintDebug
       - run:
+          name: Run Spotless
+          command: ./gradlew spotlessKotlinCheck
+      - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest testReleaseUnitTest
+      - run:
+          name: Generate Code Coverage
+          command: ./gradlew jacocoTestReportDebug
       - run:
           name: Create build report
           command: ./gradlew build --scan
       - codecov/upload:
-          flags: android
+          flags: unittest
       - run:
           name: Save test results
           command: |

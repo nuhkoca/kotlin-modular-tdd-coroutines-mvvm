@@ -1,4 +1,4 @@
-package plugins
+package tasks
 
 // Credit: https://github.com/igorwojda/android-showcase/blob/master/build.gradle.kts
 task("staticCheck") {

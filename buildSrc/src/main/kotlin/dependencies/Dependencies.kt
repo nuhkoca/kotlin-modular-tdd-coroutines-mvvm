@@ -1,3 +1,5 @@
+package dependencies
+
 object Dependencies {
     // Core
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin_gradle_plugin}"

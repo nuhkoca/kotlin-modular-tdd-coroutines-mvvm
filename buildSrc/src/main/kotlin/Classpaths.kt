@@ -1,3 +1,5 @@
+import dependencies.Versions
+
 object Classpaths {
     const val gradle_plugin = "com.android.tools.build:gradle:${Versions.gradle_plugin}"
     const val kotlin_gradle_plugin =
