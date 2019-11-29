@@ -19,10 +19,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mobilemovement.kotlintvmaze.base.Status.EMPTY
 import com.mobilemovement.kotlintvmaze.base.Status.ERROR
 import com.mobilemovement.kotlintvmaze.base.Status.LOADING
 import com.mobilemovement.kotlintvmaze.base.Status.SUCCESS
+import com.mobilemovement.kotlintvmaze.base.Status.EMPTY
 import com.mobilemovement.kotlintvmaze.base.util.coroutines.DefaultDispatcherProvider
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase

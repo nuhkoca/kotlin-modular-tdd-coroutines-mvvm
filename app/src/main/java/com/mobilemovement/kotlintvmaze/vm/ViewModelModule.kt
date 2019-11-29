@@ -25,5 +25,5 @@ abstract class ViewModelModule {
 
     @Binds
     internal abstract fun bindsMazeViewModelFactory(mazeViewModelFactory: MazeViewModelFactory):
-        ViewModelProvider.Factory
+    ViewModelProvider.Factory
 }

@@ -30,7 +30,7 @@ configure<SpotlessExtension> {
     format("xml") {
         target("**/res/**/*.xml")
         targetExclude("**/build/**")
-        indentWithSpaces(4)
+        indentWithSpaces(Config.SPOTLESS_INDENT_WITH_SPACES)
         trimTrailingWhitespace()
         endWithNewline()
     }

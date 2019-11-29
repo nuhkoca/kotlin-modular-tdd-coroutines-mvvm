@@ -41,7 +41,6 @@ class SeriesRemoteDataSourceTest {
     @Test
     fun `SeriesRemoteDataSource fetches list of series`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
-
             val api = mockk<MazeService>()
 
             coEvery { api.searchSeriesAsync(any()) } returns listOf(

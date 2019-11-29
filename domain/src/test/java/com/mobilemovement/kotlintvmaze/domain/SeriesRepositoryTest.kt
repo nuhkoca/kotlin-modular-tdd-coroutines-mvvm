@@ -51,7 +51,6 @@ class SeriesRepositoryTest {
     @Test
     fun `SeriesRepository returns list of series`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
-
             val dataSource = mockk<SeriesRemoteDataSource>()
             val mapper = mockk<SeriesDomainMapper>()
 

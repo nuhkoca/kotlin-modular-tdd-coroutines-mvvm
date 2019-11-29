@@ -27,11 +27,11 @@ import com.mobilemovement.kotlintvmaze.base.util.ext.observeWith
 import com.mobilemovement.kotlintvmaze.base.util.ext.show
 import com.mobilemovement.kotlintvmaze.base.util.ext.toast
 import com.mobilemovement.kotlintvmaze.base.util.ext.unsafeLazy
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_main.pbSearch
 import kotlinx.android.synthetic.main.activity_main.rvSeries
 import kotlinx.android.synthetic.main.activity_main.tietSearch
 import kotlinx.android.synthetic.main.activity_main.tilSearch
-import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewModel>() {
 

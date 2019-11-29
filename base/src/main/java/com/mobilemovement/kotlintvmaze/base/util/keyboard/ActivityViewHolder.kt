@@ -27,15 +27,15 @@ data class ActivityViewHolder(
 ) {
     fun onDetach(onDetach: () -> Unit) {
         nonResizableLayout.addOnAttachStateChangeListener(object :
-            View.OnAttachStateChangeListener {
-            override fun onViewDetachedFromWindow(v: View?) {
-                onDetach()
-            }
+                View.OnAttachStateChangeListener {
+                override fun onViewDetachedFromWindow(v: View?) {
+                    onDetach()
+                }
 
-            override fun onViewAttachedToWindow(v: View?) {
-                // no-op
-            }
-        })
+                override fun onViewAttachedToWindow(v: View?) {
+                    // no-op
+                }
+            })
     }
 
     companion object {

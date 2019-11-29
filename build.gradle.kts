@@ -8,107 +8,103 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import plugins.BuildPlugins
 import tasks.BuildTasks
-import dependencies.Versions
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
 
 buildscript {
-	repositories {
-		google()
-		jcenter()
-		mavenCentral()
-	}
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
 
-	dependencies {
-		classpath(Classpaths.gradle_plugin)
-		classpath(Classpaths.kotlin_gradle_plugin)
-	}
+    dependencies {
+        classpath(Classpaths.gradle_plugin)
+        classpath(Classpaths.kotlin_gradle_plugin)
+    }
 }
 
 plugins.apply(BuildPlugins.GIT_HOOKS)
 plugins.apply(BuildPlugins.DETEKT)
 plugins.apply(BuildPlugins.UPDATE_DEPENDENCIES)
+plugins.apply(BuildPlugins.KTLINT)
 
 plugins.apply(BuildTasks.STATIC_CHECK)
 plugins.apply(BuildTasks.TEST_ALL)
 
 allprojects {
-	repositories.applyDefaults()
+    repositories.applyDefaults()
 }
 
 subprojects {
-	plugins.apply(BuildPlugins.SPOTLESS)
-	plugins.apply(BuildPlugins.DETEKT)
-	plugins.apply(BuildPlugins.JACOCO)
+    plugins.apply(BuildPlugins.SPOTLESS)
+    plugins.apply(BuildPlugins.DETEKT)
+    plugins.apply(BuildPlugins.JACOCO)
+    plugins.apply(BuildPlugins.KTLINT)
 
-	apply {
-		from("$rootDir/versions.gradle.kts")
-		plugin(Plugins.ktlint)
-	}
+    apply {
+        from("$rootDir/versions.gradle.kts")
+    }
 
-	/*ktlint {
-		debug.set(true)
-	}*/
+    tasks {
+        withType<JavaCompile> {
+            options.isIncremental = true
+            allprojects {
+                options.compilerArgs.addAll(
+                    arrayOf(
+                        "-Xlint:-unchecked",
+                        "-Xlint:deprecation",
+                        "-Xdiags:verbose"
+                    )
+                )
+            }
+        }
 
-	tasks {
-		withType<JavaCompile> {
-			options.isIncremental = true
-			allprojects {
-				options.compilerArgs.addAll(
-					arrayOf(
-						"-Xlint:-unchecked",
-						"-Xlint:deprecation",
-						"-Xdiags:verbose"
-					)
-				)
-			}
-		}
+        withType<KotlinCompile> {
+            kotlinOptions {
+                jvmTarget = javaVersion.toString()
+                // https://youtrack.jetbrains.com/issue/KT-24946
+                kotlinOptions.freeCompilerArgs = listOf(
+                    "-progressive",
+                    "-Xskip-runtime-version-check",
+                    "-Xdisable-default-scripting-plugin",
+                    "-Xuse-experimental=kotlin.Experimental"
+                )
+                kotlinOptions.allWarningsAsErrors = shouldTreatCompilerWarningsAsErrors()
+            }
+        }
 
-		withType<KotlinCompile> {
-			kotlinOptions {
-				jvmTarget = javaVersion.toString()
-				// https://youtrack.jetbrains.com/issue/KT-24946
-				kotlinOptions.freeCompilerArgs = listOf(
-					"-progressive",
-					"-Xskip-runtime-version-check",
-					"-Xdisable-default-scripting-plugin",
-					"-Xuse-experimental=kotlin.Experimental"
-				)
-				kotlinOptions.allWarningsAsErrors = shouldTreatCompilerWarningsAsErrors()
-			}
-		}
+        withType<Test> {
+            testLogging {
+                // set options for log level LIFECYCLE
+                events = setOf(
+                    TestLogEvent.FAILED,
+                    TestLogEvent.STARTED,
+                    TestLogEvent.PASSED,
+                    TestLogEvent.SKIPPED,
+                    TestLogEvent.STANDARD_OUT
+                )
+                exceptionFormat = TestExceptionFormat.FULL
+                showExceptions = true
+                showCauses = true
+                showStackTraces = true
+            }
 
-		withType<Test> {
-			testLogging {
-				// set options for log level LIFECYCLE
-				events = setOf(
-					TestLogEvent.FAILED,
-					TestLogEvent.STARTED,
-					TestLogEvent.PASSED,
-					TestLogEvent.SKIPPED,
-					TestLogEvent.STANDARD_OUT
-				)
-				exceptionFormat = TestExceptionFormat.FULL
-				showExceptions = true
-				showCauses = true
-				showStackTraces = true
-			}
-
-			maxParallelForks =
-				(Runtime.getRuntime().availableProcessors() / 2).takeIf { it > 0 } ?: 1
-		}
-	}
+            maxParallelForks =
+                (Runtime.getRuntime().availableProcessors() / 2).takeIf { it > 0 } ?: 1
+        }
+    }
 }
 
 tasks {
-	register("clean", Delete::class) {
-		delete = setOf(rootProject.buildDir)
-	}
+    register("clean", Delete::class) {
+        delete = setOf(rootProject.buildDir)
+    }
 }
 
 /**
  * Usage: <code>./gradlew build -PwarningsAsErrors=true</code>.
  */
 fun shouldTreatCompilerWarningsAsErrors(): Boolean {
-	return project.findProperty("warningsAsErrors") == "true"
+    return project.findProperty("warningsAsErrors") == "true"
 }

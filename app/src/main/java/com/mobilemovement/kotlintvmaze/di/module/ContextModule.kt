@@ -17,7 +17,6 @@ package com.mobilemovement.kotlintvmaze.di.module
 
 import android.app.Application
 import android.content.Context
-
 import dagger.Binds
 import dagger.Module
 

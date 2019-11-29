@@ -33,9 +33,9 @@ import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.bumptech.glide.signature.ObjectKey
-import okhttp3.OkHttpClient
 import java.io.InputStream
 import java.util.concurrent.TimeUnit.SECONDS
+import okhttp3.OkHttpClient
 
 @GlideModule(glideName = "MazeGlide")
 @Excludes(value = [OkHttpLibraryGlideModule::class])

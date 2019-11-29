@@ -7,4 +7,5 @@ object BuildPlugins {
     const val UPDATE_DEPENDENCIES = "plugins.update-dependencies"
     const val DETEKT = "plugins.detekt"
     const val JACOCO = "plugins.jacoco"
+    const val KTLINT = "plugins.ktlint"
 }

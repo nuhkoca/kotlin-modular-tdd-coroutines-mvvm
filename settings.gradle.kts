@@ -1,5 +1,5 @@
 plugins {
-	id("com.gradle.enterprise") version "3.1"
+    id("com.gradle.enterprise") version "3.1"
 }
 
 include(":app")
@@ -12,12 +12,12 @@ rootProject.name = "KotlinTvMaze"
 rootProject.buildFileName = "build.gradle.kts"
 
 gradleEnterprise {
-	buildScan {
-		termsOfServiceUrl = "https://gradle.com/terms-of-service"
-		termsOfServiceAgree = "yes"
+    buildScan {
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
 
-		/* This is not good to run for every build
+        /* This is not good to run for every build
     	publishAlways()
      	*/
-	}
+    }
 }

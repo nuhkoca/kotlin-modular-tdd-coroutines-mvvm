@@ -23,6 +23,10 @@ import com.mobilemovement.kotlintvmaze.base.util.checkMainThread
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
+import java.util.concurrent.TimeUnit.SECONDS
+import javax.inject.Qualifier
+import javax.inject.Singleton
+import kotlin.annotation.AnnotationRetention.BINARY
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -30,10 +34,6 @@ import okhttp3.logging.HttpLoggingInterceptor.Level
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
-import java.util.concurrent.TimeUnit.SECONDS
-import javax.inject.Qualifier
-import javax.inject.Singleton
-import kotlin.annotation.AnnotationRetention.BINARY
 
 @Retention(BINARY)
 @Qualifier

@@ -62,7 +62,6 @@ class GetSeriesUseCaseTest {
     @Test
     fun `GetSeriesUseCase returns series from remote data`() =
         coroutinesTestRule.testDispatcher.runBlockingTest {
-
             coEvery { repository.searchSeriesAsync(any()) } returns listOf(
                 Series(
                     10.0,
@@ -115,7 +114,6 @@ class GetSeriesUseCaseTest {
 
     @Test
     fun `GetSeriesUseCase throws error`() = coroutinesTestRule.testDispatcher.runBlockingTest {
-
         coEvery { repository.searchSeriesAsync(any()) } throws NullPointerException("null")
 
         every { mapper.invoke(any()) } throws NullPointerException("null")

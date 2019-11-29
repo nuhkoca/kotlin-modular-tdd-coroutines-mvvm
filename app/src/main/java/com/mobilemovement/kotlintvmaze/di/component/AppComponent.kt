@@ -32,7 +32,8 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [AndroidSupportInjectionModule::class,
+    modules = [
+        AndroidSupportInjectionModule::class,
         AndroidInjectionModule::class,
         BaseModule::class,
         ContextModule::class,
