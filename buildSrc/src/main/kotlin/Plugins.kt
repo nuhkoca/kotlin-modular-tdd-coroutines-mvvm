@@ -5,6 +5,7 @@ object Plugins {
     const val kotlinAndroid = "android"
     const val kotlinAndroidExtension = "android.extensions"
     const val kotlinKapt = "kapt"
+    const val commonAndroidLibrary = "commons.common-android-library"
 
     // Third party plugins
     const val ktlint = "org.jlleitschuh.gradle.ktlint"
