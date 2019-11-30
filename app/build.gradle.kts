@@ -38,32 +38,14 @@ android {
     }
 
     buildTypes {
-        maybeCreate(BuildType.RELEASE).apply {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            isTestCoverageEnabled = false
-        }
-        maybeCreate(BuildType.DEBUG).apply {
-            isMinifyEnabled = false
-            isDebuggable = true
-            isTestCoverageEnabled = true
-        }
+        Release.create(this, project)
+        Debug.create(this, project)
     }
 
     sourceSets {
-        named(SourceSets.MAIN).configure {
-            java.srcDirs(file("src/main/kotlin"))
-        }
-        named(SourceSets.TEST).configure {
-            java.srcDirs(file("src/test/kotlin"))
-        }
-        named(SourceSets.ANDROID_TEST).configure {
-            java.srcDirs(file("src/androidTest/kotlin"))
-        }
+        Main.create(this)
+        TTest.create(this)
+        AndroidTest.create(this)
     }
 
     packagingOptions {

@@ -15,10 +15,9 @@
  */
 package commons
 
-import BuildType.DEBUG
-import BuildType.RELEASE
+import Debug
 import Modules
-import SourceSets
+import Release
 import dependencies.Dependencies
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
@@ -38,30 +37,14 @@ android {
     }
 
     buildTypes {
-        maybeCreate(RELEASE).apply {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-        maybeCreate(DEBUG).apply {
-            isMinifyEnabled = false
-            isDebuggable = true
-        }
+        Release.create(this, project)
+        Debug.create(this, project)
     }
 
     sourceSets {
-        named(SourceSets.MAIN).configure {
-            java.srcDirs(file("src/main/kotlin"))
-        }
-        named(SourceSets.TEST).configure {
-            java.srcDirs(file("src/test/kotlin"))
-        }
-        named(SourceSets.ANDROID_TEST).configure {
-            java.srcDirs(file("src/androidTest/kotlin"))
-        }
+        Main.create(this)
+        TTest.create(this)
+        AndroidTest.create(this)
     }
 
     packagingOptions {

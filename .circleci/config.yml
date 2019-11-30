@@ -12,6 +12,7 @@ config_android: &config_android
     JAVA_TOOL_OPTIONS: "-Xmx1024m"
     GRADLE_OPTS: >
       -Dorg.gradle.daemon=false
+      -Dorg.gradle.parallel=true
       -Dorg.gradle.workers.max=2
       -Dkotlin.incremental=false
       -Dkotlin.compiler.execution.strategy=in-process

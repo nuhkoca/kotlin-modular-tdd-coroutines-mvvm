@@ -29,31 +29,16 @@ android {
         minSdkVersion(extra["minSdkVersion"] as Int)
         targetSdkVersion(extra["targetSdkVersion"] as Int)
     }
+
     buildTypes {
-        maybeCreate("release").apply {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-        maybeCreate("debug").apply {
-            isMinifyEnabled = false
-            isDebuggable = true
-        }
+        Release.create(this, project)
+        Debug.create(this, project)
     }
 
     sourceSets {
-        named("main").configure {
-            java.srcDirs(file("src/main/kotlin"))
-        }
-        named("test").configure {
-            java.srcDirs(file("src/test/kotlin"))
-        }
-        named("androidTest").configure {
-            java.srcDirs(file("src/androidTest/kotlin"))
-        }
+        Main.create(this)
+        TTest.create(this)
+        AndroidTest.create(this)
     }
 
     compileOptions {
