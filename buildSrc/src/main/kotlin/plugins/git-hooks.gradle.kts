@@ -11,6 +11,9 @@ tasks {
             rename("(.*).sh", "$1")
         }
         into("$rootDir/.git/hooks")
+        doLast {
+            logger.info("Git hooks copied successfully.")
+        }
     }
 
     register<Exec>("installGitHooks") {

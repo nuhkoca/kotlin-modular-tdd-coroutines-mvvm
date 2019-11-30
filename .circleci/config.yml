@@ -39,7 +39,7 @@ jobs:
       - restore_cache:
           key: >-
             jars-{{ checksum "build.gradle.kts" }}
-            {{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}
+            {{ checksum  "buildSrc/src/main/kotlin/dependencies/Dependencies.kt" }}
             -{{ checksum  "app/build.gradle.kts" }}
       - run:
           name: Download Dependencies
@@ -49,7 +49,7 @@ jobs:
             - ~/.gradle
           key: >-
             jars-{{ checksum "build.gradle.kts" }}
-            {{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}
+            {{ checksum  "buildSrc/src/main/kotlin/dependencies/Dependencies.kt" }}
             -{{ checksum  "app/build.gradle.kts" }}
       - <<: *ensure_android_sdk_is_ready
       - run:

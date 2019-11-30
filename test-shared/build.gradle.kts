@@ -15,6 +15,7 @@
  */
 import dependencies.Dependencies
 import dependencies.TestDependencies
+import extensions.setDefaults
 
 plugins {
     id(Plugins.androidLibrary)
@@ -30,11 +31,6 @@ android {
         targetSdkVersion(extra["targetSdkVersion"] as Int)
     }
 
-    buildTypes {
-        Release.create(this, project)
-        Debug.create(this, project)
-    }
-
     sourceSets {
         Main.create(this)
         TTest.create(this)
@@ -46,16 +42,7 @@ android {
         targetCompatibility = javaVersion
     }
 
-    lintOptions {
-        isAbortOnError = false
-        isWarningsAsErrors = true
-        isCheckDependencies = true
-        isIgnoreTestSources = true
-        setLintConfig(file("lint.xml"))
-        disable("GradleDeprecated")
-        disable("OldTargetApi")
-        disable("GradleDependency")
-    }
+    lintOptions.setDefaults(file("lint.xml"))
 }
 
 dependencies {

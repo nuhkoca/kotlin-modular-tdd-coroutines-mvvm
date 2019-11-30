@@ -16,6 +16,7 @@
 import commons.addTestDependencies
 import dependencies.Dependencies
 import dependencies.TestDependencies
+import extensions.setDefaults
 
 plugins {
     id(Plugins.androidApplication)
@@ -71,22 +72,7 @@ android {
         isExperimental = true
     }
 
-    lintOptions {
-        isAbortOnError = false
-        isWarningsAsErrors = true
-        isCheckDependencies = true
-        isIgnoreTestSources = true
-        setLintConfig(file("lint.xml"))
-        disable("GradleDeprecated")
-        disable("OldTargetApi")
-        disable("GradleDependency")
-    }
-
-    configurations {
-        all {
-            exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
-        }
-    }
+    lintOptions.setDefaults(file("lint.xml"))
 }
 
 dependencies {

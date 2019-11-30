@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import dependencies.Dependencies
+import extensions.setDefaults
 
 plugins {
     id(Plugins.androidLibrary)
@@ -30,11 +31,6 @@ android {
         minSdkVersion(extra["minSdkVersion"] as Int)
         targetSdkVersion(extra["targetSdkVersion"] as Int)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        Release.create(this, project)
-        Debug.create(this, project)
     }
 
     sourceSets {
@@ -58,22 +54,7 @@ android {
         targetCompatibility = javaVersion
     }
 
-    lintOptions {
-        isAbortOnError = false
-        isWarningsAsErrors = true
-        isCheckDependencies = true
-        isIgnoreTestSources = true
-        setLintConfig(file("lint.xml"))
-        disable("GradleDeprecated")
-        disable("OldTargetApi")
-        disable("GradleDependency")
-    }
-
-    configurations {
-        all {
-            exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
-        }
-    }
+    lintOptions.setDefaults(file("lint.xml"))
 }
 
 dependencies {

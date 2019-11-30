@@ -15,10 +15,12 @@
  */
 package commons
 
-import Debug
+import AndroidTest
+import Main
 import Modules
-import Release
+import TTest
 import dependencies.Dependencies
+import extensions.setDefaults
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
 
@@ -34,11 +36,6 @@ android {
     defaultConfig {
         minSdkVersion(extra["minSdkVersion"] as Int)
         targetSdkVersion(extra["targetSdkVersion"] as Int)
-    }
-
-    buildTypes {
-        Release.create(this, project)
-        Debug.create(this, project)
     }
 
     sourceSets {
@@ -62,16 +59,7 @@ android {
         targetCompatibility = javaVersion
     }
 
-    lintOptions {
-        isAbortOnError = false
-        isWarningsAsErrors = true
-        isCheckDependencies = true
-        isIgnoreTestSources = true
-        lintConfig = file("lint.xml")
-        disable("GradleDeprecated")
-        disable("OldTargetApi")
-        disable("GradleDependency")
-    }
+    lintOptions.setDefaults(file("lint.xml"))
 }
 
 dependencies {
