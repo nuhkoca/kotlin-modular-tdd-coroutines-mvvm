@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 JENKINS_HOMEDIR="/Users/Shared/Jenkins"
 DEFAULTS_PLIST="/Library/Preferences/org.jenkins-ci.plist"
 
@@ -18,19 +19,19 @@ else
     fi
     echo "Using uid $uid for jenkins"
 
-    gid=$uid
-    while dscl -search /Groups gid $gid | grep -q $gid; do
+    gid=${uid}
+    while dscl -search /Groups gid ${gid} | grep -q ${gid}; do
         echo "gid $gid is not free, trying next"
-        gid=$(($gid + 1))
+        gid=$((gid + 1))
     done
     echo "Using gid $gid for jenkins"
 
-    dscl . -create /Groups/jenkins PrimaryGroupID $gid
+    dscl . -create /Groups/jenkins PrimaryGroupID ${gid}
 
     dscl . -create /Users/jenkins UserShell /bin/bash
     dscl . -create /Users/jenkins Password '*'
-    dscl . -create /Users/jenkins UniqueID $uid
-    dscl . -create /Users/jenkins PrimaryGroupID $gid
+    dscl . -create /Users/jenkins UniqueID ${uid}
+    dscl . -create /Users/jenkins PrimaryGroupID ${gid}
     dscl . -create /Users/jenkins NFSHomeDirectory "$JENKINS_HOMEDIR"
 
     dscl . -append /Groups/jenkins GroupMembership jenkins

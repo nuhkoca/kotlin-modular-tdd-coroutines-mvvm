@@ -8,7 +8,7 @@ export JAVA_HOME
 OUTPUT="/tmp/analysis-result"
 ./gradlew lintDebug ktlintCheck detekt spotlessApply --daemon > ${OUTPUT}
 EXIT_CODE=$?
-if [[ ${EXIT_CODE} -ne 0 ]]; then
+if [ ${EXIT_CODE} -ne 0 ]; then
     cat ${OUTPUT}
     rm ${OUTPUT}
     echo "*********************************************"
