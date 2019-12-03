@@ -43,9 +43,6 @@ Users are able to search tv series by query.
 | <img src="art/search.png" width="350"/>  | <img src="art/list.png" width="350"/>  | <img src="art/errors.png" width="350"/>
 
 
-#### In Progress
-*Kotlin DSL doesn't support to write common scripts among all child gradle files at the moment. When it is supported, it will be implemented in the repository.*
-
 ### Architecture :triangular_ruler: 
 * [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
 * [MVVM](https://www.raywenderlich.com/8984-mvvm-on-android)

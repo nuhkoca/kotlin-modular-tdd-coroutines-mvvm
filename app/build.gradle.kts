@@ -1,3 +1,23 @@
+/*
+ * Copyright 2019 nuhkoca.com
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+import commons.addTestDependencies
+import dependencies.Dependencies
+import dependencies.TestDependencies
+import extensions.setDefaults
+
 plugins {
     id(Plugins.androidApplication)
     kotlin(Plugins.kotlinAndroid)
@@ -19,32 +39,14 @@ android {
     }
 
     buildTypes {
-        maybeCreate(BuildType.RELEASE).apply {
-            isMinifyEnabled = true
-            isDebuggable = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            isTestCoverageEnabled = false
-        }
-        maybeCreate(BuildType.DEBUG).apply {
-            isMinifyEnabled = false
-            isDebuggable = true
-            isTestCoverageEnabled = true
-        }
+        Release.create(this, project)
+        Debug.create(this, project)
     }
 
     sourceSets {
-        named(SourceSets.MAIN).configure {
-            java.srcDirs(file("src/main/kotlin"))
-        }
-        named(SourceSets.TEST).configure {
-            java.srcDirs(file("src/test/kotlin"))
-        }
-        named(SourceSets.ANDROID_TEST).configure {
-            java.srcDirs(file("src/androidTest/kotlin"))
-        }
+        Main.create(this)
+        TTest.create(this)
+        AndroidTest.create(this)
     }
 
     packagingOptions {
@@ -70,22 +72,7 @@ android {
         isExperimental = true
     }
 
-    lintOptions {
-        isAbortOnError = false
-        isWarningsAsErrors = true
-        isCheckDependencies = true
-        isIgnoreTestSources = true
-        setLintConfig(file("lint.xml"))
-        disable("GradleDeprecated")
-        disable("OldTargetApi")
-        disable("GradleDependency")
-    }
-
-    configurations {
-        all {
-            exclude(mapOf("group" to "com.google.guava", "module" to "listenablefuture"))
-        }
-    }
+    lintOptions.setDefaults(file("lint.xml"))
 }
 
 dependencies {

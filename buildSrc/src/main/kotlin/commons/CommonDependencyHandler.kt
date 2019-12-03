@@ -1,3 +1,7 @@
+package commons
+
+import Modules
+import dependencies.TestDependencies
 import org.gradle.api.artifacts.Dependency
 import org.gradle.api.artifacts.ProjectDependency
 import org.gradle.api.artifacts.dsl.DependencyHandler
@@ -24,15 +28,15 @@ fun DependencyHandler.addTestDependencies() {
  * syntax in module\build.gradle.kts files.
  */
 @Suppress("detekt.UnusedPrivateMember")
-private fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.implementation(dependencyNotation: Any): Dependency? =
     add("implementation", dependencyNotation)
 
 @Suppress("detekt.UnusedPrivateMember")
-private fun DependencyHandler.api(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.api(dependencyNotation: Any): Dependency? =
     add("api", dependencyNotation)
 
 @Suppress("detekt.UnusedPrivateMember")
-private fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
+fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
     add("kapt", dependencyNotation)
 
 private fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =

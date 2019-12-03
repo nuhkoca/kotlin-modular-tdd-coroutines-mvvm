@@ -12,6 +12,7 @@ config_android: &config_android
     JAVA_TOOL_OPTIONS: "-Xmx1024m"
     GRADLE_OPTS: >
       -Dorg.gradle.daemon=false
+      -Dorg.gradle.parallel=true
       -Dorg.gradle.workers.max=2
       -Dkotlin.incremental=false
       -Dkotlin.compiler.execution.strategy=in-process
@@ -38,7 +39,7 @@ jobs:
       - restore_cache:
           key: >-
             jars-{{ checksum "build.gradle.kts" }}
-            {{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}
+            {{ checksum  "buildSrc/src/main/kotlin/dependencies/Dependencies.kt" }}
             -{{ checksum  "app/build.gradle.kts" }}
       - run:
           name: Download Dependencies
@@ -48,9 +49,12 @@ jobs:
             - ~/.gradle
           key: >-
             jars-{{ checksum "build.gradle.kts" }}
-            {{ checksum  "buildSrc/src/main/kotlin/Dependencies.kt" }}
+            {{ checksum  "buildSrc/src/main/kotlin/dependencies/Dependencies.kt" }}
             -{{ checksum  "app/build.gradle.kts" }}
       - <<: *ensure_android_sdk_is_ready
+      - run:
+          name: Check Dependency Updates
+          command: ./gradlew dependencyUpdates -Drevision=release
       - run:
           name: Build Debug
           command: ./gradlew assembleDebug
@@ -64,14 +68,19 @@ jobs:
           name: Run Lint
           command: ./gradlew lintDebug
       - run:
+          name: Run Spotless
+          command: ./gradlew spotlessKotlinCheck
+      - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest testReleaseUnitTest
+      - run:
+          name: Generate Code Coverage
+          command: ./gradlew jacocoTestReportDebug
       - run:
           name: Create build report
           command: ./gradlew build --scan
       - codecov/upload:
-          file: report.xml
-          flags: android
+          flags: unittest
       - run:
           name: Save test results
           command: |

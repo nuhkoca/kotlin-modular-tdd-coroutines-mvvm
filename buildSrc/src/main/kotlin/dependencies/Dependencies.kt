@@ -1,3 +1,5 @@
+package dependencies
+
 object Dependencies {
     // Core
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin_gradle_plugin}"
@@ -70,10 +72,4 @@ object TestDependencies {
 
     // Third party
     const val mockK = "io.mockk:mockk:${Versions.mockK}"
-}
-
-object KtlintRuleset {
-    const val ruleset = "com.github.username:rulseset:master-SNAPSHOT"
-    const val ruleset_files = "/path/to/custom/rulseset.jar"
-    const val ruleset_project = ":chore:project-ruleset"
 }
