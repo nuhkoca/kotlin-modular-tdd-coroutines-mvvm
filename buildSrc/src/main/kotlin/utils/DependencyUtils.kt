@@ -1,7 +1,7 @@
 package utils
 
 import Config
-import java.util.*
+import java.util.Locale
 
 fun isNonStable(version: String): Boolean {
     val stableKeyword =
