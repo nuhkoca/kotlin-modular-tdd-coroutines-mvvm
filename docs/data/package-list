@@ -1,0 +1,4 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.mobilemovement.kotlintvmaze.data$delegatingCallFactory(retrofit2.Retrofit.Builder, dagger.Lazy((okhttp3.OkHttpClient)))com.mobilemovement.kotlintvmaze.data/retrofit2.-retrofit.-builder/delegating-call-factory.html
+com.mobilemovement.kotlintvmaze.data

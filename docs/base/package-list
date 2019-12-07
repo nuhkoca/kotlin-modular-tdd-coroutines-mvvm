@@ -1,0 +1,25 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$actAsFluid(android.app.Activity)com.mobilemovement.kotlintvmaze.base.util.ext/android.app.-activity/act-as-fluid.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$addHttpsPrefix(kotlin.String)com.mobilemovement.kotlintvmaze.base.util.ext/kotlin.-string/add-https-prefix.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$fromHtml(kotlin.String)com.mobilemovement.kotlintvmaze.base.util.ext/kotlin.-string/from-html.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$get(androidx.lifecycle.ViewModelProvider.Factory, androidx.fragment.app.FragmentActivity)com.mobilemovement.kotlintvmaze.base.util.ext/androidx.lifecycle.-view-model-provider.-factory/get.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$hide(android.view.View)com.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/hide.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$hideKeyBoard(android.view.View)com.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/hide-key-board.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$inflater#android.content.Contextcom.mobilemovement.kotlintvmaze.base.util.ext/android.content.-context/inflater.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$init(androidx.recyclerview.widget.RecyclerView, androidx.recyclerview.widget.RecyclerView.Adapter((androidx.recyclerview.widget.RecyclerView.ViewHolder)), kotlin.Boolean)com.mobilemovement.kotlintvmaze.base.util.ext/androidx.recyclerview.widget.-recycler-view/init.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$invisible(android.view.View)com.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/invisible.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$isHidden#android.view.Viewcom.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/is-hidden.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$isInvisible#android.view.Viewcom.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/is-invisible.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$isVisible#android.view.Viewcom.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/is-visible.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$observeWith(androidx.lifecycle.LiveData((com.mobilemovement.kotlintvmaze.base.util.ext.observeWith.T)), androidx.lifecycle.LifecycleOwner, kotlin.Function1((com.mobilemovement.kotlintvmaze.base.util.ext.observeWith.T, kotlin.Unit)))com.mobilemovement.kotlintvmaze.base.util.ext/androidx.lifecycle.-live-data/observe-with.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$show(android.view.View)com.mobilemovement.kotlintvmaze.base.util.ext/android.view.-view/show.html
+$dokka.location:com.mobilemovement.kotlintvmaze.base.util.ext$toast(android.app.Activity, kotlin.String)com.mobilemovement.kotlintvmaze.base.util.ext/android.app.-activity/toast.html
+com.mobilemovement.kotlintvmaze.base
+com.mobilemovement.kotlintvmaze.base.util
+com.mobilemovement.kotlintvmaze.base.util.coroutines
+com.mobilemovement.kotlintvmaze.base.util.delegate
+com.mobilemovement.kotlintvmaze.base.util.ext
+com.mobilemovement.kotlintvmaze.base.util.keyboard
+com.mobilemovement.kotlintvmaze.base.util.mapper
+com.mobilemovement.kotlintvmaze.base.util.widget

@@ -41,6 +41,7 @@ subprojects {
     plugins.apply(BuildPlugins.DETEKT)
     plugins.apply(BuildPlugins.JACOCO)
     plugins.apply(BuildPlugins.KTLINT)
+    plugins.apply(BuildPlugins.DOKKA)
 
     apply {
         from("$rootDir/versions.gradle.kts")

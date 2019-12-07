@@ -1,0 +1,683 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="./index"><span class="identifier">app</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="alltypes/index.html"><span class="identifier">alltypes</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-activity-builder/index.html"><span class="identifier">@Module</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ActivityBuilder</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-activity-builder/-init-.html"><span class="identifier">ActivityBuilder</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-activity-scope/index.html"><span class="identifier">@Scope</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">ActivityScope</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-activity-scope/-init-.html"><span class="identifier">ActivityScope</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/index.html"><span class="identifier">@Singleton</span> <span class="identifier">@Component</span><span class="symbol">(</span>[AndroidSupportInjectionModule, AndroidInjectionModule, BaseModule, ContextModule, ActivityBuilder, ViewModelModule, DataModule, DomainModule]<span class="symbol">)</span> <span class="keyword">interface </span><span class="identifier">AppComponent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AndroidInjector</span><span class="symbol">&lt;</span><a href="com.mobilemovement.kotlintvmaze/-maze-app/index.html"><span class="identifier">MazeApp</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/-factory/index.html"><span class="identifier">@Factory</span> <span class="keyword">interface </span><span class="identifier">Factory</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/-factory/create.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier">@BindsInstance</span> <span class="identifier" id="com.mobilemovement.kotlintvmaze.di.component.AppComponent.Factory$create(android.app.Application)/application">application</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Application.html"><span class="identifier">Application</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/index.html"><span class="identifier">AppComponent</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/inject.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">inject</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.di.component.AppComponent$inject(com.mobilemovement.kotlintvmaze.MazeApp)/instance">instance</span><span class="symbol">:</span>&nbsp;<a href="com.mobilemovement.kotlintvmaze/-maze-app/index.html"><span class="identifier">MazeApp</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-binding-component/index.html"><span class="identifier">@Component</span><span class="symbol">(</span>[AppComponent]<span class="symbol">, </span>[BindingModule]<span class="symbol">)</span> <span class="keyword">interface </span><span class="identifier">BindingComponent</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-binding-component/get-image-binding-adapter.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getImageBindingAdapter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/index.html"><span class="identifier">ImageBindingAdapter</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-binding-module/index.html"><span class="identifier">@Module</span> <span class="keyword">class </span><span class="identifier">BindingModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-binding-module/-init-.html"><span class="identifier">BindingModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-binding-scope/index.html"><span class="identifier">@Scope</span> <span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER, AnnotationTarget.CLASS, AnnotationTarget.FILE]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">BindingScope</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-binding-scope/-init-.html"><span class="identifier">BindingScope</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-context-module/index.html"><span class="identifier">@Module</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ContextModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-context-module/-init-.html"><span class="identifier">ContextModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/index.html"><span class="keyword">class </span><span class="identifier">ImageBindingAdapter</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/-init-.html"><span class="identifier">ImageBindingAdapter</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/bind-image.html"><span class="keyword">fun </span><a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">.</span><span class="identifier">bindImage</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.binding.ImageBindingAdapter$bindImage(android.widget.ImageView, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/index.html"><span class="keyword">class </span><span class="identifier">MainActivity</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseActivity</span><span class="symbol">&lt;</span><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/index.html"><span class="identifier">MainViewModel</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/-init-.html"><span class="identifier">MainActivity</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/get-view-model-class.html"><span class="keyword">fun </span><span class="identifier">getViewModelClass</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/index.html"><span class="identifier">MainViewModel</span></a><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/init-view.html"><span class="keyword">fun </span><span class="identifier">initView</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/layout-id.html"><span class="keyword">val </span><span class="identifier">layoutId</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/observe-view-model.html"><span class="keyword">fun </span><span class="identifier">observeViewModel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/on-create-options-menu.html"><span class="keyword">fun </span><span class="identifier">onCreateOptionsMenu</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainActivity$onCreateOptionsMenu(android.view.Menu)/menu">menu</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/Menu.html"><span class="identifier">Menu</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/on-options-item-selected.html"><span class="keyword">fun </span><span class="identifier">onOptionsItemSelected</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainActivity$onOptionsItemSelected(android.view.MenuItem)/item">item</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/MenuItem.html"><span class="identifier">MenuItem</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/series-adapter.html"><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">seriesAdapter</span><span class="symbol">: </span><span class="identifier">ItemAdapter</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity-module/index.html"><span class="identifier">@Module</span> <span class="keyword">object </span><span class="identifier">MainActivityModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity-module/provide-series-adapter-delegates.html"><span class="identifier">@ActivityScope</span> <span class="identifier">@Provides</span> <span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">provideSeriesAdapterDelegates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">DelegateAdapter</span><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/index.html"><span class="keyword">class </span><span class="identifier">MainViewModel</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-init-.html"><span class="identifier">MainViewModel</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel$<init>(com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase)/getSeriesUseCase">getSeriesUseCase</span><span class="symbol">:</span>&nbsp;<span class="identifier">GetSeriesUseCase</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/get-series.html"><span class="keyword">fun </span><span class="identifier">getSeries</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel$getSeries(kotlin.String)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/series-live-data.html"><span class="keyword">val </span><span class="identifier">seriesLiveData</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><span class="identifier">SeriesUiState</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/index.html"><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SeriesUiState</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/-init-.html"><span class="identifier">SeriesUiState</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SeriesViewItem</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isSuccess">isSuccess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isLoading">isLoading</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isError">isError</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/errorMessage">errorMessage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFirstRun">isFirstRun</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/data.html"><span class="keyword">val </span><span class="identifier">data</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SeriesViewItem</span><span class="symbol">&gt;</span><span class="symbol">?</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/error-message.html"><span class="keyword">val </span><span class="identifier">errorMessage</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-error.html"><span class="keyword">val </span><span class="identifier">isError</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-first-run.html"><span class="keyword">val </span><span class="identifier">isFirstRun</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-loading.html"><span class="keyword">val </span><span class="identifier">isLoading</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-success.html"><span class="keyword">val </span><span class="identifier">isSuccess</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model-module/index.html"><span class="identifier">@Module</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">MainViewModelModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model-module/-init-.html"><span class="identifier">MainViewModelModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/-maze-app/index.html"><span class="keyword">class </span><span class="identifier">MazeApp</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseApplication</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/-maze-app/-init-.html"><span class="identifier">MazeApp</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/-maze-app/application-injector.html"><span class="keyword">protected</span> <span class="keyword">fun </span><span class="identifier">applicationInjector</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">AndroidInjector</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">DaggerApplication</span><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-maze-view-model-factory/index.html"><span class="identifier">@Singleton</span> <span class="keyword">class </span><span class="identifier">MazeViewModelFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Factory</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-maze-view-model-factory/-init-.html"><span class="identifier">MazeViewModelFactory</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.vm.MazeViewModelFactory$<init>(kotlin.collections.Map((java.lang.Class((androidx.lifecycle.ViewModel)), javax.inject.Provider(()))))/creators">creators</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">@JvmSuppressWildcards</span> <span class="identifier">Provider</span><span class="symbol">&lt;</span><span class="identifier">ViewModel</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-maze-view-model-factory/create.html"><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span> <span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.vm.MazeViewModelFactory$create(java.lang.Class((com.mobilemovement.kotlintvmaze.vm.MazeViewModelFactory.create.T)))/modelClass">modelClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/index.html"><span class="keyword">class </span><span class="identifier">SeriesAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">DelegateAdapter</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-init-.html"><span class="identifier">SeriesAdapter</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/bind-view-holder.html"><span class="keyword">fun </span><span class="identifier">bindViewHolder</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$bindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder, com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/holder">holder</span><span class="symbol">:</span>&nbsp;<span class="identifier">ViewHolder</span><span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$bindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder, com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/create-view-holder.html"><span class="keyword">fun </span><span class="identifier">createViewHolder</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$createViewHolder(android.view.ViewGroup)/parent">parent</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/ViewGroup.html"><span class="identifier">ViewGroup</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ViewHolder</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/is-for-view-type.html"><span class="keyword">fun </span><span class="identifier">isForViewType</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$isForViewType(com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-series-view-holder/index.html"><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">SeriesViewHolder</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseViewHolder</span><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-series-view-holder/-init-.html"><span class="identifier">SeriesViewHolder</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter.SeriesViewHolder$<init>(android.view.View)/itemView">itemView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-series-view-holder/bind-to.html"><span class="keyword">fun </span><span class="identifier">bindTo</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter.SeriesViewHolder$bindTo(com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-key/index.html"><span class="identifier">@MapKey</span> <span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">ViewModelKey</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-key/-init-.html"><span class="identifier">ViewModelKey</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.vm.ViewModelKey$<init>(kotlin.reflect.KClass((androidx.lifecycle.ViewModel)))/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-key/value.html"><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-module/index.html"><span class="identifier">@Module</span><span class="symbol">(</span>[MainViewModelModule]<span class="symbol">)</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ViewModelModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-module/-init-.html"><span class="identifier">ViewModelModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/-maze-app/index.html"><span class="keyword">class </span><span class="identifier">MazeApp</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseApplication</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/-maze-app/-init-.html"><span class="identifier">MazeApp</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze/-maze-app/application-injector.html"><span class="keyword">protected</span> <span class="keyword">fun </span><span class="identifier">applicationInjector</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">AndroidInjector</span><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">DaggerApplication</span><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze.binding</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/index.html"><span class="keyword">class </span><span class="identifier">ImageBindingAdapter</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/-init-.html"><span class="identifier">ImageBindingAdapter</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/bind-image.html"><span class="keyword">fun </span><a href="https://developer.android.com/reference/android/widget/ImageView.html"><span class="identifier">ImageView</span></a><span class="symbol">.</span><span class="identifier">bindImage</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.binding.ImageBindingAdapter$bindImage(android.widget.ImageView, kotlin.String)/url">url</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze.di.component</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/index.html"><span class="identifier">@Singleton</span> <span class="identifier">@Component</span><span class="symbol">(</span>[AndroidSupportInjectionModule, AndroidInjectionModule, BaseModule, ContextModule, ActivityBuilder, ViewModelModule, DataModule, DomainModule]<span class="symbol">)</span> <span class="keyword">interface </span><span class="identifier">AppComponent</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">AndroidInjector</span><span class="symbol">&lt;</span><a href="com.mobilemovement.kotlintvmaze/-maze-app/index.html"><span class="identifier">MazeApp</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/-factory/index.html"><span class="identifier">@Factory</span> <span class="keyword">interface </span><span class="identifier">Factory</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/-factory/create.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">create</span><span class="symbol">(</span><span class="identifier">@BindsInstance</span> <span class="identifier" id="com.mobilemovement.kotlintvmaze.di.component.AppComponent.Factory$create(android.app.Application)/application">application</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/app/Application.html"><span class="identifier">Application</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/index.html"><span class="identifier">AppComponent</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-app-component/inject.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">inject</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.di.component.AppComponent$inject(com.mobilemovement.kotlintvmaze.MazeApp)/instance">instance</span><span class="symbol">:</span>&nbsp;<a href="com.mobilemovement.kotlintvmaze/-maze-app/index.html"><span class="identifier">MazeApp</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-binding-component/index.html"><span class="identifier">@Component</span><span class="symbol">(</span>[AppComponent]<span class="symbol">, </span>[BindingModule]<span class="symbol">)</span> <span class="keyword">interface </span><span class="identifier">BindingComponent</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.component/-binding-component/get-image-binding-adapter.html"><span class="keyword">abstract</span> <span class="keyword">fun </span><span class="identifier">getImageBindingAdapter</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="com.mobilemovement.kotlintvmaze.binding/-image-binding-adapter/index.html"><span class="identifier">ImageBindingAdapter</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze.di.module</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-activity-builder/index.html"><span class="identifier">@Module</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ActivityBuilder</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-activity-builder/-init-.html"><span class="identifier">ActivityBuilder</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-binding-module/index.html"><span class="identifier">@Module</span> <span class="keyword">class </span><span class="identifier">BindingModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-binding-module/-init-.html"><span class="identifier">BindingModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-context-module/index.html"><span class="identifier">@Module</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ContextModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.module/-context-module/-init-.html"><span class="identifier">ContextModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze.di.scope</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-activity-scope/index.html"><span class="identifier">@Scope</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">ActivityScope</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-activity-scope/-init-.html"><span class="identifier">ActivityScope</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-binding-scope/index.html"><span class="identifier">@Scope</span> <span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER, AnnotationTarget.CLASS, AnnotationTarget.FILE]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">BindingScope</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.di.scope/-binding-scope/-init-.html"><span class="identifier">BindingScope</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze.ui</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/index.html"><span class="keyword">class </span><span class="identifier">MainActivity</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseActivity</span><span class="symbol">&lt;</span><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/index.html"><span class="identifier">MainViewModel</span></a><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/-init-.html"><span class="identifier">MainActivity</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/get-view-model-class.html"><span class="keyword">fun </span><span class="identifier">getViewModelClass</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/index.html"><span class="identifier">MainViewModel</span></a><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/init-view.html"><span class="keyword">fun </span><span class="identifier">initView</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/layout-id.html"><span class="keyword">val </span><span class="identifier">layoutId</span><span class="symbol">: </span><span class="identifier">&lt;ERROR CLASS&gt;</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/observe-view-model.html"><span class="keyword">fun </span><span class="identifier">observeViewModel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/on-create-options-menu.html"><span class="keyword">fun </span><span class="identifier">onCreateOptionsMenu</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainActivity$onCreateOptionsMenu(android.view.Menu)/menu">menu</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/Menu.html"><span class="identifier">Menu</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/on-options-item-selected.html"><span class="keyword">fun </span><span class="identifier">onOptionsItemSelected</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainActivity$onOptionsItemSelected(android.view.MenuItem)/item">item</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/MenuItem.html"><span class="identifier">MenuItem</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity/series-adapter.html"><span class="keyword">lateinit</span> <span class="keyword">var </span><span class="identifier">seriesAdapter</span><span class="symbol">: </span><span class="identifier">ItemAdapter</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity-module/index.html"><span class="identifier">@Module</span> <span class="keyword">object </span><span class="identifier">MainActivityModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-activity-module/provide-series-adapter-delegates.html"><span class="identifier">@ActivityScope</span> <span class="identifier">@Provides</span> <span class="identifier">@JvmStatic</span> <span class="keyword">fun </span><span class="identifier">provideSeriesAdapterDelegates</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">DelegateAdapter</span><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/index.html"><span class="keyword">class </span><span class="identifier">MainViewModel</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-init-.html"><span class="identifier">MainViewModel</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel$<init>(com.mobilemovement.kotlintvmaze.domain.GetSeriesUseCase)/getSeriesUseCase">getSeriesUseCase</span><span class="symbol">:</span>&nbsp;<span class="identifier">GetSeriesUseCase</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/get-series.html"><span class="keyword">fun </span><span class="identifier">getSeries</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel$getSeries(kotlin.String)/query">query</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/series-live-data.html"><span class="keyword">val </span><span class="identifier">seriesLiveData</span><span class="symbol">: </span><span class="identifier">LiveData</span><span class="symbol">&lt;</span><span class="identifier">SeriesUiState</span><span class="symbol">&gt;</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/index.html"><span class="keyword">data</span> <span class="keyword">class </span><span class="identifier">SeriesUiState</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/-init-.html"><span class="identifier">SeriesUiState</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/data">data</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SeriesViewItem</span><span class="symbol">&gt;</span><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isSuccess">isSuccess</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isLoading">isLoading</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isError">isError</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;false<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/errorMessage">errorMessage</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span>&nbsp;<span class="symbol">=</span>&nbsp;null<span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.MainViewModel.SeriesUiState$<init>(kotlin.collections.List((com.mobilemovement.kotlintvmaze.data.SeriesViewItem)), kotlin.Boolean, kotlin.Boolean, kotlin.Boolean, kotlin.String, kotlin.Boolean)/isFirstRun">isFirstRun</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a>&nbsp;<span class="symbol">=</span>&nbsp;true<span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/data.html"><span class="keyword">val </span><span class="identifier">data</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><span class="identifier">SeriesViewItem</span><span class="symbol">&gt;</span><span class="symbol">?</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/error-message.html"><span class="keyword">val </span><span class="identifier">errorMessage</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">?</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-error.html"><span class="keyword">val </span><span class="identifier">isError</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-first-run.html"><span class="keyword">val </span><span class="identifier">isFirstRun</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-loading.html"><span class="keyword">val </span><span class="identifier">isLoading</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model/-series-ui-state/is-success.html"><span class="keyword">val </span><span class="identifier">isSuccess</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model-module/index.html"><span class="identifier">@Module</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">MainViewModelModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-main-view-model-module/-init-.html"><span class="identifier">MainViewModelModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/index.html"><span class="keyword">class </span><span class="identifier">SeriesAdapter</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">DelegateAdapter</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-init-.html"><span class="identifier">SeriesAdapter</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/bind-view-holder.html"><span class="keyword">fun </span><span class="identifier">bindViewHolder</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$bindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder, com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/holder">holder</span><span class="symbol">:</span>&nbsp;<span class="identifier">ViewHolder</span><span class="symbol">, </span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$bindViewHolder(androidx.recyclerview.widget.RecyclerView.ViewHolder, com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/create-view-holder.html"><span class="keyword">fun </span><span class="identifier">createViewHolder</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$createViewHolder(android.view.ViewGroup)/parent">parent</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/ViewGroup.html"><span class="identifier">ViewGroup</span></a><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">ViewHolder</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/is-for-view-type.html"><span class="keyword">fun </span><span class="identifier">isForViewType</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter$isForViewType(com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html"><span class="identifier">Boolean</span></a></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-series-view-holder/index.html"><span class="keyword">inner</span> <span class="keyword">class </span><span class="identifier">SeriesViewHolder</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">BaseViewHolder</span><span class="symbol">&lt;</span><span class="identifier">&lt;ERROR CLASS&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">&gt;</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-series-view-holder/-init-.html"><span class="identifier">SeriesViewHolder</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter.SeriesViewHolder$<init>(android.view.View)/itemView">itemView</span><span class="symbol">:</span>&nbsp;<a href="https://developer.android.com/reference/android/view/View.html"><span class="identifier">View</span></a><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.ui/-series-adapter/-series-view-holder/bind-to.html"><span class="keyword">fun </span><span class="identifier">bindTo</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.ui.SeriesAdapter.SeriesViewHolder$bindTo(com.mobilemovement.kotlintvmaze.base.util.delegate.AdapterItem)/item">item</span><span class="symbol">:</span>&nbsp;<span class="identifier">AdapterItem</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/index.html"><span class="keyword">package</span>&nbsp;<span class="identifier">com.mobilemovement.kotlintvmaze.vm</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-maze-view-model-factory/index.html"><span class="identifier">@Singleton</span> <span class="keyword">class </span><span class="identifier">MazeViewModelFactory</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">Factory</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-maze-view-model-factory/-init-.html"><span class="identifier">MazeViewModelFactory</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.vm.MazeViewModelFactory$<init>(kotlin.collections.Map((java.lang.Class((androidx.lifecycle.ViewModel)), javax.inject.Provider(()))))/creators">creators</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-map/index.html"><span class="identifier">Map</span></a><span class="symbol">&lt;</span><a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span><span class="symbol">,</span>&nbsp;<span class="identifier">@JvmSuppressWildcards</span> <span class="identifier">Provider</span><span class="symbol">&lt;</span><span class="identifier">ViewModel</span><span class="symbol">&gt;</span><span class="symbol">&gt;</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-maze-view-model-factory/create.html"><span class="keyword">fun </span><span class="symbol">&lt;</span><span class="identifier">T</span>&nbsp;<span class="symbol">:</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span> <span class="identifier">create</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.vm.MazeViewModelFactory$create(java.lang.Class((com.mobilemovement.kotlintvmaze.vm.MazeViewModelFactory.create.T)))/modelClass">modelClass</span><span class="symbol">:</span>&nbsp;<a href="https://docs.oracle.com/javase/6/docs/api/java/lang/Class.html"><span class="identifier">Class</span></a><span class="symbol">&lt;</span><span class="identifier">T</span><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><span class="identifier">T</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-key/index.html"><span class="identifier">@MapKey</span> <span class="identifier">@Target</span><span class="symbol">(</span>[AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER]<span class="symbol">)</span> <span class="keyword">annotation</span> <span class="keyword">class </span><span class="identifier">ViewModelKey</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-key/-init-.html"><span class="identifier">ViewModelKey</span><span class="symbol">(</span><span class="identifier" id="com.mobilemovement.kotlintvmaze.vm.ViewModelKey$<init>(kotlin.reflect.KClass((androidx.lifecycle.ViewModel)))/value">value</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span><span class="symbol">)</span></a></a><br/>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-key/value.html"><span class="keyword">val </span><span class="identifier">value</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html"><span class="identifier">KClass</span></a><span class="symbol">&lt;</span><span class="keyword">out</span>&nbsp;<span class="identifier">ViewModel</span><span class="symbol">&gt;</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-module/index.html"><span class="identifier">@Module</span><span class="symbol">(</span>[MainViewModelModule]<span class="symbol">)</span> <span class="keyword">abstract</span> <span class="keyword">class </span><span class="identifier">ViewModelModule</span></a></a><br/>
+<ul>
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>Module Contents</title>
+<link rel="stylesheet" href="../style.css">
+</HEAD>
+<BODY>
+<a href="/Users/nuhkoca/Desktop/AndroidWorks/kotlin-modular-tdd-coroutines-mvvm/docs/app/index"><a href="com.mobilemovement.kotlintvmaze.vm/-view-model-module/-init-.html"><span class="identifier">ViewModelModule</span><span class="symbol">(</span><span class="symbol">)</span></a></a><br/>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>
+</ul>
+</BODY>
+</HTML>

@@ -8,4 +8,5 @@ object BuildPlugins {
     const val DETEKT = "plugins.detekt"
     const val JACOCO = "plugins.jacoco"
     const val KTLINT = "plugins.ktlint"
+    const val DOKKA = "plugins.dokka"
 }

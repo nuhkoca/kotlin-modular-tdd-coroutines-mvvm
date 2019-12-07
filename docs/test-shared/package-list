@@ -1,0 +1,4 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.mobilemovement.kotlintvmaze.shared.test$observeOnce(androidx.lifecycle.LiveData((com.mobilemovement.kotlintvmaze.shared.test.observeOnce.T)), kotlin.Function1((com.mobilemovement.kotlintvmaze.shared.test.observeOnce.T, kotlin.Unit)))com.mobilemovement.kotlintvmaze.shared.test/androidx.lifecycle.-live-data/observe-once.html
+com.mobilemovement.kotlintvmaze.shared.test
