@@ -26,6 +26,7 @@ object PluginVersions {
 	const val gradle_enterprise = "3.1"
 	const val jacoco = "0.16.0-SNAPSHOT"
 	const val ktlint = "9.1.1"
+	const val dokka = "0.10.0"
 }
 
 dependencies {
@@ -37,4 +38,5 @@ dependencies {
 	implementation("com.gradle:gradle-enterprise-gradle-plugin:${PluginVersions.gradle_enterprise}")
 	implementation("com.vanniktech:gradle-android-junit-jacoco-plugin:${PluginVersions.jacoco}")
 	implementation("org.jlleitschuh.gradle:ktlint-gradle:${PluginVersions.ktlint}")
+    implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersions.dokka}")
 }

@@ -1,110 +1,304 @@
-# Kotlin Application Relies On TDD - Coroutines and Modularization
+# A sample modern Kotlin application - Documentation still under maintenance
 
+[![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a57894a5edd4815aa5bfec1dc8394eb)](https://app.codacy.com/app/nuhkoca/kotlin-modular-tdd-coroutines-mvvm?utm_source=github.com&utm_medium=referral&utm_content=nuhkoca/kotlin-modular-tdd-coroutines-mvvm&utm_campaign=Badge_Grade_Settings)
 [![codebeat badge](https://codebeat.co/badges/7cadcc19-6362-403b-9d03-300231ee8063)](https://codebeat.co/projects/github-com-nuhkoca-kotlin-modular-tdd-coroutines-mvvm-master)
 [![CodeFactor](https://www.codefactor.io/repository/github/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/badge)](https://www.codefactor.io/repository/github/nuhkoca/kotlin-modular-tdd-coroutines-mvvm)
-[![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
-[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.41-blue.svg)](https://kotlinlang.org)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.61-blue.svg)](https://kotlinlang.org)
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
 <a href="https://opensource.org/licenses/MIT"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg"/></a>
 ![](https://img.shields.io/github/languages/count/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
 ![](https://img.shields.io/github/repo-size/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
 ![](https://img.shields.io/github/last-commit/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg)
-![](https://img.shields.io/github/followers/nuhkoca.svg?style=social)
-![](https://img.shields.io/github/stars/nuhkoca/kotlin-modular-tdd-coroutines-mvvm.svg?style=social)
-[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
+![](https://img.shields.io/github/license/nuhkoca/kotlin-modular-tdd-coroutines-mvvm)
 
 
-TVmaze is a community of TV lovers and dedicated contributors that discuss and help maintain tv information on the web.
+This project is a sample that presents modern, the recent approach to [Android](https://www.android.com/) application development using [Kotlin](https://kotlinlang.org/) and latest technology stack.
+
+The goal of the project is to demonstrate best practices, provide a set of guidelines, and present modern Android
+application architecture that is modular, scalable, maintainable and testable. This application may look simple, but it
+has all of these small details that will set the rock-solid foundation of the larger app suitable for bigger teams and
+long application lifecycle management.
+
+:boom: Powered by [TvMaze](https://www.tvmaze.com/api).
 
 <p align="center">
-  <a href="https://www.tvmaze.com/api"><img alt="License" src="https://static.tvmaze.com/images/api/tvm_api.png"/></a>
+  <a href="https://www.tvmaze.com/api"><img alt="License" src="https://static.tvmaze.com/images/tvm-header-logo.png"/></a>
 </p>
 
-A [TvMaze Client App](https://www.tvmaze.com/) which was built with modular structure, Kotlin DSL, Kotlin Coroutines, DataBinding, Test Driven Development and MVVM pattern.
+## Table of Contents
 
-Users are able to search tv series by query.
+- [Development](#development)
+  - [Environment setup](#environment-setup)
+  - [Code style](#code-style)
+- [Design](#design)
+- [Architecture](#architecture)
+  - [Modules](#modules)
+    - [App module](#app-module)
+    - [Base module](#base-module)
+    - [Data module](#data-module)
+    - [Domain module](#domain-module)
+    - [Test shared module](#test-shared-module)
+  - [Architecture components](#architecture-components)
+- [Documentation](#documentation)
+- [Tech-stack](#tech-stack)
+  - [Patterns](#patterns)
+  - [Dependencies](#dependencies)
+  - [Test dependencies](#test-dependencies)
+  - [Plugins](#plugins)
+- [Resources](#resources)
+  - [Projects](#projects)
+  - [Articles](#articles)
+  - [Libraries](#libraries)
+  - [Best practices](#best-practices)
+  - [Codelabs](#codelabs)
+- [Contributions](#contributions)
+- [Roadmap](#roadmap)
+- [License](#license)
 
->Networking was handled by Coroutines and Retrofit. It is very simple with the Coroutines support of Retrofit
+## Development
 
->The dependency management is managed by buildSrc module.
+### Environment setup
 
->[Material Components](https://github.com/material-components/material-components-android) were used for UI.
+First off, you require the latest Android Studio 3.5 (or newer) to be able to build the app.
 
->[Detekt](https://github.com/arturbosch/detekt) and [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle) plugins were used for static code analysis.
+- TvMaze: <https://www.tvmaze.com/api>
 
->The repository is tracked by the CI tool [CircleCI](https://circleci.com/)
+Moreover, to sign your app for release you should generate an upload key and keystore following the [official documentation](https://developer.android.com/studio/publish/app-signing#sign-apk). Append the information used to generate it into `local.properties` project root file following the structure:
 
-#### Screenshots
+```gradle
+#Signing Config
+signing.key.alias = <insert>
+signing.key.password = <insert>
+signing.store.file = <insert>
+signing.store.password = <insert>
+```
 
+### Code style
 
-| Search screen | List screen | Error screen
-|:----------------:|:---------------: |:---------------:
-| <img src="art/search.png" width="350"/>  | <img src="art/list.png" width="350"/>  | <img src="art/errors.png" width="350"/>
+To maintain the style and quality of the code, are used the bellow static analysis tools. All of them use properly configuration and you find them in the project root directory `.{toolName}`.
 
+| Tools  | Config file | Check command | Fix command |
+|--------|------------:|---------------|-------------|
+| [detekt](https://github.com/arturbosch/detekt) | [/config/detekt](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master/config/detekt) | `./gradlew detekt` | `./gradlew detektFormat` or `./gradlew detektAll` |
+| [ktlint](https://github.com/pinterest/ktlint) | - | `./gradlew ktlint` | `./gradlew ktlintFormat` |
+| [spotless](https://github.com/diffplug/spotless) | [/spotless](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master/spotless) | `./gradlew spotlessCheck` | `./gradlew spotlessApply`
+| [lint](https://developer.android.com/studio/write/lint) | [each module](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/blob/master/app/lint.xml) | `./gradlew lint` | - |
 
-### Architecture :triangular_ruler: 
-* [Clean Architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164)
-* [MVVM](https://www.raywenderlich.com/8984-mvvm-on-android)
+All these tools are integrated in [pre-commit git hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks), in order
+ensure that all static analysis and tests passes before you can commit your changes. To skip them for specific commit add this option at your git command:
+```
+git commit --no-verify
+```
+
+The pre-commit git hooks have exactly the same checks as [CircleCI](https://circleci.com/) and are defined in this [script](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/blob/master/scripts/git-hooks/pre-commit.sh). This step ensures that all commits comply with the established rules. However the continuous integration will ultimately be validated that the changes are correct.
+
+## Design
+
+App [support different screen sizes](https://developer.android.com/training/multiscreen/screensizes) and the content has been adapted to fit for mobile devices and tablets. To do that, it has been created a flexible layout using one or more of the following concepts:
+
+- [Use ConstraintLayout](https://developer.android.com/training/multiscreen/screensizes#ConstraintLayout)
+- [Avoid hard-coded layout sizes](https://developer.android.com/training/multiscreen/screensizes#TaskUseWrapMatchPar)
+- [Create alternative layouts](https://developer.android.com/training/multiscreen/screensizes#alternative-layouts)
+- [Use the smallest width qualifier](https://developer.android.com/training/multiscreen/screensizes#TaskUseSWQuali)
+- [Use the available width qualifier](https://developer.android.com/training/multiscreen/screensizes#available-width)
+- [Add orientation qualifiers](https://developer.android.com/training/multiscreen/screensizes#TaskUseOriQuali)
+
+In terms of design has been followed recommendations [Android Material Design](https://developer.android.com/guide/topics/ui/look-and-feel) comprehensive guide for visual, motion, and interaction design across platforms and devices. Granting the project in this way a great user experience (UX) and user interface (UI). For more info about UX best practices visit [link](https://developer.android.com/topic/google-play-instant/best-practices/apps).
+
+Moreover, has been implemented support for [dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) with the following benefits:
+- Can reduce power usage by a significant amount (depending on the device’s screen technology).
+- Improves visibility for users with low vision and those who are sensitive to bright light.
+- Makes it easier for anyone to use a device in a low-light environment.
+
+## Architecture
+
+The architecture of the application is based, apply and strictly complies with each of the following 5 points:
+
+<img src="art/architecture.png" width="300" align="right" hspace="20">
+
+-   [Android architecture components](https://developer.android.com/topic/libraries/architecture/), part of Android Jetpack for give to project a robust design, testable and maintainable. 
+-   Pattern [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) (MVVM) facilitating a [separation](https://en.wikipedia.org/wiki/Separation_of_concerns) of development of the graphical user interface.
+-   [S.O.L.I.D](https://en.wikipedia.org/wiki/SOLID) design principles intended to make software designs more understandable, flexible and maintainable.
+-   [Modular app architecture](https://proandroiddev.com/build-a-modular-android-app-architecture-25342d99de82) allows to be developed features in isolation, independently from other features.
+
+### Modules
+
+Modules are collection of source files and build settings that allow you to divide a project into discrete units of functionality. In this case apart from dividing by functionality/responsibility, existing the following dependence between them:
+
+The above graph shows the app modularisation:
+-    `:app` module depends on `:base`, `:data`, `:domain` and `:test-shared`
+-    `:data` module depends on `:base` and `:test-shared`.
+-    `:domain` module depends on `:base`, `:data` and `:test-shared`
+-    `:base` doesn’t have any dependency.
+
+#### App module
+
+The `:app` module is an [com.android.application](https://developer.android.com/studio/build/), which is needed to create the app bundle.  It is also responsible for initiating the [dependency graph](https://github.com/google/dagger), [play core](https://developer.android.com/reference/com/google/android/play/core/release-notes) and another project global libraries, differentiating especially between different app environments.
+
+#### Base module
+
+The `:base` module is an [com.android.library](https://developer.android.com/studio/projects/android-library) only contains code and resources which are shared between other modules. Reusing this way resources, layouts, views, and components in the different modules, without the need to duplicate code.
+
+#### Data module
+
+The `:data` module is an [com.android.library](https://developer.android.com/studio/projects/dynamic-delivery) for serving network requests or accessing to the database. Providing the data source for the many features that require it.
+
+#### Domain module
+
+The `:domain` module is an [com.android.library](https://developer.android.com/studio/projects/android-library) lays a bridge between data
+and view layers. It performs any business logic getting data from data
+module and serves to view.
+
+#### Test shared module
+
+The `:test-shared` module is an [com.android.library](https://developer.android.com/studio/projects/android-library), basically contains test utilities that can be used by the different modules.
+
+### Architecture components
+
+Ideally, ViewModels shouldn’t know anything about Android. This improves testability, leak safety and modularity. ViewModels have different scopes than activities or fragments. While a ViewModel is alive and running, an activity can be in any of its lifecycle states. Activities and fragments can be destroyed and created again while the ViewModel is unaware.
+
+Passing a reference of the View (activity or fragment) to the ViewModel is a serious risk. Lets assume the ViewModel requests data from the network and the data comes back some time later. At that moment, the View reference might be destroyed or might be an old activity that is no longer visible, generating a memory leak and, possibly, a crash.
+
+The communication between the different layers follow the above diagram using the reactive paradigm, observing changes on components without need of callbacks avoiding leaks and edge cases related with them.
+
+## Documentation
+
+The documentation is generated following [KDoc](https://kotlinlang.org/docs/reference/kotlin-doc.html) language (the equivalent of Java's [JavaDoc](https://en.wikipedia.org/wiki/Javadoc)) via documentation engine for Kotlin [Dokka](https://github.com/Kotlin/dokka).
+
+To consult it check this [link](https://nuhkoca.github.io/kotlin-modular-tdd-coroutines-mvvm/) or open the project `/docs` directory.
+
+## Tech-stack
+
+This project takes advantage of many popular libraries, plugins and tools of the Android ecosystem. Most of the libraries are in the stable version, unless there is a good reason to use non-stable dependency.
+
+Mainly on:
+
+- [Kotlin](https://kotlinlang.org/) - Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference.
+- [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html) - Basically, a DSL is a language that focuses on just one particular part of an application. A general-purpose language, such as Kotlin or Java, on the other hand, can be used in multiple parts of one application.
 
 ### Patterns 
-* [Repository Pattern](https://developer.android.com/jetpack/docs/guide)
-* [Observer Pattern](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963)
-* [UseCase Pattern](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/)
-* [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern)
+- [Repository Pattern](https://developer.android.com/jetpack/docs/guide) -
+The Repository Pattern is one of the most popular patterns to create an enterprise level application. It restricts us to work directly with the data in the application and creates new layers for database operations, business logic, and the application's UI.
+- [Observer Pattern](https://code.tutsplus.com/tutorials/android-design-patterns-the-observer-pattern--cms-28963) - The observer pattern is a software design pattern in which an object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+- [UseCase Pattern](https://caminao.blog/how-to-implement-symbolic-representations/patterns/functional-patterns/use-case-patterns/) - This pattern means to convert and pass user actions to inner layers of the application.
+- [Delegation Pattern](https://en.wikipedia.org/wiki/Delegation_pattern) - In software engineering, the delegation pattern is an object-oriented design pattern that allows object composition to achieve the same code reuse as inheritance.
+- [TDD](https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/) - Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved so that the tests pass.
 
-### Approaches
-* [SOLID Principle](https://itnext.io/solid-principles-explanation-and-examples-715b975dcad4?gi=79443348411d)
-* [TDD](https://technologyconversations.com/2013/12/20/test-driven-development-tdd-example-walkthrough/)
+### Dependencies
 
-### Technology Stack :hammer_and_wrench: 
-* [Kotlin](https://kotlinlang.org/)
-* [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
-* [DataBinding](https://developer.android.com/topic/libraries/data-binding)
-* [Dagger 2](https://github.com/google/dagger)
-* [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html)
-* [Retrofit 2](https://square.github.io/retrofit/)
-* [Android Jetpack](https://developer.android.com/jetpack)
-  * [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
-  * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
-  * [ConstraintLayout](https://developer.android.com/training/constraint-layout)
-* [Glide](https://github.com/bumptech/glide)
-* [MockK](https://mockk.io/)
-* [Detekt](https://github.com/arturbosch/detekt)
-* [Ktlint](https://github.com/JLLeitschuh/ktlint-gradle)
+-   [Jetpack](https://developer.android.com/jetpack):
+    -   [Android KTX](https://developer.android.com/kotlin/ktx.html) - provide concise, idiomatic Kotlin to Jetpack and Android platform APIs.
+    -   [AndroidX](https://developer.android.com/jetpack/androidx) - major improvement to the original Android [Support Library](https://developer.android.com/topic/libraries/support-library/index), which is no longer maintained.
+    -   [Data Binding](https://developer.android.com/topic/libraries/data-binding/) - allows you to bind UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
+    -   [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - perform actions in response to a change in the lifecycle status of another component, such as activities and fragments.
+    -   [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services.
+    -   [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes such as screen rotations.
+-   [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - managing background threads with simplified code and reducing needs for callbacks.
+-   [Dagger2](https://dagger.dev/) - dependency injector for replacement all FactoryFactory classes.
+-   [Retrofit2](https://square.github.io/retrofit/) - type-safe HTTP client.
+-   [Glide](https://github.com/bumptech/glide) - image loading library for Android.
+-   [Gson](https://github.com/google/gson) - makes it easy to parse JSON into Kotlin objects.
+-   [Timber](https://github.com/JakeWharton/timber) - a logger with a small, extensible API which provides utility on top of Android's normal Log class.
+-   [and more...](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/blob/master/buildSrc/src/main/kotlin/dependencies/Dependencies.kt)
 
-### Layers
-* Data(This layer is responsible to hold models)
-* Domain(Retrieves data from data layer and dispatches to view layer. No connection with Android framework.)
-* Base(Contains common stuff for other layers)
-* View(Responsible for UI stuff such as displaying data)
+### Test dependencies
 
-### To-Do List:
+-   [Espresso](https://developer.android.com/training/testing/espresso) - to write concise, beautiful, and reliable Android UI tests
+-   [JUnit](https://github.com/junit-team/junit4) - a simple framework to write repeatable tests. It is an instance of the xUnit architecture for unit testing frameworks.
+-   [Mockito](https://github.com/nhaarman/mockito-kotlin) - most popular Mocking framework for unit tests written in Java.
+-   [Mockk](https://github.com/mockk/mockk) - provides DSL to mock behavior. Built from zero to fit Kotlin language.
+-   [AndroidX](https://github.com/android/android-test) - the androidx test library provides an extensive framework for testing Android apps.
+-   [and more...](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/blob/master/buildSrc/src/main/kotlin/dependencies/Dependencies.kt)
+
+### Plugins
+
+-   [Ktlint](https://github.com/pinterest/ktlint) - an anti-bikeshedding Kotlin linter with built-in formatter.
+-   [Detekt](https://github.com/arturbosch/detekt) - a static code analysis tool for the Kotlin programming language.
+-   [Spotless](https://github.com/diffplug/spotless) - a code formatter can do more than just find formatting errors.
+-   [Versions](https://github.com/ben-manes/gradle-versions-plugin) - make easy to determine which dependencies have updates.
+-   [Jacoco](https://github.com/jacoco/jacoco) - code coverage library
+-   [and more...](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master/buildSrc/src/main/kotlin/plugins)
+
+## Resources
+
+### Projects
+
+This is project is a sample, to inspire you and should handle most of the common cases, but obviously not all. If you need to take a look at additional resources to find solutions for your project, visit these interesting projects:
+
+-   [iosched](https://github.com/google/iosched) (by [google](https://github.com/google)) - official Android application from google IO 2019.
+-   [plaid](https://github.com/android/plaid) (by [android](https://github.com/android)) - app which provides design news & inspiration, being an example of implementing material design.
+-   [sunflower](https://github.com/android/sunflower) (by [android](https://github.com/android)) - a gardening app illustrating Android development best practices with Android Jetpack.
+-   [architecture-components-samples](https://github.com/android/architecture-components-samples) (by [android](https://github.com/android)) - collection of samples for Android Architecture Components.
+-   [architecture-sample](https://github.com/android/architecture-samples) (by [android](https://github.com/android)) - collection of samples to discuss and showcase different architectural tools and patterns for Android apps.
+-   [android-clean-architecture-boilerplate](https://github.com/bufferapp/android-clean-architecture-boilerplate) (by [bufferapp](https://github.com/bufferapp)) - an android boilerplate project using clean architecture
+-   [android-kotlin-clean-architecture](https://github.com/sanogueralorenzo/Android-Kotlin-Clean-Architecture) (by [sanogueralorenzo](https://github.com/sanogueralorenzo)) - android sample Clean Architecture app written in Kotlin.
+-   [modularization-example](https://github.com/JeroenMols/ModularizationExample) (by [JeroenMols](https://github.com/JeroenMols)) - easy to understand real-life example of a modularized Android app.
+-   [lego-catalog](https://github.com/Eli-Fox/LEGO-Catalog) (by [Eli-Fox](https://github.com/Eli-Fox)) - app illustrating current Android Architecture state using Android development best practices.
+-   [tivi](https://github.com/chrisbanes/tivi) (by [chrisbanes](https://github.com/chrisbanes)) - an app which attempts to use the latest cutting edge libraries and tools.
+-   [android-showcase](https://github.com/igorwojda/android-showcase) (by [igorwojda](https://github.com/igorwojda)) - app following best practices: Kotlin, coroutines, Clean Architecture, feature modules, tests, MVVM, static analysis.
+
+### Articles
+
+A collection of very interesting articles related last android community tendencies and recommendations for start to take in consideration for your current/next project:
+
+-   [Transform monolith to modularization application](https://medium.com/androiddevelopers/a-patchwork-plaid-monolith-to-modularized-app-60235d9f212e)
+-   [Using the Navigation Component in a Modular World](https://medium.com/swlh/using-the-navigation-component-in-a-modular-world-e7578825962)
+-   [Dependency injection in a multi module project](https://medium.com/androiddevelopers/dependency-injection-in-a-multi-module-project-1a09511c14b7)
+-   [ViewModels and LiveData: Patterns + AntiPatterns](https://medium.com/androiddevelopers/viewmodels-and-livedata-patterns-antipatterns-21efaef74a54)
+-   [Dynamic feature and regular modules using Dagger2](https://blog.q42.nl/dynamic-feature-and-regular-modules-using-dagger2-12a7edcec1ff)
+-   [Android Architecture starring Kotlin Coroutines, Jetpack (MVVM, Room, Paging), Retrofit and Dagger 2](https://proandroiddev.com/android-architecture-starring-kotlin-coroutines-jetpack-mvvm-room-paging-retrofit-and-dagger-7749b2bae5f7)
+-   [Official Kotlin Style Guide with Ktlint](https://proandroiddev.com/official-kotlin-style-guide-with-ktlint-4a649c172956)
+-   [Gradle dependency management with Kotlin (buildSrc)](https://proandroiddev.com/gradle-dependency-management-with-kotlin-94eed4df9a28)
+-   [Detecting Kotlin Code Smells with Detekt](https://proandroiddev.com/detecting-kotlin-code-smells-with-detekt-e79c52a35faf)
+-   [Best coding practices, tips and more for Android](https://medium.com/mindorks/best-coding-practices-tips-and-more-for-android-4ec03c7eeb2c)
+
+### Libraries
+
+The open-source community create and maintains tons of awesome libraries making your job more easy, giving the opportunity to use them in your developments. Here are a very important collection of them:
+
+-   [awesome-android-ui](https://github.com/wasabeef/awesome-android-ui) - collection list of awesome Android UI/UX libraries.
+-   [awesome-android-libraries](https://github.com/KotlinBy/awesome-kotlin#android-libraries) - collection of awesome Kotlin related stuff.
+-   [android-arsenal](https://android-arsenal.com/) - android developer portal with tools, libraries, and apps.
+
+### Best practices
+
+Avoid reinventing the wheel by following these guidelines:
+
+-   [Google best practices](https://developer.android.com/distribute/best-practices)
+-   [Android development best practices](https://github.com/futurice/android-best-practices)
+
+### Codelabs
+
+Google Developers Codelabs provide a guided, tutorial, hands-on coding experience. Most codelabs will step you through the process of building a small application, or adding a new feature to an existing application. They cover a wide range of android concepts to learn and practice:
+
+-   [Android Developer Fundamentals](https://developer.android.com/courses/fundamentals-training/toc-v2)
+-   [Android Developer Codelabs](https://codelabs.developers.google.com/?cat=Android)
+
+## Contributions
+
+All contributions are welcome!
+Please feel free to post questions, recommendations, ideas, bugs by create [new issue](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/issues/new/choose) following the template or if you want create directly [new pull request](https://github.com/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/compare).
+
+### Roadmap:
 - [ ] - A detail screen to be added
 - [ ] - Cards to have more detail
 - [x] - Some screenshots to be added
-- [ ] - Write common DSL scripts
+- [x] - Write common DSL scripts
 
+### License
 ```
-MIT License
+Copyright 2019 nuhkoca.com
 
-Copyright (c) 2019 Nuh Koca
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+    http://www.apache.org/licenses/LICENSE-2.0
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

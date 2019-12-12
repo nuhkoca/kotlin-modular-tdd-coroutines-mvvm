@@ -1,0 +1,10 @@
+$dokka.format:html
+$dokka.linkExtension:html
+
+com.mobilemovement.kotlintvmaze
+com.mobilemovement.kotlintvmaze.binding
+com.mobilemovement.kotlintvmaze.di.component
+com.mobilemovement.kotlintvmaze.di.module
+com.mobilemovement.kotlintvmaze.di.scope
+com.mobilemovement.kotlintvmaze.ui
+com.mobilemovement.kotlintvmaze.vm
