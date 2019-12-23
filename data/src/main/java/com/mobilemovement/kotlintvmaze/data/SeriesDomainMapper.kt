@@ -15,14 +15,20 @@
  */
 package com.mobilemovement.kotlintvmaze.data
 
+import com.mobilemovement.kotlintvmaze.base.util.coroutines.DefaultDispatcherProvider
 import com.mobilemovement.kotlintvmaze.base.util.mapper.Mapper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class SeriesDomainMapper @Inject constructor() : Mapper<SeriesRaw, Series> {
-    override fun invoke(input: SeriesRaw) = with(input) {
-        val image = Image(show?.image?.original)
-        val show = Show(show?.id, show?.url, show?.name, image, show?.summary)
+    override suspend fun invoke(input: SeriesRaw) =
+        withContext(DefaultDispatcherProvider.default()) {
+            return@withContext with(input) {
+                val image = Image(show?.image?.original)
+                val show = Show(show?.id, show?.url, show?.name, image, show?.summary)
 
-        Series(score, show)
-    }
+                Series(score, show)
+            }
+        }
 }

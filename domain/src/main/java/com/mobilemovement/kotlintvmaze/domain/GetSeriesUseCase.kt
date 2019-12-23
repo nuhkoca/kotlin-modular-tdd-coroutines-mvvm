@@ -32,7 +32,7 @@ class GetSeriesUseCase @Inject constructor(
         return try {
             val series = seriesRepository.searchSeriesAsync(params.query)
             if (series.isEmpty()) return Resource.empty(errorFactory.createEmptyErrorMessage())
-            val mappedSeries = series.map(seriesViewItemMapper::invoke)
+            val mappedSeries = series.map { seriesViewItemMapper.invoke(it) }
             Resource.success(mappedSeries)
         } catch (e: Exception) {
             Resource.error(errorFactory.createApiErrorMessage(e))

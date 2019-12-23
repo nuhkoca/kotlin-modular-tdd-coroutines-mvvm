@@ -26,6 +26,6 @@ class SeriesRepositoryImpl @Inject constructor(
 ) : SeriesRepository {
     override suspend fun searchSeriesAsync(query: String?): List<Series> {
         val series = seriesRemoteDataSource.searchSeriesAsync(query)
-        return series.map(seriesDomainMapper::invoke)
+        return series.map { seriesDomainMapper.invoke(it) }
     }
 }
