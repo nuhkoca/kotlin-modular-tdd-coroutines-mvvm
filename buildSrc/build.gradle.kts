@@ -24,7 +24,7 @@ object PluginVersions {
 	const val spotless = "3.26.0"
 	const val detekt = "1.2.0"
 	const val gradle_enterprise = "3.1"
-	const val jacoco = "0.16.0-SNAPSHOT"
+	const val jacoco = "0.16.0"
 	const val ktlint = "9.1.1"
 	const val dokka = "0.10.0"
 }
