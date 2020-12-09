@@ -27,9 +27,7 @@ import com.mobilemovement.kotlintvmaze.data.ShowRaw
 import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.coVerify
-import io.mockk.every
 import io.mockk.mockk
-import io.mockk.verify
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
@@ -72,7 +70,7 @@ class SeriesRepositoryTest {
                 )
             )
 
-            every { mapper.invoke(any()) } returns Series(
+            coEvery { mapper.invoke(any()) } returns Series(
                 10.0,
                 Show(
                     1,
@@ -88,7 +86,7 @@ class SeriesRepositoryTest {
             repository.searchSeriesAsync(QUERY)
 
             coVerify { dataSource.searchSeriesAsync(any()) }
-            verify { mapper.invoke(any()) }
+            coVerify { mapper.invoke(any()) }
 
             assertThat(repository.searchSeriesAsync(QUERY)).isNotNull()
             assertThat(repository.searchSeriesAsync(QUERY)).isEqualTo(

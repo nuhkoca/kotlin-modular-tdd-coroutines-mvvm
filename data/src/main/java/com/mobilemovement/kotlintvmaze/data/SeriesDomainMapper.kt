@@ -17,7 +17,6 @@ package com.mobilemovement.kotlintvmaze.data
 
 import com.mobilemovement.kotlintvmaze.base.util.coroutines.DefaultDispatcherProvider
 import com.mobilemovement.kotlintvmaze.base.util.mapper.Mapper
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

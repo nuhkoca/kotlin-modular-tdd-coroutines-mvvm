@@ -21,7 +21,6 @@ import com.mobilemovement.kotlintvmaze.data.ImageViewItem
 import com.mobilemovement.kotlintvmaze.data.Series
 import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
 import com.mobilemovement.kotlintvmaze.data.ShowViewItem
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

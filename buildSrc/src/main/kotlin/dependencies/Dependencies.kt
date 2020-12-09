@@ -15,7 +15,7 @@ object Dependencies {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
     const val logging = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
-    const val gson = "com.squareup.retrofit2:converter-gson:${Versions.gson}"
+    const val gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
 
     // Coroutines
     const val coroutines_core =

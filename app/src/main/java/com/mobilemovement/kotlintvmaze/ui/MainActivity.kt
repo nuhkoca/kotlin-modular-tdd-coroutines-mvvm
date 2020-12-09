@@ -19,7 +19,6 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.mobilemovement.kotlintvmaze.R
 import com.mobilemovement.kotlintvmaze.base.util.delegate.ItemAdapter
