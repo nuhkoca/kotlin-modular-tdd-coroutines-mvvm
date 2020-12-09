@@ -75,7 +75,7 @@ class GetSeriesUseCaseTest {
                 )
             )
 
-            every { mapper.invoke(any()) } returns SeriesViewItem(
+            coEvery { mapper.invoke(any()) } returns SeriesViewItem(
                 ShowViewItem(
                     "testname",
                     ImageViewItem(
@@ -92,7 +92,7 @@ class GetSeriesUseCaseTest {
             useCase.executeAsync(Params(QUERY))
 
             coVerify { repository.searchSeriesAsync(any()) }
-            verify { mapper.invoke(any()) }
+            coVerify { mapper.invoke(any()) }
 
             assertThat(useCase.executeAsync(Params(QUERY))).isNotNull()
             assertThat(useCase.executeAsync(Params(QUERY))).isEqualTo(
@@ -116,7 +116,7 @@ class GetSeriesUseCaseTest {
     fun `GetSeriesUseCase throws error`() = coroutinesTestRule.testDispatcher.runBlockingTest {
         coEvery { repository.searchSeriesAsync(any()) } throws NullPointerException("null")
 
-        every { mapper.invoke(any()) } throws NullPointerException("null")
+        coEvery { mapper.invoke(any()) } throws NullPointerException("null")
 
         every { factory.createApiErrorMessage(any()) } returns "null"
 

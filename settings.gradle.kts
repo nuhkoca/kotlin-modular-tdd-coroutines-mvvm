@@ -1,5 +1,5 @@
 plugins {
-    id("com.gradle.enterprise") version "3.1"
+    `gradle-enterprise`
 }
 
 include(":app")
@@ -15,9 +15,5 @@ gradleEnterprise {
     buildScan {
         termsOfServiceUrl = "https://gradle.com/terms-of-service"
         termsOfServiceAgree = "yes"
-
-        /* This is not good to run for every build
-    	publishAlways()
-     	*/
     }
 }

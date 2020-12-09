@@ -3,7 +3,7 @@ object Plugins {
     const val androidApplication = "com.android.application"
     const val androidLibrary = "com.android.library"
     const val kotlinAndroid = "android"
-    const val kotlinAndroidExtension = "android.extensions"
+    const val kotlinParcelize = "kotlin-parcelize"
     const val kotlinKapt = "kapt"
     const val commonAndroidLibrary = "commons.common-android-library"
 

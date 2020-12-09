@@ -16,14 +16,22 @@
 package com.mobilemovement.kotlintvmaze.data
 
 import com.google.common.truth.Truth
-import io.mockk.every
+import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
+import io.mockk.coEvery
 import io.mockk.mockk
 import io.mockk.slot
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 
+@ExperimentalCoroutinesApi
 class SeriesDomainMapperTest {
+
+    @get:Rule
+    val coroutinesTestRule = CoroutinesTestRule()
 
     @Before
     fun setUp() {
@@ -31,70 +39,73 @@ class SeriesDomainMapperTest {
     }
 
     @Test
-    fun `SeriesViewItemMapper maps raw data to Series`() {
-        val mapper = mockk<SeriesDomainMapper>()
+    fun `SeriesViewItemMapper maps raw data to Series`() =
+        coroutinesTestRule.testDispatcher.runBlockingTest {
+            val mapper = mockk<SeriesDomainMapper>()
 
-        val slot = slot<SeriesRaw>()
+            val slot = slot<SeriesRaw>()
 
-        every { mapper.invoke(capture(slot)) } returns
-            Series(
-                10.0,
-                Show(
-                    1,
-                    "testname",
-                    "testurl",
-                    Image("testoriginal"), "testsummary"
+            coEvery { mapper.invoke(capture(slot)) } returns
+                Series(
+                    10.0,
+                    Show(
+                        1,
+                        "testname",
+                        "testurl",
+                        Image("testoriginal"),
+                        "testsummary"
+                    )
+                )
+
+            val invocation = mapper.invoke(
+                SeriesRaw(
+                    10.0,
+                    ShowRaw(
+                        1,
+                        "testurl",
+                        "testname",
+                        "testype",
+                        "testlanguage",
+                        ImageRaw(
+                            "testmedium",
+                            "testoriginal"
+                        ),
+                        "testsummary"
+                    )
                 )
             )
 
-        val invocation = mapper.invoke(
-            SeriesRaw(
-                10.0,
-                ShowRaw(
-                    1,
-                    "testurl",
-                    "testname",
-                    "testype",
-                    "testlanguage",
-                    ImageRaw(
-                        "testmedium",
-                        "testoriginal"
-                    ),
-                    "testsummary"
+            Truth.assertThat(invocation).isNotNull()
+            Truth.assertThat(invocation).isEqualTo(
+                Series(
+                    10.0,
+                    Show(
+                        1,
+                        "testname",
+                        "testurl",
+                        Image("testoriginal"),
+                        "testsummary"
+                    )
                 )
             )
-        )
-
-        Truth.assertThat(invocation).isNotNull()
-        Truth.assertThat(invocation).isEqualTo(
-            Series(
-                10.0,
-                Show(
-                    1,
-                    "testname",
-                    "testurl",
-                    Image("testoriginal"), "testsummary"
+            Truth.assertThat(slot.captured).isEqualTo(
+                SeriesRaw(
+                    10.0,
+                    ShowRaw(
+                        1,
+                        "testurl",
+                        "testname",
+                        "testype",
+                        "testlanguage",
+                        ImageRaw(
+                            "testmedium",
+                            "testoriginal"
+                        ),
+                        "testsummary"
+                    )
                 )
             )
-        )
-        Truth.assertThat(slot.captured).isEqualTo(
-            SeriesRaw(
-                10.0,
-                ShowRaw(
-                    1,
-                    "testurl",
-                    "testname",
-                    "testype",
-                    "testlanguage",
-                    ImageRaw(
-                        "testmedium",
-                        "testoriginal"
-                    ),
-                    "testsummary"
-                )
-            )
-        )
-    }
+        }
 
     @After
     fun tearDown() {

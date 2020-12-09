@@ -1,84 +1,60 @@
+/*
+* Copyright (C) 2020 Nuh Koca
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 package plugins
 
-import dependencies.Versions
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
-import utils.userHome
-
-val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+import org.gradle.api.JavaVersion.VERSION_1_8
 
 apply<DetektPlugin>()
 
 detekt {
-	toolVersion = Versions.detekt
-	baseline = file("${project.rootDir}/config/detekt/baseline.xml")
-	input = files("${project.projectDir}")
-	config = files("${project.rootDir}/default-detekt-config.yml")
+    toolVersion = "1.14.2"
+    parallel = false
+    failFast = true
+    input = files(
+        "src/main/kotlin",
+        "src/main/java"
+    )
+    config = files("${project.rootDir}/default-detekt-config.yml")
 
-	reports {
-		xml {
-			enabled = true
-			destination = file("${project.buildDir}/reports/detekt/detekt-report.xml")
-		}
-		html {
-			enabled = true
-			destination = file("${project.buildDir}/reports/detekt/detekt-report.html")
-		}
-	}
-
-	idea {
-		path = "$userHome/.idea"
-		codeStyleScheme = "$userHome/.idea/idea-code-style.xml"
-		inspectionsProfile = "$userHome/.idea/inspect.xml"
-		report = "${project.projectDir}/reports"
-		mask = "*.kt"
-	}
+    reports {
+        xml {
+            enabled = true
+            destination = file("${project.buildDir}/reports/detekt/detekt-report.xml")
+        }
+        html {
+            enabled = true
+            destination = file("${project.buildDir}/reports/detekt/detekt-report.html")
+        }
+    }
 }
 
 tasks {
-	withType<Detekt> {
-		include("**/*.kt")
-		include("**/*.kts")
-		exclude(".*/resources/.*")
-		exclude("**/build/**")
+    withType<Detekt> {
+        include("**/*.kt", "**/*.kts")
+        exclude(
+            "**/build/**",
+            ".*/resources/.*",
+            ".*test.*",
+            ".*/tmp/.*",
+            "**/generated/**"
+        )
 
-		jvmTarget = javaVersion.toString()
-	}
-}
-
-val detektFormat by tasks.registering(Detekt::class) {
-	description = "Reformats whole code base."
-	parallel = true
-	disableDefaultRuleSets = true
-	buildUponDefaultConfig = true
-	autoCorrect = true
-	setSource(files(project.projectDir))
-	include("**/*.kt")
-	include("**/*.kts")
-	exclude("**/resources/**")
-	exclude("**/build/**")
-	config.setFrom(files("${project.rootDir}/config/detekt/format.yml"))
-	reports {
-		xml.enabled = false
-		html.enabled = false
-		txt.enabled = false
-	}
-}
-
-val detektAll by tasks.registering(Detekt::class) {
-	description = "Runs over whole code base without the starting overhead for each module."
-	parallel = true
-	buildUponDefaultConfig = true
-	setSource(files(project.projectDir))
-	include("**/*.kt")
-	include("**/*.kts")
-	exclude("**/resources/**")
-	exclude("**/build/**")
-	baseline.set(file("${project.rootDir}/config/detekt/baseline.xml"))
-	reports {
-		xml.enabled = false
-		html.enabled = false
-		txt.enabled = false
-	}
+        jvmTarget = VERSION_1_8.toString()
+    }
 }

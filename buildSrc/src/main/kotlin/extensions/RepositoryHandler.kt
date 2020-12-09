@@ -4,6 +4,7 @@ import org.gradle.api.artifacts.dsl.RepositoryHandler
 
 fun RepositoryHandler.applyDefaults() {
     google()
-    jcenter()
     mavenCentral()
+    gradlePluginPortal()
+    jcenter()
 }

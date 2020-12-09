@@ -1,6 +1,5 @@
 # A sample modern Kotlin application - Documentation still under maintenance
 
-[![CircleCI](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master.svg?style=svg)](https://circleci.com/gh/nuhkoca/kotlin-modular-tdd-coroutines-mvvm/tree/master)
 [![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg)](https://ktlint.github.io/)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2a57894a5edd4815aa5bfec1dc8394eb)](https://app.codacy.com/app/nuhkoca/kotlin-modular-tdd-coroutines-mvvm?utm_source=github.com&utm_medium=referral&utm_content=nuhkoca/kotlin-modular-tdd-coroutines-mvvm&utm_campaign=Badge_Grade_Settings)
 [![codebeat badge](https://codebeat.co/badges/7cadcc19-6362-403b-9d03-300231ee8063)](https://codebeat.co/projects/github-com-nuhkoca-kotlin-modular-tdd-coroutines-mvvm-master)

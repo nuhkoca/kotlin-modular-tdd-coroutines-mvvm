@@ -77,6 +77,7 @@ class MazeGlideModule : AppGlideModule() {
 
     companion object {
         private const val DEFAULT_TIMEOUT = 60L
+
         private const val DEFAULT_MEMORY_CACHE_SIZE = 1024 * 1024 * 300 // 300mb cache
         private const val DEFAULT_SIGNATURE_OBJECT = 168 * 60 * 60 * 1000
         private const val DEFAULT_ENCODE_QUALITY = 100

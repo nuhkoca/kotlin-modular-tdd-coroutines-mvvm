@@ -51,7 +51,8 @@ class SeriesRemoteDataSourceTest {
                         "testurl",
                         "testname",
 
-                        "testtype", "testlanguage",
+                        "testtype",
+                        "testlanguage",
                         ImageRaw(
                             "testmedium",
                             "testoriginal"

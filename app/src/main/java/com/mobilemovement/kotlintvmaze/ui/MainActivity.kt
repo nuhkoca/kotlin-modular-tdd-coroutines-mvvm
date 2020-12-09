@@ -15,53 +15,56 @@
  */
 package com.mobilemovement.kotlintvmaze.ui
 
+import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.mobilemovement.kotlintvmaze.R
-import com.mobilemovement.kotlintvmaze.base.BaseActivity
 import com.mobilemovement.kotlintvmaze.base.util.delegate.ItemAdapter
-import com.mobilemovement.kotlintvmaze.base.util.ext.hide
-import com.mobilemovement.kotlintvmaze.base.util.ext.init
-import com.mobilemovement.kotlintvmaze.base.util.ext.isVisible
-import com.mobilemovement.kotlintvmaze.base.util.ext.observeWith
-import com.mobilemovement.kotlintvmaze.base.util.ext.show
-import com.mobilemovement.kotlintvmaze.base.util.ext.toast
-import com.mobilemovement.kotlintvmaze.base.util.ext.unsafeLazy
+import com.mobilemovement.kotlintvmaze.base.util.ext.*
+import com.mobilemovement.kotlintvmaze.databinding.ActivityMainBinding
+import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
-import kotlinx.android.synthetic.main.activity_main.pbSearch
-import kotlinx.android.synthetic.main.activity_main.rvSeries
-import kotlinx.android.synthetic.main.activity_main.tietSearch
-import kotlinx.android.synthetic.main.activity_main.tilSearch
 
-class MainActivity : BaseActivity<MainViewModel>() {
+class MainActivity : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var seriesAdapter: ItemAdapter
 
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private val viewModel: MainViewModel by viewModels { viewModelFactory }
+    private val binding by viewBinding { ActivityMainBinding.inflate(layoutInflater) }
+
     private var menu: Menu? = null
     private val searchItem: MenuItem? by unsafeLazy { menu?.findItem(R.id.itemSearch) }
 
-    override fun getViewModelClass() = MainViewModel::class.java
-
-    override val layoutId = R.layout.activity_main
-
-    override fun initView() {
-        super.initView()
-        rvSeries.init(adapter = seriesAdapter)
-        tietSearch.doOnAction(viewModel::getSeries)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(binding.root)
+        actAsFluid()
+        initUi()
+        observeViewModel()
     }
 
-    override fun observeViewModel() {
-        viewModel.seriesLiveData.observeWith(this) { uiState ->
+    private fun initUi() = with(binding) {
+        binding.rvSeries.init(adapter = seriesAdapter)
+        binding.tietSearch.doOnAction(viewModel::getSeries)
+    }
+
+    private fun observeViewModel() = with(viewModel) {
+        seriesLiveData.observeWith(this@MainActivity) { uiState ->
             uiState.data?.let(seriesAdapter::add)
 
             if (uiState.isError) {
                 toast(uiState.errorMessage)
             }
 
-            pbSearch.isVisible = uiState.isLoading
-            tilSearch.isVisible = uiState.isError or uiState.isFirstRun
-            rvSeries.isVisible = uiState.isSuccess
+            binding.pbSearch.isVisible = uiState.isLoading
+            binding.tilSearch.isVisible = uiState.isError or uiState.isFirstRun
+            binding.rvSeries.isVisible = uiState.isSuccess
             searchItem?.isVisible = uiState.isSuccess
         }
     }
@@ -75,7 +78,7 @@ class MainActivity : BaseActivity<MainViewModel>() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.itemSearch -> {
-                rvSeries.hide(); tilSearch.show(); item.isVisible = false
+                binding.rvSeries.hide(); binding.tilSearch.show(); item.isVisible = false
                 true
             }
             else -> super.onOptionsItemSelected(item)
