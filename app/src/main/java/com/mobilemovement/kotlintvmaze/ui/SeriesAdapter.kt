@@ -41,7 +41,7 @@ class SeriesAdapter : DelegateAdapter {
 
     override fun isForViewType(item: AdapterItem): Boolean = item is SeriesViewItem
 
-    inner class SeriesViewHolder(itemView: View) :
+    class SeriesViewHolder(itemView: View) :
         BaseViewHolder<LayoutSeriesRowItemBinding, AdapterItem>(itemView) {
         override fun bindTo(item: AdapterItem) {
             with(item as SeriesViewItem) {

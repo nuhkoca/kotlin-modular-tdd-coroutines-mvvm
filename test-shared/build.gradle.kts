@@ -16,13 +16,14 @@
 import dependencies.Dependencies
 import dependencies.TestDependencies
 import extensions.setDefaults
+import org.gradle.api.JavaVersion.*
 
 plugins {
     id(Plugins.androidLibrary)
     kotlin(Plugins.kotlinAndroid)
 }
 
-val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_1_8 }
 
 android {
     compileSdkVersion(extra["compileSdkVersion"] as Int)

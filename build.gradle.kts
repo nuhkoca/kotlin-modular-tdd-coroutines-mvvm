@@ -1,26 +1,19 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-@file:Suppress("UnstableApiUsage")
-
 import extensions.applyDefaults
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.api.JavaVersion.VERSION_1_8
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import plugins.BuildPlugins
 import tasks.BuildTasks
 
-val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_1_8 }
 
 buildscript {
     repositories {
         google()
-        jcenter()
         mavenCentral()
-    }
-
-    dependencies {
-        classpath(Classpaths.gradle_plugin)
-        classpath(Classpaths.kotlin_gradle_plugin)
+        gradlePluginPortal()
+        jcenter()
     }
 }
 
@@ -78,14 +71,8 @@ subprojects {
         withType<Test> {
             testLogging {
                 // set options for log level LIFECYCLE
-                events = setOf(
-                    TestLogEvent.FAILED,
-                    TestLogEvent.STARTED,
-                    TestLogEvent.PASSED,
-                    TestLogEvent.SKIPPED,
-                    TestLogEvent.STANDARD_OUT
-                )
-                exceptionFormat = TestExceptionFormat.FULL
+                events = setOf(FAILED, STARTED, PASSED, SKIPPED, STANDARD_OUT)
+                exceptionFormat = FULL
                 showExceptions = true
                 showCauses = true
                 showStackTraces = true
@@ -103,9 +90,6 @@ tasks {
     }
 }
 
-/**
- * Usage: <code>./gradlew build -PwarningsAsErrors=true</code>.
- */
 fun shouldTreatCompilerWarningsAsErrors(): Boolean {
     return project.findProperty("warningsAsErrors") == "true"
 }

@@ -15,15 +15,16 @@
  */
 import dependencies.Dependencies
 import extensions.setDefaults
+import org.gradle.api.JavaVersion.VERSION_1_8
 
 plugins {
     id(Plugins.androidLibrary)
     kotlin(Plugins.kotlinAndroid)
-    kotlin(Plugins.kotlinAndroidExtension)
     kotlin(Plugins.kotlinKapt)
+    id(Plugins.kotlinParcelize)
 }
 
-val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_1_8 }
 
 android {
     compileSdkVersion(extra["compileSdkVersion"] as Int)
@@ -45,8 +46,8 @@ android {
         animationsDisabled = true
     }
 
-    dataBinding {
-        isEnabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
     compileOptions {
@@ -62,13 +63,15 @@ dependencies {
 
     api(Dependencies.kotlin)
     implementation(Dependencies.material)
+    implementation(Dependencies.activity_ktx)
 
     implementation(Dependencies.coroutines_core)
     api(Dependencies.coroutines_android)
 
-    implementation(Dependencies.lifecycle_extensions)
+    implementation(Dependencies.lifecycle_runtime)
+    kapt(Dependencies.lifecycle_compiler)
 
-    implementation(Dependencies.timberkt)
+    implementation(Dependencies.timber)
 
     implementation(Dependencies.glide)
     implementation(Dependencies.glide_okhttp)

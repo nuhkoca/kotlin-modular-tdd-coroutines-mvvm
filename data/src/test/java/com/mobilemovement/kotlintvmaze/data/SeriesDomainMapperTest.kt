@@ -43,7 +43,8 @@ class SeriesDomainMapperTest {
                     1,
                     "testname",
                     "testurl",
-                    Image("testoriginal"), "testsummary"
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
 
@@ -73,7 +74,8 @@ class SeriesDomainMapperTest {
                     1,
                     "testname",
                     "testurl",
-                    Image("testoriginal"), "testsummary"
+                    Image("testoriginal"),
+                    "testsummary"
                 )
             )
         )

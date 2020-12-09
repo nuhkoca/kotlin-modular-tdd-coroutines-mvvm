@@ -2,11 +2,12 @@ package dependencies
 
 object Dependencies {
     // Core
-    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin_gradle_plugin}"
+    const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraint_layout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraint_layout}"
+    const val activity_ktx = "androidx.activity:activity-ktx:${Versions.activity_ktx}"
     const val core_ktx = "androidx.core:core-ktx:${Versions.core_ktx}"
     const val android_annotation = "androidx.annotation:annotation:${Versions.android_annotation}"
 
@@ -32,19 +33,14 @@ object Dependencies {
     const val javax_annotation = "org.glassfish:javax.annotation:${Versions.javax}"
 
     // Lifecycle
-    const val lifecycle_extensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
-    const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
     const val lifecycle_runtime = "androidx.lifecycle:lifecycle-runtime:${Versions.lifecycle}"
-    const val lifecycle_viewmodel_ktx =
-        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
-
-    // Leakcanary
-    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanary}"
-    const val leakcanary_noop =
-        "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.leakcanary}"
+    const val lifecycle_compiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
+    const val lifecycle_viewmodel_ktx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
+    const val lifecycle_livedata_ktx = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.lifecycle}"
+    const val lifecycle_java8 = "androidx.lifecycle:lifecycle-common-java8:${Versions.lifecycle}"
 
     // Timber
-    const val timberkt = "com.github.ajalt:timberkt:${Versions.timberkt}"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 
     // Glide
     const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"

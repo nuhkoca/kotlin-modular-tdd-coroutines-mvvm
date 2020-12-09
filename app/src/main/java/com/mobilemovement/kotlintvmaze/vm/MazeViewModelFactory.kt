@@ -31,7 +31,7 @@ class MazeViewModelFactory @Inject constructor(
         val result: Provider<out ViewModel>? = creators[modelClass] ?: creators.entries
             .firstOrNull { modelClass.isAssignableFrom(it.key) }
             ?.let { it.value }
-        ?: throw IllegalArgumentException("$UNKNOWN_MODEL_EXCEPTION $modelClass")
+            ?: throw IllegalArgumentException("$UNKNOWN_MODEL_EXCEPTION $modelClass")
 
         return result?.get() as? T ?: throw RuntimeException(EXCEPTION_MESSAGE)
     }

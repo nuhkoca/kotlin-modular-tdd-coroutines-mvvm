@@ -21,8 +21,8 @@ import extensions.setDefaults
 plugins {
     id(Plugins.androidApplication)
     kotlin(Plugins.kotlinAndroid)
-    kotlin(Plugins.kotlinAndroidExtension)
     kotlin(Plugins.kotlinKapt)
+    id(Plugins.kotlinParcelize)
 }
 
 val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
@@ -59,17 +59,14 @@ android {
         animationsDisabled = true
     }
 
-    dataBinding {
-        isEnabled = true
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
     }
 
     compileOptions {
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
-    }
-
-    androidExtensions {
-        isExperimental = true
     }
 
     lintOptions.setDefaults(file("lint.xml"))
@@ -86,11 +83,14 @@ dependencies {
     implementation(Dependencies.constraint_layout)
     implementation(Dependencies.core_ktx)
     implementation(Dependencies.appcompat)
+    implementation(Dependencies.activity_ktx)
 
     implementation(Dependencies.coroutines_core)
 
-    implementation(Dependencies.lifecycle_extensions)
+    implementation(Dependencies.lifecycle_runtime)
     implementation(Dependencies.lifecycle_viewmodel_ktx)
+    implementation(Dependencies.lifecycle_livedata_ktx)
+    implementation(Dependencies.lifecycle_java8)
     kapt(Dependencies.lifecycle_compiler)
 
     implementation(Dependencies.dagger)
@@ -99,7 +99,7 @@ dependencies {
     kapt(Dependencies.dagger_android_processor)
     kapt(Dependencies.dagger_compiler)
 
-    implementation(Dependencies.timberkt)
+    implementation(Dependencies.timber)
 
     implementation(Dependencies.glide)
 

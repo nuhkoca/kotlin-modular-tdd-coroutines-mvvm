@@ -21,13 +21,13 @@ import Modules
 import TTest
 import dependencies.Dependencies
 import extensions.setDefaults
+import org.gradle.api.JavaVersion.*
 
-val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_1_8 }
 
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
 }
 
