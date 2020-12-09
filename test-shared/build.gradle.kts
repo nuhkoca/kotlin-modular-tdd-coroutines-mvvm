@@ -48,9 +48,10 @@ android {
 
 dependencies {
     implementation(Dependencies.kotlin)
+    implementation(Dependencies.coroutines_android)
 
     implementation(Dependencies.lifecycle_runtime)
-    implementation(Dependencies.lifecycle_extensions)
+    implementation(Dependencies.lifecycle_livedata_ktx)
 
     implementation(TestDependencies.junit)
     implementation(TestDependencies.rules)
