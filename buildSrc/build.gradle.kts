@@ -16,13 +16,13 @@ kotlinDslPluginOptions {
 }
 
 object PluginVersions {
-	const val gradle_plugin = "4.1.2"
-	const val kotlin_gradle_plugin = "1.4.31"
+	const val gradle_plugin = "4.1.1"
+	const val kotlin_gradle_plugin = "1.4.21"
 	const val ben_manes = "0.36.0"
-	const val spotless = "5.10.2"
-	const val detekt = "1.15.0"
+	const val spotless = "5.8.2"
+	const val detekt = "1.14.2"
 	const val jacoco = "0.16.0"
-	const val ktlint = "10.0.0"
+	const val ktlint = "9.4.1"
 	const val dokka = "0.10.0"
 }
 
