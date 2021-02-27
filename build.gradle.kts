@@ -1,11 +1,7 @@
 import extensions.applyDefaults
 import org.gradle.api.JavaVersion.VERSION_1_8
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
-import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
-import org.gradle.api.tasks.testing.logging.TestLogEvent.STANDARD_OUT
-import org.gradle.api.tasks.testing.logging.TestLogEvent.STARTED
+import org.gradle.api.tasks.testing.logging.TestLogEvent.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import plugins.BuildPlugins
 import tasks.BuildTasks
