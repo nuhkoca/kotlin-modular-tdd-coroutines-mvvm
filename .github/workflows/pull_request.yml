@@ -61,7 +61,7 @@ jobs:
         id: gradle
 
       - name: (Fail-only) Comment Build Scan Url
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4
         if: github.event_name == 'pull_request' && failure()
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -124,7 +124,7 @@ jobs:
           verbose: true
 
       - name: Comment Build Scan Url
-        uses: actions/github-script@v3
+        uses: actions/github-script@v4
         if: github.event_name == 'pull_request' && failure()
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
