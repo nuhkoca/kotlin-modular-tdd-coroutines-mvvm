@@ -117,7 +117,7 @@ jobs:
           path: app/build/outputs/apk/
 
       - uses: actions/checkout@master
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v2
         with:
           flags: unittests
           fail_ci_if_error: true
