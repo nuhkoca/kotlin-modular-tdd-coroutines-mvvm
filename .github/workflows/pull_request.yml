@@ -52,7 +52,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Run Static Code Analysis
-        uses: eskatos/gradle-command-action@v1.5.0
+        uses: eskatos/gradle-command-action@v1.5.1
         with:
           wrapper-cache-enabled: true
           dependencies-cache-enabled: true
@@ -101,7 +101,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Asemble Artifact
-        uses: eskatos/gradle-command-action@v1.5.0
+        uses: eskatos/gradle-command-action@v1.5.1
         with:
           wrapper-cache-enabled: true
           dependencies-cache-enabled: true
@@ -153,7 +153,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - name: Run Unit Tests
-        uses: eskatos/gradle-command-action@v1.5.0
+        uses: eskatos/gradle-command-action@v1.5.1
         with:
           wrapper-cache-enabled: true
           dependencies-cache-enabled: true
