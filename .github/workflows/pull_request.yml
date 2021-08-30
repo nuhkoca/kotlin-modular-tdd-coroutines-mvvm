@@ -7,20 +7,20 @@ on:
 
     types: [opened, synchronize, reopened, ready_for_review]
 
-env:
-  CI: true
-
 jobs:
-  setup:
-    name: Setup
-    runs-on: ubuntu-18.04
+  check-style:
+    name: Check Style
+    runs-on: ubuntu-20.04
     if: github.event.pull_request.draft == false
 
     steps:
       - uses: actions/checkout@v2
 
-      - name: Make checksum executable
-        run: chmod +x ./checksum.sh
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
 
       - name: Generate cache key
         run: ./checksum.sh checksum.tx
@@ -31,34 +31,10 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('checksum.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-  check-style:
-    needs: setup
-    name: Check Style
-    runs-on: ubuntu-18.04
-    if: github.event.pull_request.draft == false
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('checksum.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Run Static Code Analysis
-        uses: eskatos/gradle-command-action@v1.5.1
-        with:
-          wrapper-cache-enabled: true
-          dependencies-cache-enabled: true
-          configuration-cache-enabled: true
-          arguments: lintRelease ktlintCheck detekt spotlessCheck --scan
-        id: gradle
+        run: ./gradlew lintRelease ktlintCheck detekt spotlessCheck --scan
 
       - name: (Fail-only) Comment Build Scan Url
         uses: actions/github-script@v4
@@ -93,21 +69,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Generate cache key
+        run: ./checksum.sh checksum.tx
+
+      - name: Copy CI gradle.properties
+        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+
       - uses: actions/cache@v2
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('checksum.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Asemble Artifact
-        uses: eskatos/gradle-command-action@v1.5.1
-        with:
-          wrapper-cache-enabled: true
-          dependencies-cache-enabled: true
-          configuration-cache-enabled: true
-          arguments: assembleRelease --scan
-        id: gradle
+        run: ./gradlew assembleRelease
 
       - name: Upload Sample Artifacts
         uses: actions/upload-artifact@v2
@@ -145,20 +125,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+
+      - name: Generate cache key
+        run: ./checksum.sh checksum.tx
+
+      - name: Copy CI gradle.properties
+        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+
       - uses: actions/cache@v2
         with:
           path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('checksum.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
+          key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Run Unit Tests
-        uses: eskatos/gradle-command-action@v1.5.1
-        with:
-          wrapper-cache-enabled: true
-          dependencies-cache-enabled: true
-          configuration-cache-enabled: true
-          arguments: testReleaseUnitTest
+        run: ./gradlew testReleaseUnitTest
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
