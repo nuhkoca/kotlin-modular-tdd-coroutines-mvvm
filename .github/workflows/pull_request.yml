@@ -62,9 +62,9 @@ jobs:
           path: build-reports.zip
 
   build:
-    needs: check-style
     name: Build
-    runs-on: ubuntu-18.04
+    needs: check-style
+    runs-on: ubuntu-20.04
     if: github.event.pull_request.draft == false
 
     steps:
@@ -118,9 +118,9 @@ jobs:
             })
 
   test:
-    needs: build
     name: Unit Test
-    runs-on: ubuntu-18.04
+    needs: build
+    runs-on: ubuntu-20.04
     if: github.event.pull_request.draft == false
 
     steps:
@@ -144,7 +144,7 @@ jobs:
           key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Run Unit Tests
-        run: ./gradlew testReleaseUnitTest
+        run: ./gradlew testDebugUnitTest
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
