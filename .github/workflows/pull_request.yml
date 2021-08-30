@@ -130,7 +130,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '11'
+          java-version: '8'
 
       - name: Generate cache key
         run: ./checksum.sh checksum.tx
@@ -144,7 +144,7 @@ jobs:
           key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew testReleaseUnitTest
 
       - name: Upload Test Results
         uses: actions/upload-artifact@v2
