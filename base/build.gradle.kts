@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import extensions.setDefaults
 import org.gradle.api.JavaVersion.VERSION_1_8
@@ -35,6 +36,7 @@ android {
     }
 
     sourceSets {
+        this as NamedDomainObjectContainer<AndroidSourceSet>
         Main.create(this)
         TTest.create(this)
         AndroidTest.create(this)

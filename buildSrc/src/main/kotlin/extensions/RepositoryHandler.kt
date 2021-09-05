@@ -6,5 +6,4 @@ fun RepositoryHandler.applyDefaults() {
     google()
     mavenCentral()
     gradlePluginPortal()
-    jcenter()
 }

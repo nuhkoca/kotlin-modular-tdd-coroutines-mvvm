@@ -19,6 +19,7 @@ import AndroidTest
 import Main
 import Modules
 import TTest
+import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import extensions.setDefaults
 import org.gradle.api.JavaVersion.*
@@ -39,6 +40,7 @@ android {
     }
 
     sourceSets {
+        this as NamedDomainObjectContainer<AndroidSourceSet>
         Main.create(this)
         TTest.create(this)
         AndroidTest.create(this)

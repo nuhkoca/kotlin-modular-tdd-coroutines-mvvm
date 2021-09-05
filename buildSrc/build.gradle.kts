@@ -8,21 +8,16 @@ repositories {
 	google()
 	mavenCentral()
 	gradlePluginPortal()
-    jcenter()
-}
-
-kotlinDslPluginOptions {
-	experimentalWarning.set(false)
 }
 
 object PluginVersions {
-	const val gradle_plugin = "4.1.2"
-	const val kotlin_gradle_plugin = "1.4.31"
-	const val ben_manes = "0.36.0"
-	const val spotless = "5.10.2"
-	const val detekt = "1.15.0"
+	const val gradle_plugin = "4.2.2"
+	const val kotlin_gradle_plugin = "1.5.30"
+	const val ben_manes = "0.39.0"
+	const val spotless = "5.15.0"
+	const val detekt = "1.18.1"
 	const val jacoco = "0.16.0"
-	const val ktlint = "10.0.0"
+	const val ktlint = "10.1.0"
 	const val dokka = "0.10.0"
 }
 
