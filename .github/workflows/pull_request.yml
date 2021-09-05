@@ -31,7 +31,9 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ~/.gradle/caches
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
           key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Run Static Code Analysis
@@ -84,7 +86,9 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ~/.gradle/caches
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
           key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Asemble Artifact
@@ -140,7 +144,9 @@ jobs:
 
       - uses: actions/cache@v2
         with:
-          path: ~/.gradle/caches
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
           key: gradle-${{ hashFiles('checksum.txt') }}
 
       - name: Run Unit Tests
