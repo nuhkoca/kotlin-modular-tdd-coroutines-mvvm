@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 import com.android.build.api.dsl.AndroidSourceSet
+import com.android.build.gradle.internal.dsl.BuildType
 import commons.addTestDependencies
 import dependencies.Dependencies
 import dependencies.TestDependencies
@@ -40,6 +41,7 @@ android {
     }
 
     buildTypes {
+        this as NamedDomainObjectContainer<BuildType>
         Release.create(this, project)
         Debug.create(this, project)
     }

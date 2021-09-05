@@ -33,10 +33,10 @@ plugins {
 }
 
 android {
-    compileSdkVersion(extra["compileSdkVersion"] as Int)
+    compileSdk = extra["compileSdkVersion"] as Int
     defaultConfig {
-        minSdkVersion(extra["minSdkVersion"] as Int)
-        targetSdkVersion(extra["targetSdkVersion"] as Int)
+        minSdk = extra["minSdkVersion"] as Int
+        targetSdk = extra["targetSdkVersion"] as Int
     }
 
     sourceSets {
@@ -47,7 +47,9 @@ android {
     }
 
     packagingOptions {
-        pickFirst("mockito-extensions/org.mockito.plugins.MockMaker")
+        resources {
+            pickFirsts.add("mockito-extensions/org.mockito.plugins.MockMaker")
+        }
     }
 
     testOptions {
