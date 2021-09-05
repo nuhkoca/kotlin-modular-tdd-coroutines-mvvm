@@ -59,13 +59,6 @@ android {
         }
     }
 
-    junitJacoco {
-        jacocoVersion = "0.8.3"
-        excludes = listOf("jdk.internal.*")
-        includeNoLocationClasses = false
-        includeInstrumentationCoverageInMergedReport = false
-    }
-
     testOptions {
         unitTests.isReturnDefaultValues = true
         unitTests.isIncludeAndroidResources = true

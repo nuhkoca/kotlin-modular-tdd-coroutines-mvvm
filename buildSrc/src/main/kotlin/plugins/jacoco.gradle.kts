@@ -11,7 +11,8 @@ configure<JunitJacocoExtension> {
 		"**/*_Provide*/**",
 		"**/*_Factory*/**",
 		"**/*_MembersInjector.class",
-		"**/*Dagger*"
+		"**/*Dagger*",
+        "jdk.internal.*"
 	)
 	includeNoLocationClasses = true
 	includeInstrumentationCoverageInMergedReport = false
