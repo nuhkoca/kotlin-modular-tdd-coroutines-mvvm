@@ -1,3 +1,4 @@
+import dependencies.Versions
 import extensions.applyDefaults
 import org.gradle.api.JavaVersion.VERSION_1_8
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
@@ -20,6 +21,10 @@ buildscript {
     }
 }
 
+plugins {
+    id("jacoco")
+}
+
 plugins.apply(BuildPlugins.GIT_HOOKS)
 plugins.apply(BuildPlugins.DETEKT)
 plugins.apply(BuildPlugins.UPDATE_DEPENDENCIES)
@@ -35,7 +40,6 @@ allprojects {
 subprojects {
     plugins.apply(BuildPlugins.SPOTLESS)
     plugins.apply(BuildPlugins.DETEKT)
-    plugins.apply(BuildPlugins.JACOCO)
     plugins.apply(BuildPlugins.KTLINT)
     plugins.apply(BuildPlugins.DOKKA)
 
@@ -84,6 +88,10 @@ subprojects {
                 (Runtime.getRuntime().availableProcessors() / 2).takeIf { it > 0 } ?: 1
         }
     }
+}
+
+jacoco {
+    toolVersion = Versions.jacoco
 }
 
 tasks {

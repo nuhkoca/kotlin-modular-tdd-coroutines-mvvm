@@ -16,7 +16,6 @@ object PluginVersions {
 	const val ben_manes = "0.39.0"
 	const val spotless = "5.15.0"
 	const val detekt = "1.18.1"
-	const val jacoco = "0.16.0"
 	const val ktlint = "10.1.0"
 	const val dokka = "0.10.0"
 }
@@ -27,7 +26,6 @@ dependencies {
 	implementation("com.diffplug.spotless:spotless-plugin-gradle:${PluginVersions.spotless}")
 	implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersions.ben_manes}")
 	implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${PluginVersions.detekt}")
-	implementation("com.vanniktech:gradle-android-junit-jacoco-plugin:${PluginVersions.jacoco}")
 	implementation("org.jlleitschuh.gradle:ktlint-gradle:${PluginVersions.ktlint}")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersions.dokka}")
 }
