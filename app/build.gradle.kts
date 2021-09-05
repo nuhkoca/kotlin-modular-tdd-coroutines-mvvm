@@ -64,7 +64,6 @@ android {
         excludes = listOf("jdk.internal.*")
         includeNoLocationClasses = false
         includeInstrumentationCoverageInMergedReport = false
-
     }
 
     testOptions {
