@@ -24,7 +24,14 @@ import androidx.core.view.MenuProvider
 import androidx.lifecycle.ViewModelProvider
 import com.mobilemovement.kotlintvmaze.R
 import com.mobilemovement.kotlintvmaze.base.util.delegate.ItemAdapter
-import com.mobilemovement.kotlintvmaze.base.util.ext.*
+import com.mobilemovement.kotlintvmaze.base.util.ext.actAsFluid
+import com.mobilemovement.kotlintvmaze.base.util.ext.hide
+import com.mobilemovement.kotlintvmaze.base.util.ext.init
+import com.mobilemovement.kotlintvmaze.base.util.ext.isVisible
+import com.mobilemovement.kotlintvmaze.base.util.ext.observeWith
+import com.mobilemovement.kotlintvmaze.base.util.ext.show
+import com.mobilemovement.kotlintvmaze.base.util.ext.toast
+import com.mobilemovement.kotlintvmaze.base.util.ext.viewBinding
 import com.mobilemovement.kotlintvmaze.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject

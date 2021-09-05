@@ -33,9 +33,9 @@ import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.bumptech.glide.signature.ObjectKey
+import okhttp3.OkHttpClient
 import java.io.InputStream
 import java.util.concurrent.TimeUnit.SECONDS
-import okhttp3.OkHttpClient
 
 @GlideModule(glideName = "MazeGlide")
 @Excludes(value = [OkHttpLibraryGlideModule::class])
@@ -63,7 +63,7 @@ class MazeGlideModule : AppGlideModule() {
 
     private fun requestOptions(): RequestOptions {
         return RequestOptions().apply {
-            signature(ObjectKey(System.currentTimeMillis() / DEFAULT_SIGNATURE_OBJECT)) // 1 week cache
+            signature(ObjectKey(System.currentTimeMillis() / DEFAULT_SIGNATURE_OBJECT))
             centerCrop()
             dontAnimate()
             override(SIZE_ORIGINAL)
@@ -75,7 +75,7 @@ class MazeGlideModule : AppGlideModule() {
         }
     }
 
-    companion object {
+    private companion object {
         private const val DEFAULT_TIMEOUT = 60L
 
         private const val DEFAULT_MEMORY_CACHE_SIZE = 1024 * 1024 * 300 // 300mb cache

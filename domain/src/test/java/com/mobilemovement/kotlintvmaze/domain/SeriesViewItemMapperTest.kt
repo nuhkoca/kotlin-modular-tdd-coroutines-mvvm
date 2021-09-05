@@ -16,7 +16,12 @@
 package com.mobilemovement.kotlintvmaze.domain
 
 import com.google.common.truth.Truth.assertThat
-import com.mobilemovement.kotlintvmaze.data.*
+import com.mobilemovement.kotlintvmaze.data.Image
+import com.mobilemovement.kotlintvmaze.data.ImageViewItem
+import com.mobilemovement.kotlintvmaze.data.Series
+import com.mobilemovement.kotlintvmaze.data.SeriesViewItem
+import com.mobilemovement.kotlintvmaze.data.Show
+import com.mobilemovement.kotlintvmaze.data.ShowViewItem
 import com.mobilemovement.kotlintvmaze.shared.test.CoroutinesTestRule
 import io.mockk.coEvery
 import io.mockk.mockk

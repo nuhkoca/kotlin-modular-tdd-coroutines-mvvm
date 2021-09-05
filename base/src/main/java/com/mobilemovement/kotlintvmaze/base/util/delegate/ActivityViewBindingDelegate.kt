@@ -48,7 +48,9 @@ class ActivityViewBindingDelegate<out T : ViewBinding>(
 
         val lifecycle = activity.lifecycle
         if (!lifecycle.currentState.isAtLeast(Lifecycle.State.INITIALIZED)) {
-            throw IllegalStateException("Should not attempt to get bindings when Activity views are destroyed.")
+            throw IllegalStateException(
+                "Should not attempt to get bindings when Activity views are destroyed."
+            )
         }
 
         return viewBindingFactory(thisRef.layoutInflater).also {

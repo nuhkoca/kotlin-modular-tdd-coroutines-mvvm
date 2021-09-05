@@ -17,7 +17,7 @@ import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import dependencies.TestDependencies
 import extensions.setDefaults
-import org.gradle.api.JavaVersion.*
+import org.gradle.api.JavaVersion.VERSION_1_8
 
 plugins {
     id(Plugins.androidLibrary)

@@ -24,5 +24,7 @@ import dagger.Module
 abstract class BaseModule {
 
     @Binds
-    internal abstract fun provideErrorFactory(defaultErrorFactory: DefaultErrorFactory): ErrorFactory
+    internal abstract fun provideErrorFactory(
+        defaultErrorFactory: DefaultErrorFactory
+    ): ErrorFactory
 }
