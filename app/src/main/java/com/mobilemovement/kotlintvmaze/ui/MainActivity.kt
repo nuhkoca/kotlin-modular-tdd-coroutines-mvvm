@@ -83,7 +83,7 @@ class MainActivity : DaggerAppCompatActivity() {
             binding.pbSearch.isVisible = uiState.isLoading
             binding.tilSearch.isVisible = uiState.isError or uiState.isFirstRun
             binding.rvSeries.isVisible = uiState.isSuccess
-            searchItem?.isVisible = uiState.isSuccess
+            searchItem?.isVisible = true
         }
     }
 }
