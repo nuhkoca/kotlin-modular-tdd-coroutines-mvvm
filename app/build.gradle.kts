@@ -54,7 +54,17 @@ android {
     }
 
     packagingOptions {
-        pickFirst("mockito-extensions/org.mockito.plugins.MockMaker")
+        resources {
+            pickFirsts.add("mockito-extensions/org.mockito.plugins.MockMaker")
+        }
+    }
+
+    junitJacoco {
+        jacocoVersion = "0.8.3"
+        excludes = listOf("jdk.internal.*")
+        includeNoLocationClasses = false
+        includeInstrumentationCoverageInMergedReport = false
+
     }
 
     testOptions {
