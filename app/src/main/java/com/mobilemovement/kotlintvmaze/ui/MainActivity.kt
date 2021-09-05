@@ -17,12 +17,21 @@ package com.mobilemovement.kotlintvmaze.ui
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.core.view.MenuProvider
 import androidx.lifecycle.ViewModelProvider
 import com.mobilemovement.kotlintvmaze.R
 import com.mobilemovement.kotlintvmaze.base.util.delegate.ItemAdapter
-import com.mobilemovement.kotlintvmaze.base.util.ext.*
+import com.mobilemovement.kotlintvmaze.base.util.ext.actAsFluid
+import com.mobilemovement.kotlintvmaze.base.util.ext.hide
+import com.mobilemovement.kotlintvmaze.base.util.ext.init
+import com.mobilemovement.kotlintvmaze.base.util.ext.isVisible
+import com.mobilemovement.kotlintvmaze.base.util.ext.observeWith
+import com.mobilemovement.kotlintvmaze.base.util.ext.show
+import com.mobilemovement.kotlintvmaze.base.util.ext.toast
+import com.mobilemovement.kotlintvmaze.base.util.ext.viewBinding
 import com.mobilemovement.kotlintvmaze.databinding.ActivityMainBinding
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
@@ -38,8 +47,7 @@ class MainActivity : DaggerAppCompatActivity() {
     private val viewModel: MainViewModel by viewModels { viewModelFactory }
     private val binding by viewBinding { ActivityMainBinding.inflate(layoutInflater) }
 
-    private var menu: Menu? = null
-    private val searchItem: MenuItem? by unsafeLazy { menu?.findItem(R.id.itemSearch) }
+    private var searchItem: MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +55,23 @@ class MainActivity : DaggerAppCompatActivity() {
         actAsFluid()
         initUi()
         observeViewModel()
+        addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.menu_main, menu)
+                searchItem = menu.findItem(R.id.itemSearch)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when (menuItem.itemId) {
+                    R.id.itemSearch -> {
+                        binding.rvSeries.hide()
+                        binding.tilSearch.show()
+                        menuItem.isVisible = false
+                    }
+                }
+                return true
+            }
+        })
     }
 
     private fun initUi() = with(binding) {
@@ -65,23 +90,7 @@ class MainActivity : DaggerAppCompatActivity() {
             binding.pbSearch.isVisible = uiState.isLoading
             binding.tilSearch.isVisible = uiState.isError or uiState.isFirstRun
             binding.rvSeries.isVisible = uiState.isSuccess
-            searchItem?.isVisible = uiState.isSuccess
-        }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_main, menu)
-        this.menu = menu
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.itemSearch -> {
-                binding.rvSeries.hide(); binding.tilSearch.show(); item.isVisible = false
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+            searchItem?.isVisible = true
         }
     }
 }

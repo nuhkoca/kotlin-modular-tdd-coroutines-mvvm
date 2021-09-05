@@ -22,5 +22,7 @@ import dagger.Module
 abstract class DomainModule {
 
     @Binds
-    internal abstract fun provideSeriesRepository(seriesRepositoryImpl: SeriesRepositoryImpl): SeriesRepository
+    internal abstract fun provideSeriesRepository(
+        seriesRepositoryImpl: SeriesRepositoryImpl
+    ): SeriesRepository
 }

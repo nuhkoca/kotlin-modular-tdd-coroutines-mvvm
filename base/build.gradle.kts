@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import extensions.setDefaults
 import org.gradle.api.JavaVersion.VERSION_1_8
@@ -27,14 +28,15 @@ plugins {
 val javaVersion: JavaVersion by extra { VERSION_1_8 }
 
 android {
-    compileSdkVersion(extra["compileSdkVersion"] as Int)
+    compileSdk = extra["compileSdkVersion"] as Int
     defaultConfig {
-        minSdkVersion(extra["minSdkVersion"] as Int)
-        targetSdkVersion(extra["targetSdkVersion"] as Int)
+        minSdk = extra["minSdkVersion"] as Int
+        targetSdk = extra["targetSdkVersion"] as Int
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     sourceSets {
+        this as NamedDomainObjectContainer<AndroidSourceSet>
         Main.create(this)
         TTest.create(this)
         AndroidTest.create(this)

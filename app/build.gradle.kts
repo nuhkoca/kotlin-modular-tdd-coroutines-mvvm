@@ -13,6 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.android.build.api.dsl.AndroidSourceSet
+import com.android.build.gradle.internal.dsl.BuildType
 import commons.addTestDependencies
 import dependencies.Dependencies
 import dependencies.TestDependencies
@@ -39,18 +41,22 @@ android {
     }
 
     buildTypes {
+        this as NamedDomainObjectContainer<BuildType>
         Release.create(this, project)
         Debug.create(this, project)
     }
 
     sourceSets {
+        this as NamedDomainObjectContainer<AndroidSourceSet>
         Main.create(this)
         TTest.create(this)
         AndroidTest.create(this)
     }
 
     packagingOptions {
-        pickFirst("mockito-extensions/org.mockito.plugins.MockMaker")
+        resources {
+            pickFirsts.add("mockito-extensions/org.mockito.plugins.MockMaker")
+        }
     }
 
     testOptions {

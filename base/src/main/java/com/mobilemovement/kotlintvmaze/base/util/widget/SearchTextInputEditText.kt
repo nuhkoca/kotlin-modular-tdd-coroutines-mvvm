@@ -81,7 +81,7 @@ class SearchTextInputEditText @JvmOverloads constructor(
     private fun handleAction() {
         clearFocus()
         if (text.toString().isNotEmpty()) {
-            onActionTriggered.invoke(text.toString().toLowerCase(Locale.getDefault()))
+            onActionTriggered.invoke(text.toString().lowercase(Locale.getDefault()))
         }
     }
 

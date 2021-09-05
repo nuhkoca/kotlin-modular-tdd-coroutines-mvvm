@@ -19,6 +19,7 @@ import AndroidTest
 import Main
 import Modules
 import TTest
+import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import extensions.setDefaults
 import org.gradle.api.JavaVersion.*
@@ -32,20 +33,23 @@ plugins {
 }
 
 android {
-    compileSdkVersion(extra["compileSdkVersion"] as Int)
+    compileSdk = extra["compileSdkVersion"] as Int
     defaultConfig {
-        minSdkVersion(extra["minSdkVersion"] as Int)
-        targetSdkVersion(extra["targetSdkVersion"] as Int)
+        minSdk = extra["minSdkVersion"] as Int
+        targetSdk = extra["targetSdkVersion"] as Int
     }
 
     sourceSets {
+        this as NamedDomainObjectContainer<AndroidSourceSet>
         Main.create(this)
         TTest.create(this)
         AndroidTest.create(this)
     }
 
     packagingOptions {
-        pickFirst("mockito-extensions/org.mockito.plugins.MockMaker")
+        resources {
+            pickFirsts.add("mockito-extensions/org.mockito.plugins.MockMaker")
+        }
     }
 
     testOptions {

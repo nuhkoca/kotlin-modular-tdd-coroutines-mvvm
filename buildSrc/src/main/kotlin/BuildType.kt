@@ -27,6 +27,7 @@ object Debug : BuildTypeCreator {
         return namedDomainObjectContainer.maybeCreate(name).apply {
             isMinifyEnabled = false
             isDebuggable = true
+            isTestCoverageEnabled = false
         }
     }
 }
@@ -41,6 +42,7 @@ object Release : BuildTypeCreator {
         return namedDomainObjectContainer.maybeCreate(name).apply {
             isMinifyEnabled = true
             isDebuggable = false
+            isTestCoverageEnabled = true
             proguardFiles(
                 getDefaultProguardFile(
                     "proguard-android-optimize.txt",

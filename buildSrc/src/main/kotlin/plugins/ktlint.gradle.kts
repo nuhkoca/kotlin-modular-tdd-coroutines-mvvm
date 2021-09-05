@@ -10,21 +10,13 @@ apply<KtlintPlugin>()
 
 configure<KtlintExtension> {
 	version.set(Versions.ktlint_internal)
-	debug.set(true)
-	verbose.set(true)
-	android.set(false)
+	android.set(true)
 	outputToConsole.set(true)
 	outputColorName.set(Config.KTLINT_COLOR_NAME)
-	ignoreFailures.set(true)
 	enableExperimentalRules.set(true)
 	additionalEditorconfigFile.set(file("${project.rootDir}/.editorconfig"))
 	reporters {
-		reporter(ReporterType.PLAIN)
-		reporter(ReporterType.CHECKSTYLE)
-		reporter(ReporterType.JSON)
-	}
-	kotlinScriptAdditionalPaths {
-		include(fileTree("scripts/"))
+		reporter(ReporterType.HTML)
 	}
 	filter {
 		exclude("**/generated/**")

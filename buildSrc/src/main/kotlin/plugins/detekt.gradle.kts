@@ -23,13 +23,9 @@ import org.gradle.api.JavaVersion.VERSION_1_8
 apply<DetektPlugin>()
 
 detekt {
-    toolVersion = "1.14.2"
+    toolVersion = "1.18.1"
     parallel = false
-    failFast = true
-    input = files(
-        "src/main/kotlin",
-        "src/main/java"
-    )
+    buildUponDefaultConfig = true
     config = files("${project.rootDir}/default-detekt-config.yml")
 
     reports {
