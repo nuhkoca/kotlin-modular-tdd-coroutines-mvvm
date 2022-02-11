@@ -40,7 +40,7 @@ jobs:
         run: ./gradlew lintRelease ktlintCheck detekt spotlessCheck --scan
 
       - name: (Fail-only) Comment Build Scan Url
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         if: github.event_name == 'pull_request' && failure()
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
@@ -147,7 +147,7 @@ jobs:
           verbose: true
 
       - name: Comment Build Scan Url
-        uses: actions/github-script@v5
+        uses: actions/github-script@v6
         if: github.event_name == 'pull_request' && failure()
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
