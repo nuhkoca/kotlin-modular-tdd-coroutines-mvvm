@@ -17,14 +17,14 @@ import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import dependencies.TestDependencies
 import extensions.setDefaults
-import org.gradle.api.JavaVersion.VERSION_1_8
+import org.gradle.api.JavaVersion.VERSION_11
 
 plugins {
     id(Plugins.androidLibrary)
     kotlin(Plugins.kotlinAndroid)
 }
 
-val javaVersion: JavaVersion by extra { VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_11 }
 
 android {
     compileSdkVersion(extra["compileSdkVersion"] as Int)
@@ -45,7 +45,7 @@ android {
         targetCompatibility = javaVersion
     }
 
-    lintOptions.setDefaults(file("lint.xml"))
+    lint.setDefaults(file("lint.xml"))
 }
 
 dependencies {

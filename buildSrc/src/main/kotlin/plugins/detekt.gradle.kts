@@ -18,7 +18,7 @@ package plugins
 import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektPlugin
 import io.gitlab.arturbosch.detekt.detekt
-import org.gradle.api.JavaVersion.VERSION_1_8
+import org.gradle.api.JavaVersion.VERSION_11
 
 apply<DetektPlugin>()
 
@@ -51,6 +51,6 @@ tasks {
             "**/generated/**"
         )
 
-        jvmTarget = VERSION_1_8.toString()
+        jvmTarget = VERSION_11.toString()
     }
 }

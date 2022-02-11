@@ -1,15 +1,15 @@
 package extensions
 
-import com.android.build.gradle.internal.dsl.LintOptions
+import com.android.build.api.dsl.Lint
 import java.io.File
 
-fun LintOptions.setDefaults(lintFile: File) {
-    isAbortOnError = false
-    isWarningsAsErrors = true
-    isCheckDependencies = true
-    isIgnoreTestSources = true
+fun Lint.setDefaults(lintFile: File) {
+    abortOnError = false
+    warningsAsErrors = true
+    checkDependencies = true
+    ignoreTestSources = true
     lintConfig = lintFile
-    disable("GradleDeprecated")
-    disable("OldTargetApi")
-    disable("GradleDependency")
+    disable.add("GradleDeprecated")
+    disable.add("OldTargetApi")
+    disable.add("GradleDependency")
 }
