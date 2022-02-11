@@ -27,14 +27,14 @@ plugins {
     id(Plugins.kotlinParcelize)
 }
 
-val javaVersion: JavaVersion by extra { JavaVersion.VERSION_1_8 }
+val javaVersion: JavaVersion by extra { JavaVersion.VERSION_11 }
 
 android {
-    compileSdkVersion(extra["compileSdkVersion"] as Int)
+    compileSdk = extra["compileSdkVersion"] as Int
     defaultConfig {
         applicationId = "com.mobilemovement.kotlintvmaze"
-        minSdkVersion(extra["minSdkVersion"] as Int)
-        targetSdkVersion(extra["targetSdkVersion"] as Int)
+        minSdk = extra["minSdkVersion"] as Int
+        targetSdk = extra["targetSdkVersion"] as Int
         versionCode = 1
         versionName = getSemanticAppVersionName()
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -75,7 +75,7 @@ android {
         targetCompatibility = javaVersion
     }
 
-    lintOptions.setDefaults(file("lint.xml"))
+    lint.setDefaults(file("lint.xml"))
 }
 
 dependencies {

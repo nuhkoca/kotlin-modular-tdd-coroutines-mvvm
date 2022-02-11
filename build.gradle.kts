@@ -1,6 +1,6 @@
 import dependencies.Versions
 import extensions.applyDefaults
-import org.gradle.api.JavaVersion.VERSION_1_8
+import org.gradle.api.JavaVersion.VERSION_11
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
 import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
 import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import plugins.BuildPlugins
 import tasks.BuildTasks
 
-val javaVersion: JavaVersion by extra { VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_11 }
 
 buildscript {
     repositories {

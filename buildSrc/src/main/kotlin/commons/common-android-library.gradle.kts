@@ -22,9 +22,9 @@ import TTest
 import com.android.build.api.dsl.AndroidSourceSet
 import dependencies.Dependencies
 import extensions.setDefaults
-import org.gradle.api.JavaVersion.*
+import org.gradle.api.JavaVersion.VERSION_11
 
-val javaVersion: JavaVersion by extra { VERSION_1_8 }
+val javaVersion: JavaVersion by extra { VERSION_11 }
 
 plugins {
     id("com.android.library")
@@ -63,7 +63,7 @@ android {
         targetCompatibility = javaVersion
     }
 
-    lintOptions.setDefaults(file("lint.xml"))
+    lint.setDefaults(file("lint.xml"))
 }
 
 dependencies {
