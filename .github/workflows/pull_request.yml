@@ -58,7 +58,7 @@ jobs:
 
       - name: (Fail-only) Upload the build report
         if: failure()
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: error-report
           path: build-reports.zip
@@ -95,7 +95,7 @@ jobs:
         run: ./gradlew testReleaseUnitTest
 
       - name: Upload Test Results
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: Test Results
@@ -133,7 +133,7 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Upload Sample Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: ${{ github.base_ref }} == 'master'
         with:
           name: artifact
