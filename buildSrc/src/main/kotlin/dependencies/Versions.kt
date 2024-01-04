@@ -17,7 +17,7 @@ object Versions {
     const val okHttp = "4.11.0"
 
     // Coroutines
-    const val coroutines = "1.5.2"
+    const val coroutines = "1.7.3"
 
     // Lifecycle
     const val lifecycle = "2.6.1"
