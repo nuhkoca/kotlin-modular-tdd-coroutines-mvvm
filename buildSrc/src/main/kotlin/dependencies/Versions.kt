@@ -46,6 +46,6 @@ object Versions {
     const val truth_ext = "1.5.0"
     const val espresso_core = "3.5.1"
     const val mockK = "1.12.0"
-    const val arch_core = "2.1.0"
+    const val arch_core = "2.2.0"
     const val coroutines_core = "1.5.2"
 }
