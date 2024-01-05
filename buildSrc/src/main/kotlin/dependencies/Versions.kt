@@ -14,7 +14,7 @@ object Versions {
 
     // Networking
     const val retrofit = "2.9.0"
-    const val okHttp = "4.11.0"
+    const val okHttp = "4.12.0"
 
     // Coroutines
     const val coroutines = "1.7.3"
