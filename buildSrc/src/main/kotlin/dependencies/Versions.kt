@@ -36,7 +36,7 @@ object Versions {
     const val detekt = "1.18.1"
     const val ktlint = "10.1.0"
     const val ktlint_internal = "0.42.1"
-    const val jacoco = "0.8.11"
+    const val jacoco = "0.8.12"
 
     // Testing
     const val test_core = "1.5.0"
