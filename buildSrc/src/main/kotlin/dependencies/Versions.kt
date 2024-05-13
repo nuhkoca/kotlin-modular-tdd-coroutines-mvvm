@@ -13,7 +13,7 @@ object Versions {
     const val constraint_layout = "2.1.4"
 
     // Networking
-    const val retrofit = "2.9.0"
+    const val retrofit = "2.11.0"
     const val okHttp = "4.12.0"
 
     // Coroutines
