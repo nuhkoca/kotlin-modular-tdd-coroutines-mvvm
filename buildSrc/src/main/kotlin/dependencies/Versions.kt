@@ -4,7 +4,7 @@ object Versions {
     // Kotlin
     const val activity_ktx = "1.9.0"
     const val core_ktx = "1.13.1"
-    const val android_annotation = "1.7.1"
+    const val android_annotation = "1.8.0"
     const val kotlin = "1.9.24"
 
     // UI
