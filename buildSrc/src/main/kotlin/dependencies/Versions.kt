@@ -39,7 +39,7 @@ object Versions {
     const val jacoco = "0.8.12"
 
     // Testing
-    const val test_core = "1.5.0"
+    const val test_core = "1.6.1"
     const val runner = "1.5.2"
     const val rules = "1.5.0"
     const val junit = "1.1.5"
