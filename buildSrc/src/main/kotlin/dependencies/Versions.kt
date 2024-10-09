@@ -17,7 +17,7 @@ object Versions {
     const val okHttp = "4.12.0"
 
     // Coroutines
-    const val coroutines = "1.8.1"
+    const val coroutines = "1.9.0"
 
     // Lifecycle
     const val lifecycle = "2.8.6"
@@ -47,5 +47,5 @@ object Versions {
     const val espresso_core = "3.5.1"
     const val mockK = "1.13.13"
     const val arch_core = "2.2.0"
-    const val coroutines_core = "1.8.1"
+    const val coroutines_core = "1.9.0"
 }
