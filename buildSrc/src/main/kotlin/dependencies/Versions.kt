@@ -23,7 +23,7 @@ object Versions {
     const val lifecycle = "2.8.6"
 
     // DI
-    const val dagger = "2.52"
+    const val dagger = "2.54"
     const val javax = "10.0-b28"
 
     // Glide
