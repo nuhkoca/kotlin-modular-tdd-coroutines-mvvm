@@ -23,7 +23,7 @@ import org.gradle.api.JavaVersion.VERSION_11
 apply<DetektPlugin>()
 
 detekt {
-    toolVersion = "1.23.7"
+    toolVersion = "1.23.8"
     parallel = false
     buildUponDefaultConfig = true
     config = files("${project.rootDir}/default-detekt-config.yml")
