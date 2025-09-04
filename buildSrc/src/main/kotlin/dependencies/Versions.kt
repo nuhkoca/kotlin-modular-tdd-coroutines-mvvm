@@ -9,7 +9,7 @@ object Versions {
 
     // UI
     const val appcompat = "1.7.1"
-    const val material = "1.12.0"
+    const val material = "1.13.0"
     const val constraint_layout = "2.2.1"
 
     // Networking
