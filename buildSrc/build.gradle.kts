@@ -12,7 +12,7 @@ repositories {
 
 object PluginVersions {
     const val gradle_plugin = "7.4.2"
-    const val kotlin_gradle_plugin = "1.6.10"
+    const val kotlin_gradle_plugin = "1.9.25"
     const val ben_manes = "0.52.0"
     const val spotless = "5.17.1"
     const val detekt = "1.23.8"
