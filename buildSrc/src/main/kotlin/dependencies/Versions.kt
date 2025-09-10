@@ -5,7 +5,7 @@ object Versions {
     const val activity_ktx = "1.10.1"
     const val core_ktx = "1.17.0"
     const val android_annotation = "1.9.1"
-    const val kotlin = "2.2.10"
+    const val kotlin = "2.2.20"
 
     // UI
     const val appcompat = "1.7.1"
