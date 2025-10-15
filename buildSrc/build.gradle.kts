@@ -17,7 +17,7 @@ object PluginVersions {
     const val spotless = "8.0.0"
     const val detekt = "1.23.8"
     const val ktlint = "13.1.0"
-    const val dokka = "2.0.0"
+    const val dokka = "2.1.0"
 }
 
 dependencies {
