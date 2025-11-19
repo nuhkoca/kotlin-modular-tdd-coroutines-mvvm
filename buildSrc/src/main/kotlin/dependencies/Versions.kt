@@ -20,7 +20,7 @@ object Versions {
     const val coroutines = "1.10.2"
 
     // Lifecycle
-    const val lifecycle = "2.9.4"
+    const val lifecycle = "2.10.0"
 
     // DI
     const val dagger = "2.57.2"
