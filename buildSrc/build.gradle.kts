@@ -16,7 +16,7 @@ object PluginVersions {
     const val ben_manes = "0.53.0"
     const val spotless = "8.3.0"
     const val detekt = "1.23.8"
-    const val ktlint = "14.0.1"
+    const val ktlint = "14.1.0"
     const val dokka = "2.1.0"
 }
 
