@@ -3,7 +3,7 @@ package dependencies
 object Versions {
     // Kotlin
     const val activity_ktx = "1.13.0"
-    const val core_ktx = "1.17.0"
+    const val core_ktx = "1.18.0"
     const val android_annotation = "1.9.1"
     const val kotlin = "2.3.10"
 
