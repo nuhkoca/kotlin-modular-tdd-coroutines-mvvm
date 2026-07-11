@@ -27,7 +27,7 @@ object Versions {
     const val javax = "10.0-b28"
 
     // Glide
-    const val glide = "5.0.7"
+    const val glide = "5.0.9"
 
     // Timber
     const val timber = "5.0.1"
