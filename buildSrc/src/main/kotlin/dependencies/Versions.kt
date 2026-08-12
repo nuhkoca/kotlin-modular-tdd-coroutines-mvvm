@@ -8,7 +8,7 @@ object Versions {
     const val kotlin = "2.4.10"
 
     // UI
-    const val appcompat = "1.7.1"
+    const val appcompat = "1.8.0"
     const val material = "1.14.0"
     const val constraint_layout = "2.2.2"
 
