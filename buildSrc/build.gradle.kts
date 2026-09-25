@@ -14,7 +14,7 @@ object PluginVersions {
     const val gradle_plugin = "9.4.1"
     const val kotlin_gradle_plugin = "2.4.20"
     const val ben_manes = "0.54.0"
-    const val spotless = "8.10.2"
+    const val spotless = "8.10.3"
     const val detekt = "1.23.8"
     const val ktlint = "14.2.0"
     const val dokka = "2.2.0"
